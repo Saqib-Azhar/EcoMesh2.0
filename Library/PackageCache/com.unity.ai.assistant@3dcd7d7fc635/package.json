@@ -1,0 +1,29 @@
+{
+  "name": "com.unity.ai.assistant",
+  "displayName": "Assistant",
+  "version": "2.14.0-pre.1",
+  "unity": "6000.0",
+  "description": "Assistant is a generative AI tool integrated into the Unity Editor to explore ideas, answer questions, and perform actions directly in the project. Use natural-language prompts to interact with Assistant in a conversation-based interface. Depending on the mode you choose, Assistant can either provide guidance or take action in your scene and assets.\n\nAsk\nFocuses on explanation and guidance. Assistant answers questions, suggests workflows, and inspects your project using read-only tools without modifying your content.\n\nAgent\nFocuses on action. Assistant can create, modify, or remove objects and assets by calling the Unity Editor tools. All actions respect your permission settings and require approval when needed.\n\nAssistant is designed to be project-aware, helping you work more efficiently without leaving the Unity Editor. It also provides tools for adding generative AI to Unity asset workflows.",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.1",
+    "com.unity.modules.unitywebrequest": "1.0.0",
+    "com.unity.modules.uielements": "1.0.0",
+    "com.unity.2d.sprite": "1.0.0",
+    "com.unity.mathematics": "1.3.2",
+    "com.unity.nuget.mono-cecil": "1.11.5"
+  },
+  "unityRelease": "60f1",
+  "_upm": {
+    "changelog": "### Added\n\n- Checkpoint discovery FTUE banner shown on first auto-initialization\n- Profiler assistant can now read frame counter values, as a per-frame table or a min/max/median summary over a range of frames.\n- Send the `conversation-kind: unity_editor` header on Assistant requests (WebSocket and REST) so backend metrics attribute in-editor traffic correctly.\n\n### Changed\n\n- Text-to-motion length is sent in the unit each model advertises (`x-unit` / `x-reference-frame-rate`) instead of assuming 30 fps; the duration slider stays in seconds. Models without these fields keep the previous behavior.\n- `Unity.ExitPlanMode` tool now validates plan file paths before showing approval UI.\n\n### Fixed\n\n- A new-chat prompt is now recoverable when the server is at capacity — it routes to the capacity fallback (switch to the default model with an opt-in resend) instead of a generic error.\n- AI Gateway analytics no longer send conversation content when Editor Analytics is disabled, including buffered content from turns taken while opted out.\n- ArgumentNullException thrown when clicking Upscale or Generate PBR in the Material Generator without a prior generation.\n- Conversations stuck in \"thinking\" state on abnormal connection close.\n- EULA agreement button no longer hidden when the AI Assistant window is short.\n- Empty code view when Assistant requests code execution.\n- GenerateAsset tool now respects user-requested 3D mesh format (FBX/GLB) via new meshFormat parameter.\n- IOException (\"used by another process\") when rapidly selecting a generated asset, e.g. double-clicking a generated Cubemap.\n- Prevent WebSocket `1006` disconnects during long turns by absorbing the backend's idle keepalive frames in the relay instead of forwarding them to the Editor.\n- Prompt typed on a new chat is no longer lost when the connection drops before the server responds — it (and any attached context) is restored to the input box with a retry.\n- Upscale is no longer unavailable for valid cubemaps.\n- `GenerateAsset` tool no longer hangs the chat turn indefinitely when generation download/post-processing stalls; the wait is now bounded by a timeout (5 min, 10 min for 3D/mesh) that falls back to an in-progress placeholder so the turn continues while the download finishes in the background."
+  },
+  "upmCi": {
+    "footprint": "5324a596d9b4224e28f66291404aef3776a3a1a4"
+  },
+  "documentationUrl": "https://docs.unity3d.com/Packages/com.unity.ai.assistant@2.14/manual/index.html",
+  "repository": {
+    "url": "https://github.cds.internal.unity3d.com/unity/muse-editor.git",
+    "type": "git",
+    "revision": "b908f75068e6fada60f2f0cb5fba96698f86bd81"
+  },
+  "_fingerprint": "3dcd7d7fc6354f2c5e7ea0403fb7dfdbeae99ea8"
+}
