@@ -544,6 +544,7 @@
 "Assets/_Project/Scripts/SpinModel.cs"
 "Assets/_Project/Scripts/TabNavigationManager.cs"
 "Assets/_Project/Scripts/UIValueUpdater.cs"
+"Assets/_Project/Scripts/UnifiedRefinerySimulator.cs"
 -langversion:9.0
 /deterministic
 /optimize+
