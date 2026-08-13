@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 44802940}
   - component: {fileID: 44802939}
   - component: {fileID: 44802944}
+  - component: {fileID: 44802945}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -455,7 +456,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44802938}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f273236c8256254388b5711838f6246, type: 3}
   m_Name: 
@@ -498,6 +499,78 @@ MonoBehaviour:
   maximizeViewportButton: {fileID: 96621502}
   closeFullscreenButton: {fileID: 1575831548}
   fullscreenOverlayPanel: {fileID: 494581654}
+--- !u!114 &44802945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44802938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc07d2e011ec314db0ae8899ce49437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnifiedRefinerySimulator
+  materialProfiles:
+  - {fileID: 11400000, guid: 1f324d0f48b86b048a27d881431d8fd1, type: 2}
+  - {fileID: 11400000, guid: 1c3de2582174ca04a9597d7baca6fed5, type: 2}
+  - {fileID: 11400000, guid: 5dfae1f62035767448797173fcf3432d, type: 2}
+  - {fileID: 11400000, guid: 6658cdc89dde5a34aa7643c24bbfcaaf, type: 2}
+  panel1HardwareCanvasGroup: {fileID: 764295195}
+  discreteBedDepthDropdown: {fileID: 2137752563}
+  btnGenerateModel: {fileID: 473157630}
+  meshOpeningSizeDropdown: {fileID: 248982851}
+  catalystMeshes:
+  - {fileID: 1149490648}
+  - {fileID: 1307298906}
+  - {fileID: 212306244}
+  - {fileID: 1073817885}
+  meshMaterialDropdown: {fileID: 227691813}
+  sliderGasVolume: {fileID: 1498770967}
+  sliderH2S: {fileID: 960696366}
+  sliderTemperature: {fileID: 741468256}
+  expectedEfficiencyInput: {fileID: 0}
+  estimatedCostInput: {fileID: 0}
+  rightSideEfficiencyText: {fileID: 280159363}
+  rightSideCostText: {fileID: 2106913157}
+  mainRunButton: {fileID: 2020079794}
+  scadaPressureDropText: {fileID: 1613287249}
+  scadaOutletPpmText: {fileID: 1555073764}
+  scadaServiceLifeText: {fileID: 471099710}
+  scadaComplianceStatusText: {fileID: 1230855263}
+  historyLogDisplayTexbox: {fileID: 148014539}
+  graphBoundingBox: {fileID: 1489047368}
+  graphTrackingNode: {fileID: 33501410}
+  evaluationOverlayPanel: {fileID: 1645300007}
+  evaluationTitleText: {fileID: 1505542107}
+  evaluationReportText: {fileID: 1852893572}
+  restartRunButton: {fileID: 207258799}
+  quitApplicationButton: {fileID: 11794003}
+  dynamicFilterBedTransform: {fileID: 0}
+  filterBedMeshRenderer: {fileID: 0}
+  inletParticles: {fileID: 1134930988}
+  outletParticles: {fileID: 1020171644}
+  maximizeViewportButton: {fileID: 96621502}
+  closeFullscreenButton: {fileID: 1575831548}
+  fullscreenOverlayPanel: {fileID: 494581654}
+  meshDropdown: {fileID: 248982851}
+  bedDepthDropdown: {fileID: 2137752563}
+  engageButton: {fileID: 2020079794}
+  gasInletParticles: {fileID: 1134930988}
+  gasOutletParticles: {fileID: 1020171644}
+  gasVolumeSlider: {fileID: 1498770967}
+  h2sSlider: {fileID: 960696366}
+  lightGreenH2S: {r: 0.7, g: 0.9, b: 0.4, a: 0.5}
+  darkGreenH2S: {r: 0.1, g: 0.4, b: 0.05, a: 0.7}
+  temperatureSlider: {fileID: 741468256}
+  reactorMainBodyRenderer: {fileID: 2044518733}
+  baseReactorColor: {r: 0.21960784, g: 0.23137255, b: 0.2509804, a: 255}
+  heatedReactorColor: {r: 0.4113207, g: 0.20410818, b: 0.20410818, a: 255}
+  temperatureNeedle: {fileID: 1949544226}
+  studioCamera: {fileID: 1667607621}
+  zoomSpeed: 2
+  minZoom: 3
+  maxZoom: 15
 --- !u!1 &55013221
 GameObject:
   m_ObjectHideFlags: 0
@@ -3249,7 +3322,7 @@ GameObject:
   - component: {fileID: 263618139}
   - component: {fileID: 263618138}
   m_Layer: 5
-  m_Name: Slider_H2S
+  m_Name: Slider_ExpectedCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6654,7 +6727,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -55.000122}
+  m_AnchoredPosition: {x: 0, y: -55.00049}
   m_SizeDelta: {x: -700, y: -130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &603172182
@@ -7388,7 +7461,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650760161}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f640d608be63f7b45b835fbbfb4fd0c2, type: 3}
   m_Name: 
@@ -8950,7 +9023,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 232.5, y: -495.7127}
+  m_AnchoredPosition: {x: 232.5, y: -596.8633}
   m_SizeDelta: {x: 425, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782936503
@@ -9528,7 +9601,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -49.000122}
+  m_AnchoredPosition: {x: 0, y: -49.00049}
   m_SizeDelta: {x: 450, y: -98}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &818043109
@@ -10813,7 +10886,7 @@ GameObject:
   - component: {fileID: 931166132}
   - component: {fileID: 931166131}
   m_Layer: 5
-  m_Name: Slider_H2S
+  m_Name: Slider_ExpectedEfficiency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11229,7 +11302,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -24778,7 +24851,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -30851,7 +30924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225, y: -495.7127}
+  m_AnchoredPosition: {x: 225, y: -596.8633}
   m_SizeDelta: {x: 410, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1699096465
@@ -31487,7 +31560,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 18.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -31714,7 +31787,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 230, y: -49.000122}
+  m_AnchoredPosition: {x: 230, y: -49.00049}
   m_SizeDelta: {x: 465, y: -98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1717992410

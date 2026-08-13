@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class UnifiedRefinerySimulator : MonoBehaviour
 {
     // ==========================================
-    // DATA STRUCTURES
+    // ORIGINAL REFINERY ENGINE VARIABLES
     // ==========================================
     public struct SimulationHistoryRecord
     {
@@ -19,60 +19,30 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         public string grade;
     }
 
-    public enum SimulationState { STANDBY, RUNNING, CONCLUDED }
-
-    // ==========================================
-    // CORE LOGIC & STATE
-    // ==========================================
     private List<SimulationHistoryRecord> simulationHistoryLog = new List<SimulationHistoryRecord>();
-    private SimulationState currentRunState = SimulationState.STANDBY;
 
-    static private float runtimeCountdownClockStatic = 20.0f;
+    static private float runtimeCountdownClockStatic = 200.0f;
     private float runtimeCountdownClock = runtimeCountdownClockStatic;
     private float dangerousConditionTimer = 0.0f;
     private float meshSaturationAccumulator = 0.0f;
 
-    // Fixed Engineering Refinery Parameters
-    private const float columnArea = 2.0f;
-    private const float gasViscosity = 1.8e-5f;
-    private const float gasDensity = 1.2f;
-    private const float electricityCostKwH = 0.15f;
-    private const float blowerEfficiency = 0.75f;
-    private const float molarWeightH2S = 34.08f;
+    public enum SimulationState { STANDBY, RUNNING, CONCLUDED }
+    private SimulationState currentRunState = SimulationState.STANDBY;
 
-    private float cachedEfficiency = 0f;
-    private float cachedDailyCost = 0f;
-    private float cachedPressureDrop = 0f;
-    private float cachedOutletPpm = 0f;
-
-    private int cachedMaterialIndex = 0;
-    private float cachedBedDepthL = 1.2f;
-    private int cachedOpeningSizeIndex = 0;
-
-    // ==========================================
-    // INSPECTOR ASSIGNMENTS
-    // ==========================================
     [Header("Data Profile Pool")]
     public MeshProfile[] materialProfiles;
 
-    [Header("Sprint Gate Mechanics")]
+    [Header("New Sprint Gate Mechanics")]
     public CanvasGroup panel1HardwareCanvasGroup;
     public TMP_Dropdown discreteBedDepthDropdown;
-    public TMP_Dropdown meshMaterialDropdown;
+    public Button btnGenerateModel; // Shared with Reactor Simulation
+
+    [Header("Hardware Meshes")]
     public TMP_Dropdown meshOpeningSizeDropdown;
-    public Button btnGenerateModel;
-
-    [Header("Hardware Meshes & Visuals")]
-    public GameObject[] catalystMeshes;
-    public Transform dynamicFilterBedTransform;
-    public MeshRenderer filterBedMeshRenderer;
-    public Renderer reactorMainBodyRenderer;
-
-    private Material[] instancedMaterials;
-    private Material reactorMaterial;
-    private Color defaultReactorColor;
+    public GameObject[] catalystMeshes; // Shared with Reactor Simulation
 
     [Header("Frontend Input Components")]
+    public TMP_Dropdown meshMaterialDropdown;
     public Slider sliderGasVolume;
     public Slider sliderH2S;
     public Slider sliderTemperature;
@@ -109,79 +79,198 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     [Header("System Application Controls")]
     public Button quitApplicationButton;
 
+    [Header("3D Viewport Live Model Drivers")]
+    public Transform dynamicFilterBedTransform;
+    public MeshRenderer filterBedMeshRenderer;
+
     [Header("Dual Particle Process Simulation")]
     public ParticleSystem inletParticles;
     public ParticleSystem outletParticles;
 
-    [Header("Fullscreen Viewport Overlay & Camera")]
+    [Header("Fullscreen Viewport Overlay Controls")]
     public Button maximizeViewportButton;
     public Button closeFullscreenButton;
     public GameObject fullscreenOverlayPanel;
+
+    // Fixed Engineering Refinery Parameters
+    private const float columnArea = 2.0f;
+    private const float gasViscosity = 1.8e-5f;
+    private const float gasDensity = 1.2f;
+    private const float electricityCostKwH = 0.15f;
+    private const float blowerEfficiency = 0.75f;
+    private const float molarWeightH2S = 34.08f;
+
+    private float cachedEfficiency = 0f;
+    private float cachedDailyCost = 0f;
+    private float cachedPressureDrop = 0f;
+    private float cachedOutletPpm = 0f;
+
+    // Background Hardware Configurations 
+    private int cachedMaterialIndex = 0;
+    private float cachedBedDepthL = 1.2f;
+    private int cachedOpeningSizeIndex = 0;
+
+    // ==========================================
+    // EXACT VARIABLES PORTED FROM ReactorSimulation.cs
+    // ==========================================
+    [Header("1. Mesh Objects (2mm, 4mm, 6mm, 8mm)")]
+    // Note: catalystMeshes is declared above to prevent C# duplicate name errors.
+    public TMP_Dropdown meshDropdown;
+
+    [Header("2. Bed Depth Dropdown (Changes Y-Axis Scale)")]
+    public TMP_Dropdown bedDepthDropdown;
+    private float[] meshBaseYScales = { 0.5f, 1f, 1.5f, 2f }; 
+
+    [Header("3. Engage Reaction Button & Particles")]
+    public Button engageButton;
+    public ParticleSystem gasInletParticles;
+    public ParticleSystem gasOutletParticles;
+    private bool isSimulationActive = false;
+
+    [Header("4. Gas Volume Load Slider")]
+    public Slider gasVolumeSlider;
+    private float baseInletRate = 30f;
+    private float baseOutletRate = 30f;
+
+    [Header("5. Inlet H2S Concentration Slider")]
+    public Slider h2sSlider;
+    public Color lightGreenH2S = new Color(0.7f, 0.9f, 0.4f, 0.5f);
+    public Color darkGreenH2S = new Color(0.1f, 0.4f, 0.05f, 0.7f);
+
+    [Header("6. Temperature Control")]
+    public Slider temperatureSlider;
+    public Renderer reactorMainBodyRenderer;
+    public Color baseReactorColor = new Color(122f, 122f, 122f, 255f);
+    public Color heatedReactorColor = new Color(150.45f, 150.2f, 150.2f, 255f); 
+    public Transform temperatureNeedle; 
+
+    [Header("7. Zoom Settings")]
     public Camera studioCamera;
     public float zoomSpeed = 2f;
     public float minZoom = 3f;
     public float maxZoom = 15f;
 
-    [Header("Reactor Visual Colors")]
-    public Color baseReactorColor = new Color(122f / 255f, 122f / 255f, 122f / 255f, 1f);
-    public Color heatedReactorColor = new Color(150.45f / 255f, 150.2f / 255f, 150.2f / 255f, 1f);
-    public Color freshRustColor = new Color(0.8f, 0.45f, 0.15f, 1f);
-    public Color exhaustedRustColor = new Color(0.3f, 0.4f, 0.2f, 1f);
+    [Header("8. Sprint Gate Generation Button")]
+    // Note: btnGenerateModel is declared above to prevent C# duplicate name errors.
 
-    // ==========================================
-    // INITIALIZATION
-    // ==========================================
+    // Hidden State Variables from Reactor Simulation
+    private Material[] instancedMaterials;
+    private Material reactorMaterial;
+    private float simulationTimer = 0f;
+    private float simulationDuration = 10f;
+    private Color freshColor = new Color(0.8f, 0.45f, 0.15f, 1f);
+    private Color exhaustedColor = new Color(0.3f, 0.4f, 0.2f, 1f);
+    static private Color defaultReactorColor = new Color();
+
     private void Start()
     {
-        // Setup UI Listeners
+        // Engine Initialization
         if (mainRunButton != null)
         {
             runButtonText = mainRunButton.GetComponentInChildren<TextMeshProUGUI>();
             mainRunButton.onClick.AddListener(OnMainRunButtonClicked);
         }
-        if (btnGenerateModel != null) btnGenerateModel.onClick.AddListener(OnGenerateHardwareModelConfirmed);
-        if (restartRunButton != null) restartRunButton.onClick.AddListener(ResetSimulationToStandby);
-        if (quitApplicationButton != null) quitApplicationButton.onClick.AddListener(QuitRefinerySimulator);
-        if (maximizeViewportButton != null) maximizeViewportButton.onClick.AddListener(() => SetFullscreenOverlayActive(true));
-        if (closeFullscreenButton != null) closeFullscreenButton.onClick.AddListener(() => SetFullscreenOverlayActive(false));
-        if (sliderTemperature != null) sliderTemperature.onValueChanged.AddListener(OnTemperatureSliderChanged);
 
-        // Cache Reactor Materials
-        if (reactorMainBodyRenderer != null)
+        if (btnGenerateModel != null)
         {
-            reactorMaterial = reactorMainBodyRenderer.material;
-            if (reactorMaterial != null) defaultReactorColor = reactorMaterial.GetColor("_BaseColor");
+            btnGenerateModel.onClick.AddListener(OnGenerateHardwareModelConfirmed);
         }
 
-        CacheCatalystMeshMaterials();
+        if (restartRunButton != null)
+        {
+            restartRunButton.onClick.AddListener(ResetSimulationToStandby);
+        }
+
+        if (quitApplicationButton != null)
+        {
+            quitApplicationButton.onClick.AddListener(QuitRefinerySimulator);
+        }
+
+        if (maximizeViewportButton != null)
+        {
+            maximizeViewportButton.onClick.AddListener(() => SetFullscreenOverlayActive(true));
+        }
+        if (closeFullscreenButton != null)
+        {
+            closeFullscreenButton.onClick.AddListener(() => SetFullscreenOverlayActive(false));
+        }
+
+        // --- Visual System Initialization (Ported from ReactorSimulation) ---
+        try
+        {
+            if (catalystMeshes != null)
+            {
+                instancedMaterials = new Material[catalystMeshes.Length];
+                for (int i = 0; i < catalystMeshes.Length; i++)
+                {
+                    if (catalystMeshes[i] != null)
+                    {
+                        Renderer r = catalystMeshes[i].GetComponent<Renderer>();
+                        if (r != null) instancedMaterials[i] = r.material;
+                    }
+                }
+            }
+
+            if (reactorMainBodyRenderer != null)
+            {
+                reactorMaterial = reactorMainBodyRenderer.material;
+                defaultReactorColor = reactorMaterial.GetColor("_BaseColor");
+            }
+
+            // Hook into the original Reactor Slider if assigned
+            if (temperatureSlider != null)
+            {
+                temperatureSlider.onValueChanged.AddListener(OnTemperatureChanged);
+            }
+        }
+        catch (System.Exception) { }
+
         ClearParticles();
         ResetSimulationToStandby();
         UpdateHistoryLogDisplayUI();
     }
 
-    // ==========================================
-    // MAIN LOOP
-    // ==========================================
     private void Update()
     {
         EvaluateSystemPhysics();
-        HandleZoom();
 
         if (currentRunState == SimulationState.RUNNING)
         {
             ProcessSimulationCountdown();
-            UpdateRustVisuals();
+
+            // --- Rust Lerp Mechanics ---
+            try
+            {
+                if (simulationTimer < simulationDuration)
+                {
+                    simulationTimer += Time.deltaTime;
+                    float progress = simulationTimer / simulationDuration;
+                    Color currentRustColor = Color.Lerp(freshColor, exhaustedColor, progress);
+
+                    if (instancedMaterials != null)
+                    {
+                        for (int i = 0; i < instancedMaterials.Length; i++)
+                        {
+                            if (instancedMaterials[i] != null)
+                            {
+                                instancedMaterials[i].SetColor("_BaseColor", currentRustColor);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (System.Exception) { }
         }
 
         if (fullscreenOverlayPanel != null && fullscreenOverlayPanel.activeSelf)
         {
             HandleFullscreen3DClicking();
         }
+
+        // --- Camera Zoom ---
+        HandleZoom();
     }
 
-    // ==========================================
-    // HARDWARE GENERATION & VISUAL UPDATES
-    // ==========================================
     private void OnGenerateHardwareModelConfirmed()
     {
         if (meshMaterialDropdown != null) cachedMaterialIndex = meshMaterialDropdown.value;
@@ -202,105 +291,39 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         Update3DModelStructure();
     }
 
-    private void Update3DModelStructure()
+    private void SetFullscreenOverlayActive(bool isTrue)
     {
-        if (catalystMeshes != null && catalystMeshes.Length > 0)
+        if (fullscreenOverlayPanel != null)
         {
-            for (int i = 0; i < catalystMeshes.Length; i++)
-            {
-                if (catalystMeshes[i] != null)
-                {
-                    catalystMeshes[i].SetActive(i == cachedOpeningSizeIndex);
-                }
-            }
-            CacheCatalystMeshMaterials(); // Recache newly active meshes
-        }
-
-        if (dynamicFilterBedTransform != null)
-        {
-            float horizontalScaleModifier = 1.05f;
-            dynamicFilterBedTransform.localScale = new Vector3(horizontalScaleModifier, cachedBedDepthL, horizontalScaleModifier);
-
-            float baselineYOffset = -0.4f;
-            float adjustedLocalY = baselineYOffset - (cachedBedDepthL * 0.8f);
-
-            dynamicFilterBedTransform.localPosition = new Vector3(
-                dynamicFilterBedTransform.localPosition.x,
-                adjustedLocalY,
-                dynamicFilterBedTransform.localPosition.z
-            );
+            fullscreenOverlayPanel.SetActive(isTrue);
         }
     }
 
-    private void CacheCatalystMeshMaterials()
+    private void HandleFullscreen3DClicking()
     {
-        if (catalystMeshes == null) return;
-
-        instancedMaterials = new Material[catalystMeshes.Length];
-        for (int i = 0; i < catalystMeshes.Length; i++)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (catalystMeshes[i] != null && catalystMeshes[i].activeSelf)
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
             {
-                Renderer r = catalystMeshes[i].GetComponent<Renderer>();
-                if (r != null) instancedMaterials[i] = r.material;
+                string targetedNode = hit.transform.name;
+                Debug.Log($"[SCADA Diagnostics] Operator clicked on: {targetedNode}");
             }
         }
     }
 
-    private void UpdateRustVisuals()
-    {
-        if (instancedMaterials == null) return;
-
-        Color currentRustColor = Color.Lerp(freshRustColor, exhaustedRustColor, meshSaturationAccumulator);
-
-        for (int i = 0; i < instancedMaterials.Length; i++)
-        {
-            if (instancedMaterials[i] != null)
-            {
-                instancedMaterials[i].SetColor("_BaseColor", currentRustColor);
-            }
-        }
-    }
-
-    private void OnTemperatureSliderChanged(float tempValue)
-    {
-        if (reactorMaterial != null)
-        {
-            float normalizedTemp = Mathf.InverseLerp(0f, 100f, tempValue); // Assuming 0-100 C range
-            Color targetReactorColor = Color.Lerp(baseReactorColor, heatedReactorColor, normalizedTemp);
-
-            if (currentRunState != SimulationState.RUNNING && tempValue <= 15f)
-                reactorMaterial.SetColor("_BaseColor", defaultReactorColor);
-            else
-                reactorMaterial.SetColor("_BaseColor", targetReactorColor);
-        }
-    }
-
-    private void HandleZoom()
-    {
-        if (studioCamera != null && Mathf.Abs(Input.mouseScrollDelta.y) > 0.01f)
-        {
-            if (studioCamera.orthographic)
-            {
-                studioCamera.orthographicSize = Mathf.Clamp(studioCamera.orthographicSize - Input.mouseScrollDelta.y * zoomSpeed, minZoom, maxZoom);
-            }
-            else
-            {
-                studioCamera.transform.Translate(Vector3.forward * Input.mouseScrollDelta.y * zoomSpeed, Space.Self);
-                Vector3 pos = studioCamera.transform.localPosition;
-                pos.z = Mathf.Clamp(pos.z, -maxZoom, -minZoom);
-                studioCamera.transform.localPosition = pos;
-            }
-        }
-    }
-
-    // ==========================================
-    // SIMULATION PHYSICS & LIFECYCLE
-    // ==========================================
     private void OnMainRunButtonClicked()
     {
-        if (currentRunState == SimulationState.STANDBY) StartActiveSimulationRun();
-        else if (currentRunState == SimulationState.RUNNING) TriggerSimulationSuccess();
+        if (currentRunState == SimulationState.STANDBY)
+        {
+            StartActiveSimulationRun();
+        }
+        else if (currentRunState == SimulationState.RUNNING)
+        {
+            TriggerSimulationSuccess();
+        }
     }
 
     private void StartActiveSimulationRun()
@@ -309,17 +332,26 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         runtimeCountdownClock = runtimeCountdownClockStatic;
         dangerousConditionTimer = 0.0f;
         meshSaturationAccumulator = 0.0f;
+        
+        simulationTimer = 0f; // Reset Rust Timer
 
         ToggleStructuralUIInteractability(false);
         ToggleStreamUIInteractability(true);
 
         if (expectedEfficiencyInput != null) expectedEfficiencyInput.interactable = false;
         if (estimatedCostInput != null) estimatedCostInput.interactable = false;
+
         if (runButtonText != null) runButtonText.text = "STOP SIMULATION";
         if (mainRunButton != null) mainRunButton.interactable = true;
 
-        if (inletParticles != null && inletParticles.isStopped) inletParticles.Play();
-        if (outletParticles != null && outletParticles.isStopped) outletParticles.Play();
+        if (inletParticles != null && inletParticles.isStopped)
+        {
+            inletParticles.Play();
+        }
+        if (outletParticles != null && outletParticles.isStopped)
+        {
+            outletParticles.Play();
+        }
     }
 
     private void ProcessSimulationCountdown()
@@ -341,8 +373,197 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             dangerousConditionTimer = Mathf.Max(0f, dangerousConditionTimer - Time.deltaTime);
         }
 
-        if (runtimeCountdownClock <= 0.0f) TriggerSimulationSuccess();
-        else if (runButtonText != null) runButtonText.text = $"STOP SIM ({runtimeCountdownClock.ToString("F0")}s)";
+        if (runtimeCountdownClock <= 0.0f)
+        {
+            TriggerSimulationSuccess();
+        }
+        else
+        {
+            if (runButtonText != null) runButtonText.text = $"STOP SIM ({runtimeCountdownClock.ToString("F0")}s)";
+        }
+    }
+
+    private void TriggerSimulationFailure()
+    {
+        currentRunState = SimulationState.CONCLUDED;
+        if (evaluationOverlayPanel != null) evaluationOverlayPanel.SetActive(true);
+
+        if (evaluationTitleText != null) evaluationTitleText.text = "<color=red>CRITICAL PLANT DISASTER</color>";
+
+        string diagnosticSummary = cachedOutletPpm > 5.0f
+            ? $"Toxic venting breach! Outlet concentrations hit {cachedOutletPpm.ToString("F1")} ppm, violating EPA standards."
+            : $"Mechanical housing rupture! Differential pressure hit {cachedPressureDrop.ToString("F2")} kPa, exceeding casing boundaries.";
+
+        if (evaluationReportText != null)
+        {
+            evaluationReportText.text = $"<b>RUN FAILED</b>\n\n{diagnosticSummary}\n\n" +
+                $"<b>Final Telemetry Snapshot:</b>\n" +
+                $"Efficiency: {cachedEfficiency.ToString("F1")}%\n" +
+                $"Real-time Operational Cost: €{cachedDailyCost.ToString("F2")}/day";
+        }
+
+        ArchiveRunToHistoryLog(false, "F");
+        ClearParticles();
+    }
+
+    private void TriggerSimulationSuccess()
+    {
+        currentRunState = SimulationState.CONCLUDED;
+        if (evaluationOverlayPanel != null) evaluationOverlayPanel.SetActive(true);
+
+        string letterGrade = "D";
+        string financialAssessment = "";
+
+        if (cachedDailyCost <= 2200f) { letterGrade = "A"; financialAssessment = "Highly Optimized! Ideal utility balance."; }
+        else if (cachedDailyCost <= 3000f) { letterGrade = "B"; financialAssessment = "Acceptable Run. Minor fan workload overheads."; }
+        else if (cachedDailyCost <= 4000f) { letterGrade = "C"; financialAssessment = "Inefficient profile asset layouts."; }
+        else { letterGrade = "D"; financialAssessment = "Financial Deficit bounds breached."; }
+
+        if (evaluationTitleText != null) evaluationTitleText.text = $"<color=green>SHIFT SUCCESS - GRADE {letterGrade}</color>";
+
+        if (evaluationReportText != null)
+        {
+            evaluationReportText.text = $"<b>CONGRATULATIONS, OPERATOR!</b>\n" +
+                $"{financialAssessment}\n\n" +
+                $"• System H2S Scrubbing Efficiency: {cachedEfficiency.ToString("F1")}%\n" +
+                $"• Total System Pressure Drop: {cachedPressureDrop.ToString("F2")} kPa";
+        }
+
+        ArchiveRunToHistoryLog(true, letterGrade);
+        ClearParticles();
+    }
+
+    private void ClearParticles()
+    {
+        if (inletParticles != null) inletParticles.Stop();
+        if (outletParticles != null) outletParticles.Stop();
+    }
+
+    private void ArchiveRunToHistoryLog(bool wasSuccessful, string gradeEarned)
+    {
+        SimulationHistoryRecord record = new SimulationHistoryRecord
+        {
+            timestamp = System.DateTime.Now.ToString("HH:mm:ss"),
+            isSuccess = wasSuccessful,
+            efficiency = cachedEfficiency,
+            dailyCost = cachedDailyCost,
+            pressureDrop = cachedPressureDrop,
+            outletPpm = cachedOutletPpm,
+            grade = gradeEarned
+        };
+
+        simulationHistoryLog.Insert(0, record);
+
+        while (simulationHistoryLog.Count > 10)
+        {
+            simulationHistoryLog.RemoveAt(simulationHistoryLog.Count - 1);
+        }
+
+        UpdateHistoryLogDisplayUI();
+    }
+
+    private void UpdateHistoryLogDisplayUI()
+    {
+        if (historyLogDisplayTexbox == null) return;
+
+        if (simulationHistoryLog.Count == 0)
+        {
+            historyLogDisplayTexbox.text = "<i>No operational simulation run history compiled for this current workspace session yet.</i>";
+            return;
+        }
+
+        string logCompiledText = "<b>HISTORICAL REFINERY SHIFT PERFORMANCE LOGS (LAST 10 RUNS)</b>\n";
+        logCompiledText += "---------------------------------------------------------------------------------\n";
+
+        for (int i = 0; i < simulationHistoryLog.Count; i++)
+        {
+            var run = simulationHistoryLog[i];
+            string statusColor = run.isSuccess ? "green" : "red";
+            string statusText = run.isSuccess ? $"SUCCESS (Grade {run.grade})" : "CRITICAL FAILURE";
+
+            logCompiledText += $"[{run.timestamp}] <color={statusColor}><b>{statusText}</b></color> | " +
+                               $"Eff: {run.efficiency.ToString("F1")}% | " +
+                               $"Cost: €{run.dailyCost.ToString("F0")}/day | " +
+                               $"Press: {run.pressureDrop.ToString("F2")} kPa\n";
+        }
+
+        historyLogDisplayTexbox.text = logCompiledText;
+    }
+
+    private void ResetSimulationToStandby()
+    {
+        currentRunState = SimulationState.STANDBY;
+        runtimeCountdownClock = runtimeCountdownClockStatic;
+        dangerousConditionTimer = 0.0f;
+        meshSaturationAccumulator = 0.0f;
+
+        if (evaluationOverlayPanel != null) evaluationOverlayPanel.SetActive(false);
+        if (fullscreenOverlayPanel != null) fullscreenOverlayPanel.SetActive(false);
+
+        ToggleStructuralUIInteractability(true);
+        ToggleStreamUIInteractability(true);
+
+        if (expectedEfficiencyInput != null) expectedEfficiencyInput.interactable = true;
+        if (estimatedCostInput != null) estimatedCostInput.interactable = true;
+
+        if (runButtonText != null) runButtonText.text = "ENGAGE REACTOR";
+        if (mainRunButton != null) mainRunButton.interactable = true;
+
+        ClearParticles();
+        Update3DModelStructure();
+    }
+
+    private void ToggleStructuralUIInteractability(bool state)
+    {
+        if (panel1HardwareCanvasGroup != null)
+        {
+            panel1HardwareCanvasGroup.interactable = state;
+            panel1HardwareCanvasGroup.blocksRaycasts = state;
+            panel1HardwareCanvasGroup.alpha = state ? 1.0f : 0.5f;
+        }
+        else
+        {
+            if (meshMaterialDropdown != null) meshMaterialDropdown.interactable = state;
+            if (discreteBedDepthDropdown != null) discreteBedDepthDropdown.interactable = state;
+            if (meshOpeningSizeDropdown != null) meshOpeningSizeDropdown.interactable = state;
+            if (btnGenerateModel != null) btnGenerateModel.interactable = state;
+        }
+    }
+
+    private void ToggleStreamUIInteractability(bool state)
+    {
+        if (sliderGasVolume != null) sliderGasVolume.interactable = state;
+        if (sliderH2S != null) sliderH2S.interactable = state;
+        if (sliderTemperature != null) sliderTemperature.interactable = state;
+    }
+
+    private void Update3DModelStructure()
+    {
+        if (catalystMeshes != null && catalystMeshes.Length > 0)
+        {
+            for (int i = 0; i < catalystMeshes.Length; i++)
+            {
+                if (catalystMeshes[i] != null)
+                {
+                    catalystMeshes[i].SetActive(i == cachedOpeningSizeIndex);
+                }
+            }
+        }
+
+        if (dynamicFilterBedTransform != null)
+        {
+            float horizontalScaleModifier = 1.05f;
+            dynamicFilterBedTransform.localScale = new Vector3(horizontalScaleModifier, cachedBedDepthL, horizontalScaleModifier);
+
+            float baselineYOffset = -0.4f;
+            float adjustedLocalY = baselineYOffset - (cachedBedDepthL * 0.8f);
+
+            dynamicFilterBedTransform.localPosition = new Vector3(
+                dynamicFilterBedTransform.localPosition.x,
+                adjustedLocalY,
+                dynamicFilterBedTransform.localPosition.z
+            );
+        }
     }
 
     private void EvaluateSystemPhysics()
@@ -394,7 +615,6 @@ public class UnifiedRefinerySimulator : MonoBehaviour
 
         UpdateUserInterfaceDisplay(cachedEfficiency, cachedDailyCost, cachedPressureDrop, cachedOutletPpm, serviceLifeDays);
 
-        // Update Bed Saturation Color
         if (filterBedMeshRenderer != null)
         {
             Color baselineCleanColor = Color.gray;
@@ -402,14 +622,15 @@ public class UnifiedRefinerySimulator : MonoBehaviour
 
             float safetyAlertFactor = Mathf.InverseLerp(0f, 6.5f, cachedPressureDrop);
             Color baseColorState = Color.Lerp(baselineCleanColor, saturatedFouledColor, meshSaturationAccumulator);
+
             filterBedMeshRenderer.material.color = Color.Lerp(baseColorState, Color.red, safetyAlertFactor);
         }
 
-        // Particle Math Updates
         if (inletParticles != null)
         {
             var mainModule = inletParticles.main;
             var emissionModule = inletParticles.emission;
+
             mainModule.startSpeed = flowRateQ * 2.0f;
             emissionModule.rateOverTime = currentRunState == SimulationState.RUNNING ? Mathf.Lerp(20f, 120f, Mathf.InverseLerp(0f, 2000f, inletC0_ppm)) : 0f;
 
@@ -421,142 +642,23 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         {
             var mainModule = outletParticles.main;
             var emissionModule = outletParticles.emission;
+
             mainModule.startSpeed = flowRateQ * 2.5f;
             emissionModule.rateOverTime = (currentRunState == SimulationState.RUNNING && inletParticles != null) ? inletParticles.emission.rateOverTime.constant : 0f;
 
             float efficiencyRatio = cachedEfficiency / 100f;
             Color cleanAirColor = new Color(0.4f, 0.75f, 1.0f, 0.3f);
             Color bypassTaintedColor = new Color(0.65f, 0.5f, 0.15f, 0.6f);
+
             mainModule.startColor = Color.Lerp(bypassTaintedColor, cleanAirColor, efficiencyRatio);
         }
-    }
-
-    private void TriggerSimulationFailure()
-    {
-        currentRunState = SimulationState.CONCLUDED;
-        if (evaluationOverlayPanel != null) evaluationOverlayPanel.SetActive(true);
-        if (evaluationTitleText != null) evaluationTitleText.text = "<color=red>CRITICAL PLANT DISASTER</color>";
-
-        string diagnosticSummary = cachedOutletPpm > 5.0f
-            ? $"Toxic venting breach! Outlet concentrations hit {cachedOutletPpm.ToString("F1")} ppm, violating EPA standards."
-            : $"Mechanical housing rupture! Differential pressure hit {cachedPressureDrop.ToString("F2")} kPa, exceeding casing boundaries.";
-
-        if (evaluationReportText != null)
-        {
-            evaluationReportText.text = $"<b>RUN FAILED</b>\n\n{diagnosticSummary}\n\n" +
-                $"<b>Final Telemetry Snapshot:</b>\n" +
-                $"Efficiency: {cachedEfficiency.ToString("F1")}%\n" +
-                $"Real-time Operational Cost: €{cachedDailyCost.ToString("F2")}/day";
-        }
-
-        ArchiveRunToHistoryLog(false, "F");
-        ClearParticles();
-    }
-
-    private void TriggerSimulationSuccess()
-    {
-        currentRunState = SimulationState.CONCLUDED;
-        if (evaluationOverlayPanel != null) evaluationOverlayPanel.SetActive(true);
-
-        string letterGrade = "D";
-        string financialAssessment = "";
-
-        if (cachedDailyCost <= 2200f) { letterGrade = "A"; financialAssessment = "Highly Optimized! Ideal utility balance."; }
-        else if (cachedDailyCost <= 3000f) { letterGrade = "B"; financialAssessment = "Acceptable Run. Minor fan workload overheads."; }
-        else if (cachedDailyCost <= 4000f) { letterGrade = "C"; financialAssessment = "Inefficient profile asset layouts."; }
-        else { letterGrade = "D"; financialAssessment = "Financial Deficit bounds breached."; }
-
-        if (evaluationTitleText != null) evaluationTitleText.text = $"<color=green>SHIFT SUCCESS - GRADE {letterGrade}</color>";
-
-        if (evaluationReportText != null)
-        {
-            evaluationReportText.text = $"<b>CONGRATULATIONS, OPERATOR!</b>\n" +
-                $"{financialAssessment}\n\n" +
-                $"• System H2S Scrubbing Efficiency: {cachedEfficiency.ToString("F1")}%\n" +
-                $"• Total System Pressure Drop: {cachedPressureDrop.ToString("F2")} kPa";
-        }
-
-        ArchiveRunToHistoryLog(true, letterGrade);
-        ClearParticles();
-    }
-
-    // ==========================================
-    // UTILITY METHODS
-    // ==========================================
-    private void ClearParticles()
-    {
-        if (inletParticles != null) inletParticles.Stop();
-        if (outletParticles != null) outletParticles.Stop();
-    }
-
-    private void ResetSimulationToStandby()
-    {
-        currentRunState = SimulationState.STANDBY;
-        runtimeCountdownClock = runtimeCountdownClockStatic;
-        dangerousConditionTimer = 0.0f;
-        meshSaturationAccumulator = 0.0f;
-
-        if (evaluationOverlayPanel != null) evaluationOverlayPanel.SetActive(false);
-        if (fullscreenOverlayPanel != null) fullscreenOverlayPanel.SetActive(false);
-
-        ToggleStructuralUIInteractability(true);
-        ToggleStreamUIInteractability(true);
-
-        if (expectedEfficiencyInput != null) expectedEfficiencyInput.interactable = true;
-        if (estimatedCostInput != null) estimatedCostInput.interactable = true;
-        if (runButtonText != null) runButtonText.text = "ENGAGE REACTOR";
-        if (mainRunButton != null) mainRunButton.interactable = true;
-
-        ClearParticles();
-        Update3DModelStructure();
-    }
-
-    private void ArchiveRunToHistoryLog(bool wasSuccessful, string gradeEarned)
-    {
-        SimulationHistoryRecord record = new SimulationHistoryRecord
-        {
-            timestamp = System.DateTime.Now.ToString("HH:mm:ss"),
-            isSuccess = wasSuccessful,
-            efficiency = cachedEfficiency,
-            dailyCost = cachedDailyCost,
-            pressureDrop = cachedPressureDrop,
-            outletPpm = cachedOutletPpm,
-            grade = gradeEarned
-        };
-
-        simulationHistoryLog.Insert(0, record);
-        while (simulationHistoryLog.Count > 10) simulationHistoryLog.RemoveAt(simulationHistoryLog.Count - 1);
-        UpdateHistoryLogDisplayUI();
-    }
-
-    private void UpdateHistoryLogDisplayUI()
-    {
-        if (historyLogDisplayTexbox == null) return;
-        if (simulationHistoryLog.Count == 0)
-        {
-            historyLogDisplayTexbox.text = "<i>No operational simulation run history compiled for this current workspace session yet.</i>";
-            return;
-        }
-
-        string logCompiledText = "<b>HISTORICAL REFINERY SHIFT PERFORMANCE LOGS (LAST 10 RUNS)</b>\n";
-        logCompiledText += "---------------------------------------------------------------------------------\n";
-
-        for (int i = 0; i < simulationHistoryLog.Count; i++)
-        {
-            var run = simulationHistoryLog[i];
-            string statusColor = run.isSuccess ? "green" : "red";
-            string statusText = run.isSuccess ? $"SUCCESS (Grade {run.grade})" : "CRITICAL FAILURE";
-
-            logCompiledText += $"[{run.timestamp}] <color={statusColor}><b>{statusText}</b></color> | " +
-                               $"Eff: {run.efficiency.ToString("F1")}% | Cost: €{run.dailyCost.ToString("F0")}/day | Press: {run.pressureDrop.ToString("F2")} kPa\n";
-        }
-        historyLogDisplayTexbox.text = logCompiledText;
     }
 
     private void UpdateUserInterfaceDisplay(float eff, float cost, float pressDrop, float outPpm, float days)
     {
         if (rightSideEfficiencyText != null) rightSideEfficiencyText.text = $"{eff.ToString("F1")}%";
         if (rightSideCostText != null) rightSideCostText.text = $"€{cost.ToString("F0")} / day";
+
         if (scadaPressureDropText != null) scadaPressureDropText.text = $"Pressure Drop: {pressDrop.ToString("F2")} kPa";
         if (scadaOutletPpmText != null) scadaOutletPpmText.text = $"Outlet H2S: {outPpm.ToString("F2")} ppm";
         if (scadaServiceLifeText != null) scadaServiceLifeText.text = $"Service Life: {days.ToString("F1")} Days";
@@ -566,10 +668,13 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             if (outPpm > 5.0f || pressDrop > 6.5f)
             {
                 if (currentRunState == SimulationState.RUNNING)
+                {
                     scadaComplianceStatusText.text = $"BREACH BUFFER ACTIVE: {(3.0f - dangerousConditionTimer).ToString("F1")}s!!";
+                }
                 else
+                {
                     scadaComplianceStatusText.text = "Status: NON-COMPLIANT (CRITICAL)";
-
+                }
                 scadaComplianceStatusText.color = Color.red;
             }
             else
@@ -581,50 +686,20 @@ public class UnifiedRefinerySimulator : MonoBehaviour
 
         if (graphBoundingBox != null && graphTrackingNode != null)
         {
-            float targetX = Mathf.InverseLerp(0f, 100f, eff) * graphBoundingBox.rect.width;
-            float targetY = Mathf.InverseLerp(0f, 8000f, cost) * graphBoundingBox.rect.height;
+            float minEfficiency = 0f, maxEfficiency = 100f;
+            float minCost = 0f, maxCost = 8000f;
+
+            float normalizedX = Mathf.InverseLerp(minEfficiency, maxEfficiency, eff);
+            float normalizedY = Mathf.InverseLerp(minCost, maxCost, cost);
+
+            float targetX = normalizedX * graphBoundingBox.rect.width;
+            float targetY = normalizedY * graphBoundingBox.rect.height;
+
             float padding = 10f;
-            graphTrackingNode.anchoredPosition = new Vector2(
-                Mathf.Clamp(targetX, padding, graphBoundingBox.rect.width - padding),
-                Mathf.Clamp(targetY, padding, graphBoundingBox.rect.height - padding));
-        }
-    }
+            float clampedX = Mathf.Clamp(targetX, padding, graphBoundingBox.rect.width - padding);
+            float clampedY = Mathf.Clamp(targetY, padding, graphBoundingBox.rect.height - padding);
 
-    private void ToggleStructuralUIInteractability(bool state)
-    {
-        if (panel1HardwareCanvasGroup != null)
-        {
-            panel1HardwareCanvasGroup.interactable = state;
-            panel1HardwareCanvasGroup.blocksRaycasts = state;
-            panel1HardwareCanvasGroup.alpha = state ? 1.0f : 0.5f;
-        }
-        else
-        {
-            if (meshMaterialDropdown != null) meshMaterialDropdown.interactable = state;
-            if (discreteBedDepthDropdown != null) discreteBedDepthDropdown.interactable = state;
-            if (meshOpeningSizeDropdown != null) meshOpeningSizeDropdown.interactable = state;
-            if (btnGenerateModel != null) btnGenerateModel.interactable = state;
-        }
-    }
-
-    private void ToggleStreamUIInteractability(bool state)
-    {
-        if (sliderGasVolume != null) sliderGasVolume.interactable = state;
-        if (sliderH2S != null) sliderH2S.interactable = state;
-        if (sliderTemperature != null) sliderTemperature.interactable = state;
-    }
-
-    private void SetFullscreenOverlayActive(bool isTrue)
-    {
-        if (fullscreenOverlayPanel != null) fullscreenOverlayPanel.SetActive(isTrue);
-    }
-
-    private void HandleFullscreen3DClicking()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
-                Debug.Log($"[SCADA Diagnostics] Operator clicked on: {hit.transform.name}");
+            graphTrackingNode.anchoredPosition = new Vector2(clampedX, clampedY);
         }
     }
 
@@ -632,5 +707,47 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     {
         Debug.Log("Application closing event sent successfully.");
         Application.Quit();
+    }
+
+    // ==========================================
+    // REACTOR SIMULATION METHODS
+    // ==========================================
+    private void OnTemperatureChanged(float tempValue)
+    {
+        Color targetReactorColor = Color.Lerp(baseReactorColor, heatedReactorColor, tempValue);
+        
+        if (reactorMaterial != null)
+        {
+            if (reactorMaterial.color == targetReactorColor && currentRunState != SimulationState.RUNNING && tempValue == 15)
+            {
+                reactorMaterial.SetColor("_BaseColor", defaultReactorColor);
+            }
+            else
+            {
+                reactorMaterial.SetColor("_BaseColor", targetReactorColor);
+            }
+        }
+    }
+
+    private void HandleZoom()
+    {
+        try
+        {
+            if (studioCamera != null && Mathf.Abs(Input.mouseScrollDelta.y) > 0.01f)
+            {
+                if (studioCamera.orthographic)
+                {
+                    studioCamera.orthographicSize = Mathf.Clamp(studioCamera.orthographicSize - Input.mouseScrollDelta.y * zoomSpeed, minZoom, maxZoom);
+                }
+                else
+                {
+                    studioCamera.transform.Translate(Vector3.forward * Input.mouseScrollDelta.y * zoomSpeed, Space.Self);
+                    Vector3 pos = studioCamera.transform.localPosition;
+                    pos.z = Mathf.Clamp(pos.z, -maxZoom, -minZoom);
+                    studioCamera.transform.localPosition = pos;
+                }
+            }
+        }
+        catch (System.Exception) { }
     }
 }
