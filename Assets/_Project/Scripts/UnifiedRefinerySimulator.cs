@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class UnifiedRefinerySimulator : MonoBehaviour
 {
     // ==========================================
-    // ORIGINAL REFINERY ENGINE VARIABLES
+    // REFINERY ENGINE VARIABLES
     // ==========================================
     public struct SimulationHistoryRecord
     {
@@ -32,24 +32,25 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     [Header("Data Profile Pool")]
     public MeshProfile[] materialProfiles;
 
-    [Header("New Sprint Gate Mechanics")]
+    [Header("Hardware Configuration & Sprint Gates")]
     public CanvasGroup panel1HardwareCanvasGroup;
+    public TMP_Dropdown meshMaterialDropdown;
     public TMP_Dropdown discreteBedDepthDropdown;
-    public Button btnGenerateModel; // Shared with Reactor Simulation
+    public TMP_Dropdown meshOpeningSizeDropdown;
+    public Button btnGenerateModel;
 
     [Header("Hardware Meshes")]
-    public TMP_Dropdown meshOpeningSizeDropdown;
-    public GameObject[] catalystMeshes; // Shared with Reactor Simulation
+    public GameObject[] catalystMeshes;
+    public Renderer reactorMainBodyRenderer;
 
-    [Header("Frontend Input Components")]
-    public TMP_Dropdown meshMaterialDropdown;
-    public Slider sliderGasVolume;
-    public Slider sliderH2S;
-    public Slider sliderTemperature;
+    [Header("Stream Controls")]
+    public Slider gasVolumeSlider;
+    public Slider h2sSlider;
+    public Slider temperatureSlider;
 
     [Header("User Estimation Inputs")]
-    public TMP_InputField expectedEfficiencyInput;
-    public TMP_InputField estimatedCostInput;
+    public Slider expectedEfficiencySlider;
+    public Slider estimatedCostSlider;
 
     [Header("Persistent Viewport Telemetry")]
     public TextMeshProUGUI rightSideEfficiencyText;
@@ -57,20 +58,18 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     public Button mainRunButton;
     private TextMeshProUGUI runButtonText;
 
-    [Header("Panel 3 Detailed SCADA Readouts")]
+    [Header("Detailed SCADA Readouts")]
     public TextMeshProUGUI scadaPressureDropText;
     public TextMeshProUGUI scadaOutletPpmText;
     public TextMeshProUGUI scadaServiceLifeText;
     public TextMeshProUGUI scadaComplianceStatusText;
 
-    [Header("Performance Tab - Historical Reports")]
+    [Header("Historical Reports & Graphing")]
     public TextMeshProUGUI historyLogDisplayTexbox;
-
-    [Header("Real-Time Graphing Targets")]
     public RectTransform graphBoundingBox;
     public RectTransform graphTrackingNode;
 
-    [Header("Phase 4 Evaluation Popup Windows")]
+    [Header("Evaluation Popup Windows")]
     public GameObject evaluationOverlayPanel;
     public TextMeshProUGUI evaluationTitleText;
     public TextMeshProUGUI evaluationReportText;
@@ -78,25 +77,29 @@ public class UnifiedRefinerySimulator : MonoBehaviour
 
     [Header("System Application Controls")]
     public Button quitApplicationButton;
-
-    [Header("3D Viewport Live Model Drivers")]
-    public Transform dynamicFilterBedTransform;
-    public MeshRenderer filterBedMeshRenderer;
-
-    [Header("Dual Particle Process Simulation")]
-    public ParticleSystem inletParticles;
-    public ParticleSystem outletParticles;
-
-    [Header("Fullscreen Viewport Overlay Controls")]
     public Button maximizeViewportButton;
     public Button closeFullscreenButton;
     public GameObject fullscreenOverlayPanel;
+
+    [Header("Particle Process Simulation")]
+    public ParticleSystem inletParticles;
+    public ParticleSystem outletParticles;
+
+    [Header("Camera & Zoom Settings")]
+    public Camera studioCamera;
+    public float zoomSpeed = 2f;
+    public float minZoom = 3f;
+    public float maxZoom = 15f;
+
+    [Header("Color Configurations")]
+    public Color baseReactorColor = new Color(0.48f, 0.48f, 0.48f, 1f);
+    public Color heatedReactorColor = new Color(0.85f, 0.25f, 0.15f, 1f);
 
     // Fixed Engineering Refinery Parameters
     private const float columnArea = 2.0f;
     private const float gasViscosity = 1.8e-5f;
     private const float gasDensity = 1.2f;
-    private const float electricityCostKwH = 0.15f;
+    private const float electricityCostKwH = 0.15f; // €0.15 per kWh
     private const float blowerEfficiency = 0.75f;
     private const float molarWeightH2S = 34.08f;
 
@@ -110,57 +113,9 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     private float cachedBedDepthL = 1.2f;
     private int cachedOpeningSizeIndex = 0;
 
-    // ==========================================
-    // EXACT VARIABLES PORTED FROM ReactorSimulation.cs
-    // ==========================================
-    [Header("1. Mesh Objects (2mm, 4mm, 6mm, 8mm)")]
-    // Note: catalystMeshes is declared above to prevent C# duplicate name errors.
-    public TMP_Dropdown meshDropdown;
-
-    [Header("2. Bed Depth Dropdown (Changes Y-Axis Scale)")]
-    public TMP_Dropdown bedDepthDropdown;
-    private float[] meshBaseYScales = { 0.5f, 1f, 1.5f, 2f }; 
-
-    [Header("3. Engage Reaction Button & Particles")]
-    public Button engageButton;
-    public ParticleSystem gasInletParticles;
-    public ParticleSystem gasOutletParticles;
-    private bool isSimulationActive = false;
-
-    [Header("4. Gas Volume Load Slider")]
-    public Slider gasVolumeSlider;
-    private float baseInletRate = 30f;
-    private float baseOutletRate = 30f;
-
-    [Header("5. Inlet H2S Concentration Slider")]
-    public Slider h2sSlider;
-    public Color lightGreenH2S = new Color(0.7f, 0.9f, 0.4f, 0.5f);
-    public Color darkGreenH2S = new Color(0.1f, 0.4f, 0.05f, 0.7f);
-
-    [Header("6. Temperature Control")]
-    public Slider temperatureSlider;
-    public Renderer reactorMainBodyRenderer;
-    public Color baseReactorColor = new Color(122f, 122f, 122f, 255f);
-    public Color heatedReactorColor = new Color(150.45f, 150.2f, 150.2f, 255f); 
-    public Transform temperatureNeedle; 
-
-    [Header("7. Zoom Settings")]
-    public Camera studioCamera;
-    public float zoomSpeed = 2f;
-    public float minZoom = 3f;
-    public float maxZoom = 15f;
-
-    [Header("8. Sprint Gate Generation Button")]
-    // Note: btnGenerateModel is declared above to prevent C# duplicate name errors.
-
-    // Hidden State Variables from Reactor Simulation
+    // Materials Array
     private Material[] instancedMaterials;
     private Material reactorMaterial;
-    private float simulationTimer = 0f;
-    private float simulationDuration = 10f;
-    private Color freshColor = new Color(0.8f, 0.45f, 0.15f, 1f);
-    private Color exhaustedColor = new Color(0.3f, 0.4f, 0.2f, 1f);
-    static private Color defaultReactorColor = new Color();
 
     private void Start()
     {
@@ -195,39 +150,29 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             closeFullscreenButton.onClick.AddListener(() => SetFullscreenOverlayActive(false));
         }
 
-        // --- Visual System Initialization (Ported from ReactorSimulation) ---
-        try
+        // --- Visual System Initialization ---
+        if (catalystMeshes != null)
         {
-            if (catalystMeshes != null)
+            instancedMaterials = new Material[catalystMeshes.Length];
+            for (int i = 0; i < catalystMeshes.Length; i++)
             {
-                instancedMaterials = new Material[catalystMeshes.Length];
-                for (int i = 0; i < catalystMeshes.Length; i++)
+                if (catalystMeshes[i] != null)
                 {
-                    if (catalystMeshes[i] != null)
-                    {
-                        Renderer r = catalystMeshes[i].GetComponent<Renderer>();
-                        if (r != null) instancedMaterials[i] = r.material;
-                    }
+                    Renderer r = catalystMeshes[i].GetComponent<Renderer>();
+                    if (r != null) instancedMaterials[i] = r.material;
                 }
             }
-
-            if (reactorMainBodyRenderer != null)
-            {
-                reactorMaterial = reactorMainBodyRenderer.material;
-                defaultReactorColor = reactorMaterial.GetColor("_BaseColor");
-            }
-
-            // Hook into the original Reactor Slider if assigned
-            if (temperatureSlider != null)
-            {
-                temperatureSlider.onValueChanged.AddListener(OnTemperatureChanged);
-            }
         }
-        catch (System.Exception) { }
+
+        if (reactorMainBodyRenderer != null)
+        {
+            reactorMaterial = reactorMainBodyRenderer.material;
+        }
 
         ClearParticles();
         ResetSimulationToStandby();
         UpdateHistoryLogDisplayUI();
+        UpdateUnifiedMeshAppearance();
     }
 
     private void Update()
@@ -237,29 +182,6 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         if (currentRunState == SimulationState.RUNNING)
         {
             ProcessSimulationCountdown();
-
-            // --- Rust Lerp Mechanics ---
-            try
-            {
-                if (simulationTimer < simulationDuration)
-                {
-                    simulationTimer += Time.deltaTime;
-                    float progress = simulationTimer / simulationDuration;
-                    Color currentRustColor = Color.Lerp(freshColor, exhaustedColor, progress);
-
-                    if (instancedMaterials != null)
-                    {
-                        for (int i = 0; i < instancedMaterials.Length; i++)
-                        {
-                            if (instancedMaterials[i] != null)
-                            {
-                                instancedMaterials[i].SetColor("_BaseColor", currentRustColor);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (System.Exception) { }
         }
 
         if (fullscreenOverlayPanel != null && fullscreenOverlayPanel.activeSelf)
@@ -267,7 +189,6 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             HandleFullscreen3DClicking();
         }
 
-        // --- Camera Zoom ---
         HandleZoom();
     }
 
@@ -289,6 +210,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         }
 
         Update3DModelStructure();
+        UpdateUnifiedMeshAppearance();
     }
 
     private void SetFullscreenOverlayActive(bool isTrue)
@@ -304,12 +226,9 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                string targetedNode = hit.transform.name;
-                Debug.Log($"[SCADA Diagnostics] Operator clicked on: {targetedNode}");
+                Debug.Log($"[SCADA Diagnostics] Operator clicked on: {hit.transform.name}");
             }
         }
     }
@@ -332,26 +251,15 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         runtimeCountdownClock = runtimeCountdownClockStatic;
         dangerousConditionTimer = 0.0f;
         meshSaturationAccumulator = 0.0f;
-        
-        simulationTimer = 0f; // Reset Rust Timer
 
         ToggleStructuralUIInteractability(false);
         ToggleStreamUIInteractability(true);
 
-        if (expectedEfficiencyInput != null) expectedEfficiencyInput.interactable = false;
-        if (estimatedCostInput != null) estimatedCostInput.interactable = false;
-
         if (runButtonText != null) runButtonText.text = "STOP SIMULATION";
         if (mainRunButton != null) mainRunButton.interactable = true;
 
-        if (inletParticles != null && inletParticles.isStopped)
-        {
-            inletParticles.Play();
-        }
-        if (outletParticles != null && outletParticles.isStopped)
-        {
-            outletParticles.Play();
-        }
+        if (inletParticles != null && inletParticles.isStopped) inletParticles.Play();
+        if (outletParticles != null && outletParticles.isStopped) outletParticles.Play();
     }
 
     private void ProcessSimulationCountdown()
@@ -426,7 +334,8 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             evaluationReportText.text = $"<b>CONGRATULATIONS, OPERATOR!</b>\n" +
                 $"{financialAssessment}\n\n" +
                 $"• System H2S Scrubbing Efficiency: {cachedEfficiency.ToString("F1")}%\n" +
-                $"• Total System Pressure Drop: {cachedPressureDrop.ToString("F2")} kPa";
+                $"• Total System Pressure Drop: {cachedPressureDrop.ToString("F2")} kPa\n" +
+                $"• Operational Cost: €{cachedDailyCost.ToString("F2")}/day";
         }
 
         ArchiveRunToHistoryLog(true, letterGrade);
@@ -453,7 +362,6 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         };
 
         simulationHistoryLog.Insert(0, record);
-
         while (simulationHistoryLog.Count > 10)
         {
             simulationHistoryLog.RemoveAt(simulationHistoryLog.Count - 1);
@@ -503,14 +411,12 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         ToggleStructuralUIInteractability(true);
         ToggleStreamUIInteractability(true);
 
-        if (expectedEfficiencyInput != null) expectedEfficiencyInput.interactable = true;
-        if (estimatedCostInput != null) estimatedCostInput.interactable = true;
-
         if (runButtonText != null) runButtonText.text = "ENGAGE REACTOR";
         if (mainRunButton != null) mainRunButton.interactable = true;
 
         ClearParticles();
         Update3DModelStructure();
+        UpdateUnifiedMeshAppearance();
     }
 
     private void ToggleStructuralUIInteractability(bool state)
@@ -528,41 +434,47 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             if (meshOpeningSizeDropdown != null) meshOpeningSizeDropdown.interactable = state;
             if (btnGenerateModel != null) btnGenerateModel.interactable = state;
         }
+
+        if (expectedEfficiencySlider != null) expectedEfficiencySlider.interactable = state;
+        if (estimatedCostSlider != null) estimatedCostSlider.interactable = state;
     }
 
     private void ToggleStreamUIInteractability(bool state)
     {
-        if (sliderGasVolume != null) sliderGasVolume.interactable = state;
-        if (sliderH2S != null) sliderH2S.interactable = state;
-        if (sliderTemperature != null) sliderTemperature.interactable = state;
+        if (gasVolumeSlider != null) gasVolumeSlider.interactable = state;
+        if (h2sSlider != null) h2sSlider.interactable = state;
+        if (temperatureSlider != null) temperatureSlider.interactable = state;
     }
 
     private void Update3DModelStructure()
     {
         if (catalystMeshes != null && catalystMeshes.Length > 0)
         {
+            // Map Bed Depth Dropdown index directly to target Scale X
+            float targetScaleX = 100f;
+            if (discreteBedDepthDropdown != null)
+            {
+                switch (discreteBedDepthDropdown.value)
+                {
+                    case 0: targetScaleX = 60f; break;  // 0.5 meters
+                    case 1: targetScaleX = 70f; break;  // 1.0 meters
+                    case 2: targetScaleX = 80f; break;  // 1.5 meters
+                    case 3: targetScaleX = 100f; break; // 2.0 meters
+                    default: targetScaleX = 100f; break;
+                }
+            }
+
             for (int i = 0; i < catalystMeshes.Length; i++)
             {
                 if (catalystMeshes[i] != null)
                 {
-                    catalystMeshes[i].SetActive(i == cachedOpeningSizeIndex);
+                    // Cumulative Activation: Enable all meshes up to the currently selected opening size index
+                    catalystMeshes[i].SetActive(i <= cachedOpeningSizeIndex);
+
+                    // Update ONLY Scale X while strictly maintaining default Scale Y = 100, Scale Z = 100
+                    catalystMeshes[i].transform.localScale = new Vector3(targetScaleX, 100f, 100f);
                 }
             }
-        }
-
-        if (dynamicFilterBedTransform != null)
-        {
-            float horizontalScaleModifier = 1.05f;
-            dynamicFilterBedTransform.localScale = new Vector3(horizontalScaleModifier, cachedBedDepthL, horizontalScaleModifier);
-
-            float baselineYOffset = -0.4f;
-            float adjustedLocalY = baselineYOffset - (cachedBedDepthL * 0.8f);
-
-            dynamicFilterBedTransform.localPosition = new Vector3(
-                dynamicFilterBedTransform.localPosition.x,
-                adjustedLocalY,
-                dynamicFilterBedTransform.localPosition.z
-            );
         }
     }
 
@@ -574,9 +486,9 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         MeshProfile currentMesh = materialProfiles[selectedIndex];
         float bedDepthL = cachedBedDepthL;
 
-        float volumeLoad = sliderGasVolume != null ? sliderGasVolume.value : 5000f;
-        float inletC0_ppm = sliderH2S != null ? sliderH2S.value : 1000f;
-        float tempC = sliderTemperature != null ? sliderTemperature.value : 25f;
+        float volumeLoad = gasVolumeSlider != null ? gasVolumeSlider.value : 5000f;
+        float inletC0_ppm = h2sSlider != null ? h2sSlider.value : 1000f;
+        float tempC = temperatureSlider != null ? temperatureSlider.value : 25f;
 
         float flowRateQ = volumeLoad / 3333.3f;
         float meshOpeningDp = 0.002f;
@@ -614,23 +526,12 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         float serviceLifeDays = h2sMassFlowKgPerSec > 0 ? (totalSorptionCapacityKg / (h2sMassFlowKgPerSec * 86400f)) : 99f;
 
         UpdateUserInterfaceDisplay(cachedEfficiency, cachedDailyCost, cachedPressureDrop, cachedOutletPpm, serviceLifeDays);
-
-        if (filterBedMeshRenderer != null)
-        {
-            Color baselineCleanColor = Color.gray;
-            Color saturatedFouledColor = new Color(0.35f, 0.25f, 0.15f, 1f);
-
-            float safetyAlertFactor = Mathf.InverseLerp(0f, 6.5f, cachedPressureDrop);
-            Color baseColorState = Color.Lerp(baselineCleanColor, saturatedFouledColor, meshSaturationAccumulator);
-
-            filterBedMeshRenderer.material.color = Color.Lerp(baseColorState, Color.red, safetyAlertFactor);
-        }
+        UpdateUnifiedMeshAppearance();
 
         if (inletParticles != null)
         {
             var mainModule = inletParticles.main;
             var emissionModule = inletParticles.emission;
-
             mainModule.startSpeed = flowRateQ * 2.0f;
             emissionModule.rateOverTime = currentRunState == SimulationState.RUNNING ? Mathf.Lerp(20f, 120f, Mathf.InverseLerp(0f, 2000f, inletC0_ppm)) : 0f;
 
@@ -642,15 +543,66 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         {
             var mainModule = outletParticles.main;
             var emissionModule = outletParticles.emission;
-
             mainModule.startSpeed = flowRateQ * 2.5f;
             emissionModule.rateOverTime = (currentRunState == SimulationState.RUNNING && inletParticles != null) ? inletParticles.emission.rateOverTime.constant : 0f;
 
             float efficiencyRatio = cachedEfficiency / 100f;
             Color cleanAirColor = new Color(0.4f, 0.75f, 1.0f, 0.3f);
             Color bypassTaintedColor = new Color(0.65f, 0.5f, 0.15f, 0.6f);
-
             mainModule.startColor = Color.Lerp(bypassTaintedColor, cleanAirColor, efficiencyRatio);
+        }
+    }
+
+    private Color GetMaterialBaseColor(int materialIndex)
+    {
+        switch (materialIndex)
+        {
+            case 0: return new Color(0.75f, 0.75f, 0.78f); // Stainless Steel 
+            case 1: return new Color(0.65f, 0.70f, 0.65f); // Monel Alloy 400 
+            case 2: return new Color(0.95f, 0.95f, 0.95f); // PTFE 
+            case 3: return new Color(0.60f, 0.60f, 0.60f); // Titanium Grade 2 
+            default: return Color.gray;
+        }
+    }
+
+    private void UpdateUnifiedMeshAppearance()
+    {
+        // --- 1. INNER CATALYST MESHES (The 4 Objects: 2mm, 4mm, 6mm, 8mm) ---
+        Color baseMatColor = GetMaterialBaseColor(cachedMaterialIndex);
+
+        // Progressively darken inner mesh depending on gas processing accumulation
+        float saturationFactor = Mathf.Clamp01(meshSaturationAccumulator);
+        Color darkenedColor = Color.Lerp(baseMatColor, baseMatColor * 0.25f, saturationFactor);
+
+        // Continuously influence color via Current Temperature Slider
+        float currentTemp = temperatureSlider != null ? temperatureSlider.value : 15f;
+        float tempNormalized = Mathf.Clamp01(Mathf.InverseLerp(15f, 200f, currentTemp));
+        Color tempInfluencedColor = Color.Lerp(darkenedColor, heatedReactorColor, tempNormalized);
+
+        // Overwrite with safety alert if mechanical housing limits are breached
+        float safetyAlertFactor = Mathf.Clamp01(Mathf.InverseLerp(0f, 6.5f, cachedPressureDrop));
+        Color finalInnerMeshColor = Color.Lerp(tempInfluencedColor, Color.red, safetyAlertFactor);
+
+        // Apply final color directly to the array of 4 Catalyst Meshes
+        if (instancedMaterials != null)
+        {
+            for (int i = 0; i < instancedMaterials.Length; i++)
+            {
+                if (instancedMaterials[i] != null)
+                {
+                    instancedMaterials[i].color = finalInnerMeshColor;
+                    instancedMaterials[i].SetColor("_BaseColor", finalInnerMeshColor);
+                }
+            }
+        }
+
+        // --- 2. OUTER REACTOR CYLINDER ---
+        // The outer cylinder should ONLY react to temperature, unaffected by the catalyst material selected.
+        if (reactorMaterial != null)
+        {
+            Color targetReactorColor = Color.Lerp(baseReactorColor, heatedReactorColor, tempNormalized);
+            reactorMaterial.color = targetReactorColor;
+            reactorMaterial.SetColor("_BaseColor", targetReactorColor);
         }
     }
 
@@ -709,45 +661,21 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         Application.Quit();
     }
 
-    // ==========================================
-    // REACTOR SIMULATION METHODS
-    // ==========================================
-    private void OnTemperatureChanged(float tempValue)
+    private void HandleZoom()
     {
-        Color targetReactorColor = Color.Lerp(baseReactorColor, heatedReactorColor, tempValue);
-        
-        if (reactorMaterial != null)
+        if (studioCamera != null && Mathf.Abs(Input.mouseScrollDelta.y) > 0.01f)
         {
-            if (reactorMaterial.color == targetReactorColor && currentRunState != SimulationState.RUNNING && tempValue == 15)
+            if (studioCamera.orthographic)
             {
-                reactorMaterial.SetColor("_BaseColor", defaultReactorColor);
+                studioCamera.orthographicSize = Mathf.Clamp(studioCamera.orthographicSize - Input.mouseScrollDelta.y * zoomSpeed, minZoom, maxZoom);
             }
             else
             {
-                reactorMaterial.SetColor("_BaseColor", targetReactorColor);
+                studioCamera.transform.Translate(Vector3.forward * Input.mouseScrollDelta.y * zoomSpeed, Space.Self);
+                Vector3 pos = studioCamera.transform.localPosition;
+                pos.z = Mathf.Clamp(pos.z, -maxZoom, -minZoom);
+                studioCamera.transform.localPosition = pos;
             }
         }
-    }
-
-    private void HandleZoom()
-    {
-        try
-        {
-            if (studioCamera != null && Mathf.Abs(Input.mouseScrollDelta.y) > 0.01f)
-            {
-                if (studioCamera.orthographic)
-                {
-                    studioCamera.orthographicSize = Mathf.Clamp(studioCamera.orthographicSize - Input.mouseScrollDelta.y * zoomSpeed, minZoom, maxZoom);
-                }
-                else
-                {
-                    studioCamera.transform.Translate(Vector3.forward * Input.mouseScrollDelta.y * zoomSpeed, Space.Self);
-                    Vector3 pos = studioCamera.transform.localPosition;
-                    pos.z = Mathf.Clamp(pos.z, -maxZoom, -minZoom);
-                    studioCamera.transform.localPosition = pos;
-                }
-            }
-        }
-        catch (System.Exception) { }
     }
 }
