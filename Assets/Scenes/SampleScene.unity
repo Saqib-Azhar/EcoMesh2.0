@@ -328,7 +328,6 @@ GameObject:
   - component: {fileID: 44802941}
   - component: {fileID: 44802940}
   - component: {fileID: 44802939}
-  - component: {fileID: 44802944}
   - component: {fileID: 44802945}
   m_Layer: 5
   m_Name: Canvas
@@ -449,56 +448,6 @@ MonoBehaviour:
   activeTabBGColor: {r: 0.12, g: 0.16, b: 0.23, a: 1}
   activeTextColor: {r: 0.97, g: 0.98, b: 0.99, a: 1}
   inactiveTextColor: {r: 0.58, g: 0.64, b: 0.72, a: 1}
---- !u!114 &44802944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 44802938}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f273236c8256254388b5711838f6246, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RefinerySimulationEngine
-  materialProfiles:
-  - {fileID: 11400000, guid: 1f324d0f48b86b048a27d881431d8fd1, type: 2}
-  - {fileID: 11400000, guid: 1c3de2582174ca04a9597d7baca6fed5, type: 2}
-  - {fileID: 11400000, guid: 5dfae1f62035767448797173fcf3432d, type: 2}
-  - {fileID: 11400000, guid: 6658cdc89dde5a34aa7643c24bbfcaaf, type: 2}
-  panel1HardwareCanvasGroup: {fileID: 764295195}
-  discreteBedDepthDropdown: {fileID: 2137752563}
-  btnGenerateModel: {fileID: 473157630}
-  meshOpeningSizeDropdown: {fileID: 0}
-  catalystMeshes: []
-  meshMaterialDropdown: {fileID: 227691813}
-  sliderGasVolume: {fileID: 1498770967}
-  sliderH2S: {fileID: 960696366}
-  sliderTemperature: {fileID: 741468256}
-  expectedEfficiencyInput: {fileID: 0}
-  estimatedCostInput: {fileID: 0}
-  rightSideEfficiencyText: {fileID: 0}
-  rightSideCostText: {fileID: 0}
-  mainRunButton: {fileID: 2020079794}
-  scadaPressureDropText: {fileID: 1613287249}
-  scadaOutletPpmText: {fileID: 1555073764}
-  scadaServiceLifeText: {fileID: 471099710}
-  scadaComplianceStatusText: {fileID: 1230855263}
-  historyLogDisplayTexbox: {fileID: 0}
-  graphBoundingBox: {fileID: 1489047368}
-  graphTrackingNode: {fileID: 33501410}
-  evaluationOverlayPanel: {fileID: 1645300007}
-  evaluationTitleText: {fileID: 1505542107}
-  evaluationReportText: {fileID: 1852893572}
-  restartRunButton: {fileID: 207258799}
-  quitApplicationButton: {fileID: 11794003}
-  dynamicFilterBedTransform: {fileID: 0}
-  filterBedMeshRenderer: {fileID: 0}
-  inletParticles: {fileID: 0}
-  outletParticles: {fileID: 0}
-  maximizeViewportButton: {fileID: 96621502}
-  closeFullscreenButton: {fileID: 1575831548}
-  fullscreenOverlayPanel: {fileID: 494581654}
 --- !u!114 &44802945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7444,52 +7393,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640877059}
   m_CullTransparentMesh: 1
---- !u!1 &650760161 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d9f1f3e6b54af71409a62752550f7e54, type: 3}
-  m_PrefabInstance: {fileID: 838454224}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &650760162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d9f1f3e6b54af71409a62752550f7e54, type: 3}
   m_PrefabInstance: {fileID: 838454224}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &650760163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650760161}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f640d608be63f7b45b835fbbfb4fd0c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ReactorSimulation
-  catalystMeshes:
-  - {fileID: 1149490648}
-  - {fileID: 1307298906}
-  - {fileID: 212306244}
-  - {fileID: 1073817885}
-  meshDropdown: {fileID: 248982851}
-  bedDepthDropdown: {fileID: 2137752563}
-  engageButton: {fileID: 2020079794}
-  gasInletParticles: {fileID: 1134930988}
-  gasOutletParticles: {fileID: 1020171644}
-  gasVolumeSlider: {fileID: 1498770967}
-  h2sSlider: {fileID: 960696366}
-  lightGreenH2S: {r: 0.7, g: 0.9, b: 0.4, a: 0.5}
-  darkGreenH2S: {r: 0.1, g: 0.4, b: 0.05, a: 0.7}
-  temperatureSlider: {fileID: 741468256}
-  reactorMainBodyRenderer: {fileID: 2044518733}
-  baseReactorColor: {r: 0.22, g: 0.23, b: 0.25, a: 1}
-  heatedReactorColor: {r: 0.45, g: 0.2, b: 0.2, a: 1}
-  temperatureNeedle: {fileID: 1949544226}
-  studioCamera: {fileID: 1667607621}
-  zoomSpeed: 2
-  minZoom: 3
-  maxZoom: 15
-  btnGenerateModel: {fileID: 473157630}
 --- !u!1 &655910473
 GameObject:
   m_ObjectHideFlags: 0
@@ -9023,7 +8931,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 232.5, y: -596.8633}
+  m_AnchoredPosition: {x: 232.5, y: -391.786}
   m_SizeDelta: {x: 425, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782936503
@@ -9898,10 +9806,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d9f1f3e6b54af71409a62752550f7e54, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1020171642}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d9f1f3e6b54af71409a62752550f7e54, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 650760163}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9f1f3e6b54af71409a62752550f7e54, type: 3}
 --- !u!1 &840055829
 GameObject:
@@ -11302,7 +11207,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -24851,7 +24756,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -30924,7 +30829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225, y: -596.8633}
+  m_AnchoredPosition: {x: 225, y: -391.786}
   m_SizeDelta: {x: 410, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1699096465
@@ -31560,7 +31465,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.25
+  m_fontSize: 25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
