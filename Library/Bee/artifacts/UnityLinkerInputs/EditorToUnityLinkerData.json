@@ -96,20 +96,6 @@
             "usedInScenes": []
         },
         {
-            "managedAssemblyName": "Assembly-CSharp.dll",
-            "nativeClass": "",
-            "fullManagedTypeName": "ReactorSimulation",
-            "moduleName": "",
-            "usedInScenes": []
-        },
-        {
-            "managedAssemblyName": "Assembly-CSharp.dll",
-            "nativeClass": "",
-            "fullManagedTypeName": "RefinerySimulationEngine",
-            "moduleName": "",
-            "usedInScenes": []
-        },
-        {
             "managedAssemblyName": "",
             "nativeClass": "ResourceManager",
             "fullManagedTypeName": "",
@@ -218,6 +204,13 @@
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
             "fullManagedTypeName": "UIValueUpdater",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnifiedRefinerySimulator",
             "moduleName": "",
             "usedInScenes": []
         },

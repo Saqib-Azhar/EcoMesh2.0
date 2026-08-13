@@ -29,8 +29,8 @@
       "DisplayName": "Writing 6097564273297756792.rsp",
       "ActionType": "WriteFile",
       "PayloadOffset": 83,
-      "PayloadLength": 10428,
-      "PayloadDebugContentSnippet": "-a=\"E:\\UnityProjects\\EcoMesh2.",
+      "PayloadLength": 12272,
+      "PayloadDebugContentSnippet": "-a=\"C:\\Users\\saqib\\Documents\\G",
       "Inputs": [],
       "InputFlags": [],
       "Outputs": [
@@ -76,6 +76,11 @@
         "Library/ScriptAssemblies/Unity.Multiplayer.Center.Common.dll",
         "Library/ScriptAssemblies/Unity.PathTracing.Runtime.dll",
         "Library/ScriptAssemblies/Unity.PerformanceTesting.dll",
+        "Library/ScriptAssemblies/Unity.ProBuilder.Csg.dll",
+        "Library/ScriptAssemblies/Unity.ProBuilder.dll",
+        "Library/ScriptAssemblies/Unity.ProBuilder.KdTree.dll",
+        "Library/ScriptAssemblies/Unity.ProBuilder.Poly2Tri.dll",
+        "Library/ScriptAssemblies/Unity.ProBuilder.Stl.dll",
         "Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll",
         "Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll",
         "Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.Shared.dll",
@@ -128,6 +133,11 @@
         "Library/Bee/artifacts/rsp/6097564273297756792.rsp"
       ],
       "InputFlags": [
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -527,6 +537,21 @@
       "File": "Library/ScriptAssemblies/Unity.PerformanceTesting.dll"
     },
     {
+      "File": "Library/ScriptAssemblies/Unity.ProBuilder.Csg.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.ProBuilder.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.ProBuilder.KdTree.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.ProBuilder.Poly2Tri.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.ProBuilder.Stl.dll"
+    },
+    {
       "File": "Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll"
     },
     {
@@ -621,6 +646,6 @@
   "SharedResources": [],
   "Scanners": [],
   "Identifier": "Library/Bee/1900b0aESkipCompile.dag.json",
-  "PayloadsFile": "E:/UnityProjects/EcoMesh2.0/Library/Bee/1900b0aESkipCompile.dag.payloads",
+  "PayloadsFile": "C:/Users/saqib/Documents/GitHub/EcoMesh2.0/Library/Bee/1900b0aESkipCompile.dag.payloads",
   "RelativePathToRoot": "../.."
 }

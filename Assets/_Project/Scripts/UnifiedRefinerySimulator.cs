@@ -575,8 +575,8 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         Color darkenedColor = Color.Lerp(baseMatColor, baseMatColor * 0.25f, saturationFactor);
 
         // Continuously influence color via Current Temperature Slider
-        float currentTemp = temperatureSlider != null ? temperatureSlider.value : 15f;
-        float tempNormalized = Mathf.Clamp01(Mathf.InverseLerp(15f, 200f, currentTemp));
+        float currentTemp = temperatureSlider != null ? temperatureSlider.value : 35f;
+        float tempNormalized = Mathf.Clamp01(Mathf.InverseLerp(35f, 200f, currentTemp));
         Color tempInfluencedColor = Color.Lerp(darkenedColor, heatedReactorColor, tempNormalized);
 
         // Overwrite with safety alert if mechanical housing limits are breached

@@ -2,12 +2,11 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - MeshProfile
-    - ReactorSimulation
-    - RefinerySimulationEngine
     - SimpleGraph
     - SpinModel
     - TabNavigationManager
     - UIValueUpdater
+    - UnifiedRefinerySimulator
     Unity.AI.Animate.dll:
     - Unity.AI.Animate.Services.SessionPersistence.AnimateGeneratorSettings
     - Unity.AI.Animate.Services.SessionPersistence.ObjectPersistence
@@ -45,6 +44,8 @@ ScriptsOnlyBuild:
     - UnityEngine.InputSystem.InputSystemObject
     - UnityEngine.InputSystem.RemoteInputPlayerConnection
     - UnityEngine.InputSystem.UI.InputSystemUIInputModule
+    Unity.PlasticSCM.Editor.dll:
+    - Unity.PlasticSCM.Editor.UVCSWindow
     Unity.RenderPipelines.Core.Runtime:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
     - UnityEngine.Rendering.UI.DebugUIHandlerButton
@@ -371,10 +372,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {fileID: 11500000, guid: fc94baf599aa7af4d98b64ec8d62f5c5, type: 3}
     - Class: 114
-      Script: {fileID: 11500000, guid: f640d608be63f7b45b835fbbfb4fd0c2, type: 3}
-    - Class: 114
-      Script: {fileID: 11500000, guid: 0f273236c8256254388b5711838f6246, type: 3}
-    - Class: 114
       Script: {fileID: 11500000, guid: 628f5ea14d0dd87409a068eb0074b7bd, type: 3}
     - Class: 114
       Script: {fileID: 11500000, guid: 034faa4d89e29a0458f74be0c2d1c232, type: 3}
@@ -396,6 +393,8 @@ ScriptsOnlyBuild:
       Script: {fileID: 11500000, guid: 3bfd4fcc390b40c45869838bc4235643, type: 3}
     - Class: 114
       Script: {fileID: 11500000, guid: faff7ad49b7b8a94cbdd54c8b25b4143, type: 3}
+    - Class: 114
+      Script: {fileID: 11500000, guid: 3bc07d2e011ec314db0ae8899ce49437, type: 3}
     - Class: 114
       Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
     - Class: 114
@@ -641,12 +640,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnTriggerExitMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: ed508c9a8193204514fd54b2ac132d2a
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: RefinerySimulationEngine
   - hash:
       serializedVersion: 2
       Hash: febcfbf0a0d85e37808a3740e3c2c6fa
@@ -1771,6 +1764,12 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerButton
   - hash:
       serializedVersion: 2
+      Hash: 078124d8f0fe744e35c06ac00f6406ab
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: UnifiedRefinerySimulator
+  - hash:
+      serializedVersion: 2
       Hash: ff76cf6cf52b4db7b95af6ffadca9288
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
@@ -1859,12 +1858,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: ControlTrack
-  - hash:
-      serializedVersion: 2
-      Hash: b43acce92feefa4fb7e3e80984c9317e
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: ReactorSimulation
   - hash:
       serializedVersion: 2
       Hash: b810dfd26c061161a980f9a956f9a116

@@ -1,12 +1,11 @@
 <linker>
 	<assembly fullname="Assembly-CSharp">
 		<type fullname="MeshProfile" preserve="nothing"/>
-		<type fullname="ReactorSimulation" preserve="nothing"/>
-		<type fullname="RefinerySimulationEngine" preserve="nothing"/>
 		<type fullname="SimpleGraph" preserve="nothing"/>
 		<type fullname="SpinModel" preserve="nothing"/>
 		<type fullname="TabNavigationManager" preserve="nothing"/>
 		<type fullname="UIValueUpdater" preserve="nothing"/>
+		<type fullname="UnifiedRefinerySimulator" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="Unity.InputSystem">
 		<type fullname="UnityEngine.InputSystem.InputActionAsset" preserve="nothing"/>

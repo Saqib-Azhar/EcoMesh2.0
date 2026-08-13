@@ -122,7 +122,7 @@ Shader "Universal Render Pipeline/Lit"
             #pragma shader_feature_local _PARALLAXMAP
             #pragma shader_feature_local _RECEIVE_SHADOWS_OFF
             #pragma shader_feature_local _ _DETAIL_MULX2 _DETAIL_SCALED
-            #pragma shader_feature_local_fragment _SURFACE_TYPE_TRASPARENT
+            #pragma shader_feature_local_fragment _SURFACE_TYPE_OPAQUE
             #pragma shader_feature_local_fragment _ALPHATEST_ON
             #pragma shader_feature_local_fragment _ _ALPHAPREMULTIPLY_ON _ALPHAMODULATE_ON
             #pragma shader_feature_local_fragment _EMISSION
