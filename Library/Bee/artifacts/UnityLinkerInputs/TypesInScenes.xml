@@ -1,7 +1,7 @@
 <linker>
 	<assembly fullname="Assembly-CSharp">
+		<type fullname="LiveECGGraph" preserve="nothing"/>
 		<type fullname="MeshProfile" preserve="nothing"/>
-		<type fullname="SimpleGraph" preserve="nothing"/>
 		<type fullname="SpinModel" preserve="nothing"/>
 		<type fullname="TabNavigationManager" preserve="nothing"/>
 		<type fullname="UIValueUpdater" preserve="nothing"/>

@@ -491,6 +491,8 @@ MonoBehaviour:
   scadaOutletPpmText: {fileID: 1555073764}
   scadaServiceLifeText: {fileID: 471099710}
   scadaComplianceStatusText: {fileID: 1230855263}
+  alarmHeaderStatusText: {fileID: 549602796}
+  alarmLogText: {fileID: 1010000695}
   historyLogDisplayTexbox: {fileID: 148014539}
   graphBoundingBox: {fileID: 1489047368}
   graphTrackingNode: {fileID: 33501410}
@@ -5411,6 +5413,8 @@ MonoBehaviour:
   pointCount: 40
   graphHeight: 70
   animationSpeed: 2
+  centerLineColor: {r: 1, g: 0, b: 0, a: 1}
+  centerLineThickness: 2
 --- !u!1 &471099708
 GameObject:
   m_ObjectHideFlags: 0
@@ -7296,7 +7300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: 0}
+  m_AnchoredPosition: {x: 0.00024414062, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &615047733
@@ -9181,7 +9185,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 232.5, y: -465.00348}
+  m_AnchoredPosition: {x: 232.5, y: -563.7037}
   m_SizeDelta: {x: 425, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782936503
@@ -11455,7 +11459,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 24.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -18215,6 +18219,8 @@ MonoBehaviour:
   pointCount: 40
   graphHeight: 70
   animationSpeed: 2
+  centerLineColor: {r: 1, g: 0, b: 0, a: 1}
+  centerLineThickness: 2
 --- !u!114 &1049855716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18521,6 +18527,8 @@ MonoBehaviour:
   pointCount: 40
   graphHeight: 70
   animationSpeed: 2
+  centerLineColor: {r: 1, g: 0, b: 0, a: 1}
+  centerLineThickness: 2
 --- !u!114 &1065778352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24873,7 +24881,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 18.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -28682,6 +28690,8 @@ MonoBehaviour:
   pointCount: 40
   graphHeight: 70
   animationSpeed: 2
+  centerLineColor: {r: 1, g: 0, b: 0, a: 1}
+  centerLineThickness: 2
 --- !u!114 &1470075021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31752,7 +31762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225, y: -465.00348}
+  m_AnchoredPosition: {x: 225, y: -563.7037}
   m_SizeDelta: {x: 410, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1699096465

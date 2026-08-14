@@ -1,8 +1,8 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - LiveECGGraph
     - MeshProfile
-    - SimpleGraph
     - SpinModel
     - TabNavigationManager
     - UIValueUpdater
@@ -370,9 +370,9 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {fileID: 11500000, guid: fc94baf599aa7af4d98b64ec8d62f5c5, type: 3}
-    - Class: 114
       Script: {fileID: 11500000, guid: 628f5ea14d0dd87409a068eb0074b7bd, type: 3}
+    - Class: 114
+      Script: {fileID: 11500000, guid: fc94baf599aa7af4d98b64ec8d62f5c5, type: 3}
     - Class: 114
       Script: {fileID: 11500000, guid: 034faa4d89e29a0458f74be0c2d1c232, type: 3}
     - Class: 114
@@ -1764,7 +1764,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerButton
   - hash:
       serializedVersion: 2
-      Hash: 17c8d04909db359c6c61d564dd73b788
+      Hash: 2e456838e3d4c47c36b37e832ccc68e4
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: UnifiedRefinerySimulator
@@ -1942,12 +1942,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerClickMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 0b82f05d0af369698963cf9ee28d785f
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: SimpleTrendGraph
   - hash:
       serializedVersion: 2
       Hash: 5f70b16cd9acc9c1dd88b51b6ed89669
@@ -2202,10 +2196,10 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerVector2
   - hash:
       serializedVersion: 2
-      Hash: 556b3d71ec8b93052469d59e1e6ac508
+      Hash: 103a53187e720f27b50f54fff9219127
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: SimpleGraph
+    className: LiveECGGraph
   - hash:
       serializedVersion: 2
       Hash: 2541c03d117382d4ebbe0bb0775dd2dc
