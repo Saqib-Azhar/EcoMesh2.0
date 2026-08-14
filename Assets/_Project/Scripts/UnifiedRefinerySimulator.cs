@@ -73,18 +73,41 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     public TextMeshProUGUI scadaServiceLifeText;
     public TextMeshProUGUI scadaComplianceStatusText;
 
-    // --- NEW ALARM UI VARIABLES ---
     [Header("Live Alarm & Warning System")]
-    public TextMeshProUGUI alarmHeaderStatusText; // The title that turns Red/Green
-    public TextMeshProUGUI alarmLogText;          // The 3-line rolling text box
+    public TextMeshProUGUI alarmHeaderStatusText;
+    public TextMeshProUGUI alarmLogText;
     private List<string> alarmLogs = new List<string>();
     private float alarmUpdateTimer = 0f;
     private bool wasInAlarmState = false;
+
+    [Header("Performance Summary UI (Primary View)")]
+    public TextMeshProUGUI perfOutletH2SText;
+    public TextMeshProUGUI perfTempText;
+    public TextMeshProUGUI perfPressureText;
+    public TextMeshProUGUI perfEfficiencyText;
+    public TextMeshProUGUI perfServiceLifeText;
+
+    [Header("Performance Summary UI (Secondary View)")]
+    public TextMeshProUGUI altPerfOutletH2SText;
+    public TextMeshProUGUI altPerfTempText;
+    public TextMeshProUGUI altPerfPressureText;
+    public TextMeshProUGUI altPerfEfficiencyText;
+    public TextMeshProUGUI altPerfServiceLifeText;
+
+    [Header("Graph Header Readouts")]
+    public TextMeshProUGUI graphHeaderEfficiencyText;
+    public TextMeshProUGUI graphHeaderExpectedEfficiencyText;
+    public TextMeshProUGUI graphHeaderPressureText;
+    public TextMeshProUGUI graphHeaderOutletText;
+    public TextMeshProUGUI graphHeaderTempText;
+
+    private float perfSummaryTimer = 1.0f; // Fast 1-second real-time updates
 
     [Header("Historical Reports & Graphing")]
     public TextMeshProUGUI historyLogDisplayTexbox;
     public RectTransform graphBoundingBox;
     public RectTransform graphTrackingNode;
+    public LiveECGGraph scadaLiveGraph;
 
     [Header("Evaluation Popup Windows")]
     public GameObject evaluationOverlayPanel;
@@ -119,6 +142,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     private float cachedDailyCost = 0f;
     private float cachedPressureDrop = 0f;
     private float cachedOutletPpm = 0f;
+    private float cachedServiceLife = 0f;
 
     private int cachedMaterialIndex = 0;
     private float cachedBedDepthL = 1.2f;
@@ -179,7 +203,8 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         if (currentRunState == SimulationState.RUNNING)
         {
             ProcessSimulationCountdown();
-            ProcessLiveAlarms(); // NEW: Triggers the 5-second polling loop
+            ProcessLiveAlarms();
+            ProcessPerformanceSummary();
         }
 
         if (fullscreenOverlayPanel != null && fullscreenOverlayPanel.activeSelf)
@@ -197,8 +222,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     {
         alarmUpdateTimer += Time.deltaTime;
 
-        // Execute polling exactly every 5 seconds
-        if (alarmUpdateTimer >= 5.0f)
+        if (alarmUpdateTimer >= 1.0f)
         {
             alarmUpdateTimer = 0f;
             EvaluateCurrentAlarms();
@@ -209,7 +233,6 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     {
         List<string> activeWarnings = new List<string>();
 
-        // Check against the predefined failure thresholds
         if (cachedPressureDrop > 6.5f) activeWarnings.Add($"Pressure Critical ({cachedPressureDrop:F1} kPa)");
         if (cachedOutletPpm > 5.0f) activeWarnings.Add($"Toxic Leak ({cachedOutletPpm:F1} ppm)");
         if (cachedDailyCost > 3000f) activeWarnings.Add($"Budget Overflow (€{cachedDailyCost:F0})");
@@ -219,52 +242,109 @@ public class UnifiedRefinerySimulator : MonoBehaviour
 
         if (isInAlarmState)
         {
-            // Combine all current issues into one string
             string combinedWarnings = string.Join(" | ", activeWarnings);
             AddMessageToAlarmLog($"[{timeStamp}] <color=red>WARNING: {combinedWarnings}</color>");
             UpdateAlarmHeaderUI(true);
         }
         else if (wasInAlarmState)
         {
-            // If there are no issues now, BUT there were issues 5 seconds ago -> System Recovered
             AddMessageToAlarmLog($"[{timeStamp}] <color=green>STABILIZED: All metrics within safe parameters.</color>");
             UpdateAlarmHeaderUI(false);
         }
-        // If there are no issues now, and there were no issues before, it remains silent.
 
         wasInAlarmState = isInAlarmState;
     }
 
     private void AddMessageToAlarmLog(string message)
     {
-        // Insert newest entry at the very top (Index 0)
         alarmLogs.Insert(0, message);
-
-        // Remove the oldest entries from the bottom if the list exceeds 3 items
-        if (alarmLogs.Count > 3)
-        {
-            alarmLogs.RemoveAt(alarmLogs.Count - 1);
-        }
-
-        // Apply string to the UI text box
-        if (alarmLogText != null)
-        {
-            alarmLogText.text = string.Join("\n", alarmLogs);
-        }
+        if (alarmLogs.Count > 3) alarmLogs.RemoveAt(alarmLogs.Count - 1);
+        if (alarmLogText != null) alarmLogText.text = string.Join("\n", alarmLogs);
     }
 
     private void UpdateAlarmHeaderUI(bool hasActiveAlarm)
     {
         if (alarmHeaderStatusText == null) return;
+        alarmHeaderStatusText.text = hasActiveAlarm ? "<color=red>ACTIVE WARNINGS</color>" : "<color=green>NO ACTIVE ALARMS</color>";
+    }
 
-        if (hasActiveAlarm)
+    // ==========================================
+    // REAL-TIME PERFORMANCE SUMMARY POLLING
+    // ==========================================
+    private void ProcessPerformanceSummary()
+    {
+        perfSummaryTimer += Time.deltaTime;
+
+        if (perfSummaryTimer >= 1.0f)
         {
-            alarmHeaderStatusText.text = "<color=red>ACTIVE WARNINGS</color>";
+            perfSummaryTimer = 0f;
+
+            // Micro-fluctuations (+/- 0.8%) for live telemetry jitter
+            float fluctuation = Random.Range(-0.008f, 0.008f);
+
+            float liveEff = Mathf.Clamp(cachedEfficiency * (1f + fluctuation), 0f, 99.99f);
+            float livePress = cachedPressureDrop * (1f + fluctuation);
+            float liveOutlet = cachedOutletPpm * (1f + fluctuation);
+            float liveTemp = (temperatureSlider != null ? temperatureSlider.value : 25f) + Random.Range(-0.3f, 0.3f);
+            float liveLife = cachedServiceLife * (1f + fluctuation);
+            float expectedEff = expectedEfficiencySlider != null ? expectedEfficiencySlider.value : 85f;
+
+            string lineOutlet = $"Outlet H2S: {liveOutlet:F2} ppm";
+            string lineTemp = $"Temperature: {liveTemp:F1} °C";
+            string linePress = $"Pressure Drop: {livePress:F2} kPa";
+            string lineEff = $"Efficiency: {liveEff:F1}%";
+            string lineLife = $"Service Life: {Mathf.Max(0, liveLife):F1} Days";
+
+            // Update Primary View Fields
+            if (perfOutletH2SText != null) perfOutletH2SText.text = lineOutlet;
+            if (perfTempText != null) perfTempText.text = lineTemp;
+            if (perfPressureText != null) perfPressureText.text = linePress;
+            if (perfEfficiencyText != null) perfEfficiencyText.text = lineEff;
+            if (perfServiceLifeText != null) perfServiceLifeText.text = lineLife;
+
+            // Update Secondary View Fields
+            if (altPerfOutletH2SText != null) altPerfOutletH2SText.text = lineOutlet;
+            if (altPerfTempText != null) altPerfTempText.text = lineTemp;
+            if (altPerfPressureText != null) altPerfPressureText.text = linePress;
+            if (altPerfEfficiencyText != null) altPerfEfficiencyText.text = lineEff;
+            if (altPerfServiceLifeText != null) altPerfServiceLifeText.text = lineLife;
+
+            // Update Graph Header Labels
+            if (graphHeaderEfficiencyText != null) graphHeaderEfficiencyText.text = $"{liveEff:F1}%";
+            if (graphHeaderExpectedEfficiencyText != null) graphHeaderExpectedEfficiencyText.text = $"Exp: {expectedEff:F1}%";
+            if (graphHeaderPressureText != null) graphHeaderPressureText.text = $"{livePress:F3} kPa";
+            if (graphHeaderOutletText != null) graphHeaderOutletText.text = $"{liveOutlet:F2} ppm";
+            if (graphHeaderTempText != null) graphHeaderTempText.text = $"{liveTemp:F1} °C";
         }
-        else
-        {
-            alarmHeaderStatusText.text = "<color=green>NO ACTIVE ALARMS</color>";
-        }
+    }
+
+    private void ResetPerformanceSummaryUI()
+    {
+        string defaultOutlet = "Outlet H2S: 0.00 ppm";
+        string defaultTemp = "Temperature: 0.0 °C";
+        string defaultPress = "Pressure Drop: 0.00 kPa";
+        string defaultEff = "Efficiency: 0.0%";
+        string defaultLife = "Service Life: 0.0 Days";
+
+        // Reset Primary View Fields
+        if (perfOutletH2SText != null) perfOutletH2SText.text = defaultOutlet;
+        if (perfTempText != null) perfTempText.text = defaultTemp;
+        if (perfPressureText != null) perfPressureText.text = defaultPress;
+        if (perfEfficiencyText != null) perfEfficiencyText.text = defaultEff;
+        if (perfServiceLifeText != null) perfServiceLifeText.text = defaultLife;
+
+        // Reset Secondary View Fields
+        if (altPerfOutletH2SText != null) altPerfOutletH2SText.text = defaultOutlet;
+        if (altPerfTempText != null) altPerfTempText.text = defaultTemp;
+        if (altPerfPressureText != null) altPerfPressureText.text = defaultPress;
+        if (altPerfEfficiencyText != null) altPerfEfficiencyText.text = defaultEff;
+        if (altPerfServiceLifeText != null) altPerfServiceLifeText.text = defaultLife;
+
+        if (graphHeaderEfficiencyText != null) graphHeaderEfficiencyText.text = "0.0%";
+        if (graphHeaderExpectedEfficiencyText != null) graphHeaderExpectedEfficiencyText.text = "Exp: 0.0%";
+        if (graphHeaderPressureText != null) graphHeaderPressureText.text = "0.000 kPa";
+        if (graphHeaderOutletText != null) graphHeaderOutletText.text = "0.00 ppm";
+        if (graphHeaderTempText != null) graphHeaderTempText.text = "0.0 °C";
     }
 
     // ==========================================
@@ -273,18 +353,9 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     private void SyncSliders(Slider mainSlider, Slider fullScreenSlider)
     {
         if (mainSlider == null || fullScreenSlider == null) return;
-
         fullScreenSlider.value = mainSlider.value;
-
-        mainSlider.onValueChanged.AddListener((val) =>
-        {
-            if (fullScreenSlider.value != val) fullScreenSlider.value = val;
-        });
-
-        fullScreenSlider.onValueChanged.AddListener((val) =>
-        {
-            if (mainSlider.value != val) mainSlider.value = val;
-        });
+        mainSlider.onValueChanged.AddListener((val) => { if (fullScreenSlider.value != val) fullScreenSlider.value = val; });
+        fullScreenSlider.onValueChanged.AddListener((val) => { if (mainSlider.value != val) mainSlider.value = val; });
     }
 
     private void OnGenerateHardwareModelConfirmed()
@@ -327,10 +398,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
 
     private void OnMainRunButtonClicked()
     {
-        if (currentRunState == SimulationState.STANDBY)
-        {
-            StartActiveSimulationRun();
-        }
+        if (currentRunState == SimulationState.STANDBY) StartActiveSimulationRun();
     }
 
     private void StartActiveSimulationRun()
@@ -339,8 +407,8 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         runtimeCountdownClock = runtimeCountdownClockStatic;
         meshSaturationAccumulator = 0.0f;
 
-        // Reset alarm state for fresh run
         alarmUpdateTimer = 0f;
+        perfSummaryTimer = 1.0f;
         wasInAlarmState = false;
         AddMessageToAlarmLog($"[{System.DateTime.Now.ToString("HH:mm:ss")}] <color=white>Shift Initiated. SCADA polling active.</color>");
         UpdateAlarmHeaderUI(false);
@@ -361,14 +429,8 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         runtimeCountdownClock -= Time.deltaTime;
         meshSaturationAccumulator += Time.deltaTime / runtimeCountdownClockStatic;
 
-        if (runtimeCountdownClock <= 0.0f)
-        {
-            FinishAndEvaluateRun();
-        }
-        else
-        {
-            SyncRunButtonState($"SIMULATING ({runtimeCountdownClock.ToString("F0")}s)", true);
-        }
+        if (runtimeCountdownClock <= 0.0f) FinishAndEvaluateRun();
+        else SyncRunButtonState($"SIMULATING ({runtimeCountdownClock.ToString("F0")}s)", true);
     }
 
     private void FinishAndEvaluateRun()
@@ -376,15 +438,15 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         currentRunState = SimulationState.CONCLUDED;
         EvaluateSystemPhysics();
 
-        if (evaluationOverlayPanel != null)
-        {
-            evaluationOverlayPanel.transform.SetAsLastSibling();
-        }
+        if (evaluationOverlayPanel != null) evaluationOverlayPanel.transform.SetAsLastSibling();
 
         string popupTitle = "";
         string popupMessage = "";
         bool runSuccess = false;
         string grade = "F";
+
+        float expectedEff = expectedEfficiencySlider != null ? expectedEfficiencySlider.value : 85f;
+        float expectedCost = estimatedCostSlider != null ? estimatedCostSlider.value : 1500f;
 
         if (cachedPressureDrop > 6.5f)
         {
@@ -404,9 +466,17 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         else
         {
             runSuccess = true;
-            grade = cachedDailyCost <= 2200f ? "A" : "B";
+
+            float effVariance = Mathf.Abs(cachedEfficiency - expectedEff);
+            float costVariance = Mathf.Abs(cachedDailyCost - expectedCost);
+
+            if (effVariance <= 2.0f && costVariance <= 200f) grade = "A+";
+            else if (effVariance <= 5.0f && costVariance <= 500f) grade = "A";
+            else if (effVariance <= 10.0f && costVariance <= 800f) grade = "B";
+            else grade = "C";
+
             popupTitle = $"<color=green>SHIFT SUCCESS - GRADE {grade}</color>";
-            popupMessage = "<b>CONGRATULATIONS, OPERATOR!</b>\n\nReactor operates safely within all regulatory, structural, and financial limits.";
+            popupMessage = $"<b>CONGRATULATIONS, OPERATOR!</b>\n\nReactor operates safely.\n\n<b>Estimation Accuracy:</b>\nEfficiency Variance: {effVariance:F1}%\nCost Variance: €{costVariance:F0}";
         }
 
         if (evaluationTitleText != null) evaluationTitleText.text = popupTitle;
@@ -481,12 +551,13 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         runtimeCountdownClock = runtimeCountdownClockStatic;
         meshSaturationAccumulator = 0.0f;
 
-        // Clear live alarm UI
         alarmLogs.Clear();
         alarmUpdateTimer = 0f;
         wasInAlarmState = false;
         if (alarmLogText != null) alarmLogText.text = "<i>Reactor offline. SCADA monitoring standing by...</i>";
         UpdateAlarmHeaderUI(false);
+
+        ResetPerformanceSummaryUI();
 
         if (evaluationOverlayPanel != null) evaluationOverlayPanel.SetActive(false);
         if (fullscreenOverlayPanel != null) fullscreenOverlayPanel.SetActive(false);
@@ -569,6 +640,9 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         }
     }
 
+    // ==========================================
+    // MATHEMATICAL FRAMEWORK
+    // ==========================================
     private void EvaluateSystemPhysics()
     {
         float columnArea = 2.0f;
@@ -579,28 +653,41 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         float tempC = temperatureSlider != null ? temperatureSlider.value : 25f;
         float bedDepthL = cachedBedDepthL;
 
+        float[] matKinetics = { 1.0f, 0.8f, 1.3f, 1.1f };
+        float[] matDurability = { 1.0f, 0.6f, 2.0f, 0.8f };
+        float[] matBaseCost = { 100f, 50f, 400f, 150f };
+
+        float[] openingArea = { 1.4f, 1.0f, 0.7f };
+        float[] openingDrop = { 1.6f, 1.0f, 0.5f };
+
+        int safeMatIndex = Mathf.Clamp(cachedMaterialIndex, 0, 3);
+        int safeOpenIndex = Mathf.Clamp(cachedOpeningSizeIndex, 0, 2);
+
         float superficialVelocity = (gasFlowQ / 3600f) / columnArea;
-
-        cachedPressureDrop = (1.5f * superficialVelocity + 0.5f * Mathf.Pow(superficialVelocity, 2)) * bedDepthL;
-
         float gasContactTime = bedDepthL / (superficialVelocity > 0 ? superficialVelocity : 0.0001f);
+
+        cachedPressureDrop = (1.5f * superficialVelocity + 0.5f * Mathf.Pow(superficialVelocity, 2))
+                             * bedDepthL
+                             * openingDrop[safeOpenIndex];
+
         float tempModifier = 1.0f + ((tempC - 25f) * 0.02f);
-        float adjustedK = baseKineticK * tempModifier;
+        float adjustedK = baseKineticK * tempModifier * matKinetics[safeMatIndex] * openingArea[safeOpenIndex];
 
         cachedEfficiency = 100f * (1f - Mathf.Exp(-adjustedK * gasContactTime));
         cachedEfficiency = Mathf.Clamp(cachedEfficiency, 0f, 99.99f);
-
         cachedOutletPpm = inletH2S * (1f - (cachedEfficiency / 100f));
 
         float blowerPowerKW = (gasFlowQ / 3600f * (cachedPressureDrop * 1000f)) / 0.75f / 1000f;
         float dailyEnergyCost = blowerPowerKW * 24f * 0.15f;
         float dailyCapturedH2SKg = (gasFlowQ * inletH2S * 1.2f * 34.08f) / 1e6f / 3600f * 86400f * (cachedEfficiency / 100f);
         float dailyRegenerationCost = dailyCapturedH2SKg * 1.80f;
+        float structuralDepreciation = matBaseCost[safeMatIndex];
 
-        cachedDailyCost = dailyEnergyCost + dailyRegenerationCost + 450f;
-        float simulatedServiceLife = 145f - (dailyCapturedH2SKg * 0.1f);
+        cachedDailyCost = dailyEnergyCost + dailyRegenerationCost + structuralDepreciation;
 
-        UpdateUserInterfaceDisplay(cachedEfficiency, cachedDailyCost, cachedPressureDrop, cachedOutletPpm, simulatedServiceLife);
+        cachedServiceLife = (145f * matDurability[safeMatIndex]) - (dailyCapturedH2SKg * 0.1f);
+
+        UpdateUserInterfaceDisplay(cachedEfficiency, cachedDailyCost, cachedPressureDrop, cachedOutletPpm, cachedServiceLife);
         UpdateUnifiedMeshAppearance();
 
         if (inletParticles != null)
@@ -712,6 +799,19 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             float clampedY = Mathf.Clamp(targetY, padding, graphBoundingBox.rect.height - padding);
 
             graphTrackingNode.anchoredPosition = new Vector2(clampedX, clampedY);
+        }
+
+        if (scadaLiveGraph != null)
+        {
+            float expectedEff = expectedEfficiencySlider != null ? expectedEfficiencySlider.value : 85f;
+            float expectedCost = estimatedCostSlider != null ? estimatedCostSlider.value : 1500f;
+            float baselinePress = 4.5f;
+
+            scadaLiveGraph.FeedTelemetryData(
+                eff, expectedEff,
+                cost, expectedCost,
+                pressDrop, baselinePress
+            );
         }
     }
 
