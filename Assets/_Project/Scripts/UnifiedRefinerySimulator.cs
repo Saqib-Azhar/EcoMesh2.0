@@ -67,11 +67,11 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     public Button mainRunButton;
     private TextMeshProUGUI runButtonText;
 
-    [Header("Detailed SCADA Readouts")]
-    public TextMeshProUGUI scadaPressureDropText;
-    public TextMeshProUGUI scadaOutletPpmText;
-    public TextMeshProUGUI scadaServiceLifeText;
-    public TextMeshProUGUI scadaComplianceStatusText;
+    [Header("Detailed Telemetry Readouts")]
+    public TextMeshProUGUI detailedPressureDropText;
+    public TextMeshProUGUI detailedOutletPpmText;
+    public TextMeshProUGUI detailedServiceLifeText;
+    public TextMeshProUGUI detailedComplianceStatusText;
 
     [Header("Live Alarm & Warning System")]
     public TextMeshProUGUI alarmHeaderStatusText;
@@ -98,16 +98,24 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     public TextMeshProUGUI graphHeaderEfficiencyText;
     public TextMeshProUGUI graphHeaderExpectedEfficiencyText;
     public TextMeshProUGUI graphHeaderPressureText;
+    public TextMeshProUGUI graphHeaderSafePressureText;
     public TextMeshProUGUI graphHeaderOutletText;
+    public TextMeshProUGUI graphHeaderSafeOutletText;
     public TextMeshProUGUI graphHeaderTempText;
+    public TextMeshProUGUI graphHeaderSafeTempText;
 
-    private float perfSummaryTimer = 1.0f; // Fast 1-second real-time updates
+    private float perfSummaryTimer = 1.0f;
 
     [Header("Historical Reports & Graphing")]
     public TextMeshProUGUI historyLogDisplayTexbox;
     public RectTransform graphBoundingBox;
     public RectTransform graphTrackingNode;
-    public LiveECGGraph scadaLiveGraph;
+
+    // NEW: Separated Graphs for individual panels
+    public LiveECGGraph efficiencyGraph;
+    public LiveECGGraph pressureGraph;
+    public LiveECGGraph outletH2SGraph;
+    public LiveECGGraph temperatureGraph;
 
     [Header("Evaluation Popup Windows")]
     public GameObject evaluationOverlayPanel;
@@ -285,7 +293,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             float liveEff = Mathf.Clamp(cachedEfficiency * (1f + fluctuation), 0f, 99.99f);
             float livePress = cachedPressureDrop * (1f + fluctuation);
             float liveOutlet = cachedOutletPpm * (1f + fluctuation);
-            float liveTemp = (temperatureSlider != null ? temperatureSlider.value : 25f) + Random.Range(-0.3f, 0.3f);
+            float liveTemp = (temperatureSlider != null ? temperatureSlider.value : 55f) + Random.Range(-0.3f, 0.3f);
             float liveLife = cachedServiceLife * (1f + fluctuation);
             float expectedEff = expectedEfficiencySlider != null ? expectedEfficiencySlider.value : 85f;
 
@@ -309,12 +317,18 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             if (altPerfEfficiencyText != null) altPerfEfficiencyText.text = lineEff;
             if (altPerfServiceLifeText != null) altPerfServiceLifeText.text = lineLife;
 
-            // Update Graph Header Labels
+            // Update Graph Header Labels & Standard Safe Values
             if (graphHeaderEfficiencyText != null) graphHeaderEfficiencyText.text = $"{liveEff:F1}%";
             if (graphHeaderExpectedEfficiencyText != null) graphHeaderExpectedEfficiencyText.text = $"Exp: {expectedEff:F1}%";
+
             if (graphHeaderPressureText != null) graphHeaderPressureText.text = $"{livePress:F3} kPa";
+            if (graphHeaderSafePressureText != null) graphHeaderSafePressureText.text = "Safe: < 6.5 kPa";
+
             if (graphHeaderOutletText != null) graphHeaderOutletText.text = $"{liveOutlet:F2} ppm";
+            if (graphHeaderSafeOutletText != null) graphHeaderSafeOutletText.text = "Safe: < 5.0 ppm";
+
             if (graphHeaderTempText != null) graphHeaderTempText.text = $"{liveTemp:F1} °C";
+            if (graphHeaderSafeTempText != null) graphHeaderSafeTempText.text = "Std: 55.0 °C";
         }
     }
 
@@ -340,11 +354,18 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         if (altPerfEfficiencyText != null) altPerfEfficiencyText.text = defaultEff;
         if (altPerfServiceLifeText != null) altPerfServiceLifeText.text = defaultLife;
 
+        // Reset Graph Header Labels
         if (graphHeaderEfficiencyText != null) graphHeaderEfficiencyText.text = "0.0%";
         if (graphHeaderExpectedEfficiencyText != null) graphHeaderExpectedEfficiencyText.text = "Exp: 0.0%";
+
         if (graphHeaderPressureText != null) graphHeaderPressureText.text = "0.000 kPa";
+        if (graphHeaderSafePressureText != null) graphHeaderSafePressureText.text = "Safe: < 6.5 kPa";
+
         if (graphHeaderOutletText != null) graphHeaderOutletText.text = "0.00 ppm";
+        if (graphHeaderSafeOutletText != null) graphHeaderSafeOutletText.text = "Safe: < 5.0 ppm";
+
         if (graphHeaderTempText != null) graphHeaderTempText.text = "0.0 °C";
+        if (graphHeaderSafeTempText != null) graphHeaderSafeTempText.text = "Std: 25.0 °C";
     }
 
     // ==========================================
@@ -391,7 +412,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                Debug.Log($"[SCADA Diagnostics] Operator clicked on: {hit.transform.name}");
+                Debug.Log($"[System Diagnostics] Operator clicked on: {hit.transform.name}");
             }
         }
     }
@@ -410,7 +431,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         alarmUpdateTimer = 0f;
         perfSummaryTimer = 1.0f;
         wasInAlarmState = false;
-        AddMessageToAlarmLog($"[{System.DateTime.Now.ToString("HH:mm:ss")}] <color=white>Shift Initiated. SCADA polling active.</color>");
+        AddMessageToAlarmLog($"[{System.DateTime.Now.ToString("HH:mm:ss")}] <color=white>Shift Initiated. System polling active.</color>");
         UpdateAlarmHeaderUI(false);
 
         ToggleStructuralUIInteractability(false);
@@ -420,6 +441,12 @@ public class UnifiedRefinerySimulator : MonoBehaviour
 
         if (inletParticles != null && inletParticles.isStopped) inletParticles.Play();
         if (outletParticles != null && outletParticles.isStopped) outletParticles.Play();
+
+        // NEW: Start the individual graphs dynamically scrolling
+        if (efficiencyGraph != null) efficiencyGraph.isSimulationRunning = true;
+        if (pressureGraph != null) pressureGraph.isSimulationRunning = true;
+        if (outletH2SGraph != null) outletH2SGraph.isSimulationRunning = true;
+        if (temperatureGraph != null) temperatureGraph.isSimulationRunning = true;
 
         SetFullscreenOverlayActive(true);
     }
@@ -554,7 +581,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         alarmLogs.Clear();
         alarmUpdateTimer = 0f;
         wasInAlarmState = false;
-        if (alarmLogText != null) alarmLogText.text = "<i>Reactor offline. SCADA monitoring standing by...</i>";
+        if (alarmLogText != null) alarmLogText.text = "<i>Reactor offline. System monitoring standing by...</i>";
         UpdateAlarmHeaderUI(false);
 
         ResetPerformanceSummaryUI();
@@ -570,6 +597,12 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         ClearParticles();
         Update3DModelStructure();
         UpdateUnifiedMeshAppearance();
+
+        // NEW: Stop the graphs when returning to standby mode
+        if (efficiencyGraph != null) efficiencyGraph.isSimulationRunning = false;
+        if (pressureGraph != null) pressureGraph.isSimulationRunning = false;
+        if (outletH2SGraph != null) outletH2SGraph.isSimulationRunning = false;
+        if (temperatureGraph != null) temperatureGraph.isSimulationRunning = false;
     }
 
     private void ToggleStructuralUIInteractability(bool state)
@@ -650,7 +683,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
 
         float gasFlowQ = gasVolumeSlider != null ? gasVolumeSlider.value : 750f;
         float inletH2S = h2sSlider != null ? h2sSlider.value : 850f;
-        float tempC = temperatureSlider != null ? temperatureSlider.value : 25f;
+        float tempC = temperatureSlider != null ? temperatureSlider.value : 55f;
         float bedDepthL = cachedBedDepthL;
 
         float[] matKinetics = { 1.0f, 0.8f, 1.3f, 1.1f };
@@ -670,7 +703,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
                              * bedDepthL
                              * openingDrop[safeOpenIndex];
 
-        float tempModifier = 1.0f + ((tempC - 25f) * 0.02f);
+        float tempModifier = 1.0f + ((tempC - 55f) * 0.02f);
         float adjustedK = baseKineticK * tempModifier * matKinetics[safeMatIndex] * openingArea[safeOpenIndex];
 
         cachedEfficiency = 100f * (1f - Mathf.Exp(-adjustedK * gasContactTime));
@@ -728,19 +761,32 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             default: return Color.gray;
         }
     }
-
     private void UpdateUnifiedMeshAppearance()
     {
         Color baseMatColor = GetMaterialBaseColor(cachedMaterialIndex);
 
+        // Define a natural oxidized rust color (burnt orange/brown)
+        Color rustColor = new Color(0.55f, 0.30f, 0.15f, 1f);
+
+        // The accumulator naturally scales from 0 to 1 during the countdown
         float saturationFactor = Mathf.Clamp01(meshSaturationAccumulator);
-        Color darkenedColor = Color.Lerp(baseMatColor, baseMatColor * 0.25f, saturationFactor);
+
+        // Lerp from the clean base color to the rusted color as time passes
+        Color rustedColor = Color.Lerp(baseMatColor, rustColor, saturationFactor);
 
         float currentTemp = temperatureSlider != null ? temperatureSlider.value : 35f;
         float tempNormalized = Mathf.Clamp01(Mathf.InverseLerp(35f, 200f, currentTemp));
-        Color tempInfluencedColor = Color.Lerp(darkenedColor, heatedReactorColor, tempNormalized);
 
-        float safetyAlertFactor = Mathf.Clamp01(Mathf.InverseLerp(0f, 6.5f, cachedPressureDrop));
+        // Apply the temperature glow ON TOP of the currently rusted/clean state
+        Color tempInfluencedColor = Color.Lerp(rustedColor, heatedReactorColor, tempNormalized);
+
+        // NEW: Only apply the Pressure Drop (Volume Load) redness if the simulation is actually running or concluded
+        float safetyAlertFactor = 0f;
+        if (currentRunState != SimulationState.STANDBY)
+        {
+            safetyAlertFactor = Mathf.Clamp01(Mathf.InverseLerp(0f, 6.5f, cachedPressureDrop));
+        }
+
         Color finalInnerMeshColor = Color.Lerp(tempInfluencedColor, Color.red, safetyAlertFactor);
 
         if (instancedMaterials != null)
@@ -768,21 +814,21 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         if (rightSideEfficiencyText != null) rightSideEfficiencyText.text = $"{eff.ToString("F1")}%";
         if (rightSideCostText != null) rightSideCostText.text = $"€{cost.ToString("F0")} / day";
 
-        if (scadaPressureDropText != null) scadaPressureDropText.text = $"Pressure Drop: {pressDrop.ToString("F2")} kPa";
-        if (scadaOutletPpmText != null) scadaOutletPpmText.text = $"Outlet H2S: {outPpm.ToString("F2")} ppm";
-        if (scadaServiceLifeText != null) scadaServiceLifeText.text = $"Service Life: {Mathf.Max(0, days).ToString("F0")} Days";
+        if (detailedPressureDropText != null) detailedPressureDropText.text = $"Pressure Drop: {pressDrop.ToString("F2")} kPa";
+        if (detailedOutletPpmText != null) detailedOutletPpmText.text = $"Outlet H2S: {outPpm.ToString("F2")} ppm";
+        if (detailedServiceLifeText != null) detailedServiceLifeText.text = $"Service Life: {Mathf.Max(0, days).ToString("F0")} Days";
 
-        if (scadaComplianceStatusText != null)
+        if (detailedComplianceStatusText != null)
         {
             if (outPpm > 5.0f || pressDrop > 6.5f || cost > 3000f)
             {
-                scadaComplianceStatusText.text = currentRunState == SimulationState.RUNNING ? "Status: SYSTEM UNDER DURESS" : "Status: NON-COMPLIANT";
-                scadaComplianceStatusText.color = Color.red;
+                detailedComplianceStatusText.text = currentRunState == SimulationState.RUNNING ? "Status: SYSTEM UNDER DURESS" : "Status: NON-COMPLIANT";
+                detailedComplianceStatusText.color = Color.red;
             }
             else
             {
-                scadaComplianceStatusText.text = currentRunState == SimulationState.STANDBY ? "OFFLINE STANDBY" : "Status: OPERATIONAL (SECURE)";
-                scadaComplianceStatusText.color = currentRunState == SimulationState.STANDBY ? Color.white : Color.green;
+                detailedComplianceStatusText.text = currentRunState == SimulationState.STANDBY ? "OFFLINE STANDBY" : "Status: OPERATIONAL (SECURE)";
+                detailedComplianceStatusText.color = currentRunState == SimulationState.STANDBY ? Color.white : Color.green;
             }
         }
 
@@ -801,18 +847,14 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             graphTrackingNode.anchoredPosition = new Vector2(clampedX, clampedY);
         }
 
-        if (scadaLiveGraph != null)
-        {
-            float expectedEff = expectedEfficiencySlider != null ? expectedEfficiencySlider.value : 85f;
-            float expectedCost = estimatedCostSlider != null ? estimatedCostSlider.value : 1500f;
-            float baselinePress = 4.5f;
+        // NEW: Update each individual graph with its specific standard parameters
+        float expectedEff = expectedEfficiencySlider != null ? expectedEfficiencySlider.value : 100f;
+        float currentTemp = temperatureSlider != null ? temperatureSlider.value : 55f;
 
-            scadaLiveGraph.FeedTelemetryData(
-                eff, expectedEff,
-                cost, expectedCost,
-                pressDrop, baselinePress
-            );
-        }
+        if (efficiencyGraph != null) efficiencyGraph.UpdateTelemetry(eff, expectedEff);
+        if (pressureGraph != null) pressureGraph.UpdateTelemetry(pressDrop, 6.5f); // 6.5 kPa safe limit
+        if (outletH2SGraph != null) outletH2SGraph.UpdateTelemetry(outPpm, 5.0f);  // 5.0 ppm safe limit
+        if (temperatureGraph != null) temperatureGraph.UpdateTelemetry(currentTemp, 55.0f); // 55 C std baseline
     }
 
     private void QuitRefinerySimulator()

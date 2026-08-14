@@ -1764,7 +1764,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerButton
   - hash:
       serializedVersion: 2
-      Hash: 2e456838e3d4c47c36b37e832ccc68e4
+      Hash: ca6f0a67fe151a9aba0090c0cd99cb3e
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: UnifiedRefinerySimulator
@@ -2196,7 +2196,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerVector2
   - hash:
       serializedVersion: 2
-      Hash: 103a53187e720f27b50f54fff9219127
+      Hash: e6588aa338c628867d3576f5721a8f92
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: LiveECGGraph

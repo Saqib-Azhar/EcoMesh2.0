@@ -1,147 +1,143 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using System.Collections.Generic;
 
-public class LiveECGGraph : MonoBehaviour
+[RequireComponent(typeof(CanvasRenderer))]
+public class LiveECGGraph : MaskableGraphic
 {
-    [Header("ECG Simulation Config")]
-    public int pointCount = 50;
-    public float updateRate = 0.5f; // Updates every 0.5 seconds for a heartbeat feel
+    [Header("Simulation Control")]
+    [Tooltip("Set to true via script when the simulation starts to begin scrolling.")]
+    public bool isSimulationRunning = false;
 
-    [Header("Center Target Line (Red)")]
-    public Color centerLineColor = Color.red;
-    public float centerLineThickness = 2f;
+    [Header("ECG Configuration")]
+    public int maxDataPoints = 60;
+    public float updateRate = 1.0f;
+    public float lineThickness = 3.0f;
 
-    [Header("Input 1: Efficiency")]
-    public Color color1 = Color.green;
-    public TextMeshProUGUI heading1Text;
-    public float tolerance1 = 15f; // +/- 15% spread limits before hitting the top/bottom of graph
+    [Tooltip("The color of the live data line. Change this for each UI Panel.")]
+    public Color lineColor = Color.yellow;
 
-    [Header("Input 2: Daily Cost")]
-    public Color color2 = Color.cyan;
-    public TextMeshProUGUI heading2Text;
-    public float tolerance2 = 1000f; // +/- €1000 spread limits
+    [Tooltip("How much variance = 100% deflection. Make this SMALL for Efficiency (e.g. 1.0) and LARGE for Temp (e.g. 100.0)")]
+    public float tolerance = 5.0f;
 
-    [Header("Input 3: Pressure Drop")]
-    public Color color3 = Color.yellow;
-    public TextMeshProUGUI heading3Text;
-    public float tolerance3 = 3f; // +/- 3 kPa spread limits
+    [Header("Center Target Line")]
+    public Color centerLineColor = new Color(0.9f, 0.1f, 0.1f, 0.8f);
+    public float centerLineThickness = 2.0f;
 
-    private RectTransform rect;
-    private float[] values1, values2, values3;
-    private Image[] points1, points2, points3;
-    private float timer;
+    // Telemetry Caches
+    private float currentActual = 0f;
+    private float currentTarget = 0f;
 
-    // Cache for the latest incoming live telemetry
-    private float act1, tgt1, act2, tgt2, act3, tgt3;
+    private List<float> history = new List<float>();
+    private float timer = 0f;
 
-    void Start()
+    /// <summary>
+    /// Feed data into this specific graph. Call this from UnifiedRefinerySimulator.
+    /// </summary>
+    public void UpdateTelemetry(float actual, float target)
     {
-        rect = GetComponent<RectTransform>();
-        CreateStableCenterLine();
-
-        InitLine(ref points1, ref values1, color1);
-        InitLine(ref points2, ref values2, color2);
-        InitLine(ref points3, ref values3, color3);
+        currentActual = actual;
+        currentTarget = target;
     }
 
-    private void InitLine(ref Image[] points, ref float[] values, Color c)
+    private void Update()
     {
-        values = new float[pointCount];
-        points = new Image[pointCount];
+        // 1. STOP if the simulation hasn't started yet.
+        if (!isSimulationRunning) return;
 
-        for (int i = 0; i < pointCount; i++)
-        {
-            GameObject p = new GameObject("ECG_Node_" + i);
-            p.transform.SetParent(transform, false);
-
-            Image img = p.AddComponent<Image>();
-            img.color = c;
-
-            RectTransform rt = img.rectTransform;
-            rt.sizeDelta = new Vector2(4, 4);
-            rt.anchorMin = Vector2.zero;
-            rt.anchorMax = Vector2.zero;
-            rt.pivot = new Vector2(0.5f, 0.5f);
-
-            points[i] = img;
-        }
-    }
-
-    // This method gets called constantly by your UnifiedRefinerySimulator
-    public void FeedTelemetryData(
-        float actualEff, float expectedEff,
-        float actualCost, float expectedCost,
-        float actualPress, float expectedPress)
-    {
-        act1 = actualEff; tgt1 = expectedEff;
-        act2 = actualCost; tgt2 = expectedCost;
-        act3 = actualPress; tgt3 = expectedPress;
-
-        // Update the textual headings in front of the graph
-        if (heading1Text != null) heading1Text.text = $"Efficiency: <color=#00FF00>{act1:F1}%</color> (Target: {tgt1:F1}%)";
-        if (heading2Text != null) heading2Text.text = $"Op. Cost: <color=#00FFFF>€{act2:F0}</color> (Est: €{tgt2:F0})";
-        if (heading3Text != null) heading3Text.text = $"Pressure: <color=#FFFF00>{act3:F2} kPa</color> (Base: {tgt3:F1})";
-    }
-
-    void Update()
-    {
         timer += Time.deltaTime;
 
-        // Only shift the graph forward based on the updateRate
+        // Force UI redraw to keep the line moving smoothly
+        SetVerticesDirty();
+
         if (timer >= updateRate)
         {
-            timer = 0f;
-            ShiftAndCalculateECG(values1, act1, tgt1, tolerance1);
-            ShiftAndCalculateECG(values2, act2, tgt2, tolerance2);
-            ShiftAndCalculateECG(values3, act3, tgt3, tolerance3);
-            DrawGraph();
+            timer -= updateRate;
+
+            // Calculate variance relative to the target
+            float diff = currentActual - currentTarget;
+
+            // Prevent division by zero
+            float safeTolerance = Mathf.Max(tolerance, 0.001f);
+
+            // Normalize between -1 (bottom of graph) and 1 (top of graph)
+            float normalized = Mathf.Clamp(diff / safeTolerance, -1f, 1f);
+
+            history.Add(normalized);
+
+            if (history.Count > maxDataPoints) history.RemoveAt(0);
         }
     }
 
-    private void ShiftAndCalculateECG(float[] vals, float actual, float target, float tolerance)
+    protected override void OnPopulateMesh(VertexHelper vh)
     {
-        // Shift all old data points to the left
-        for (int i = 0; i < vals.Length - 1; i++) vals[i] = vals[i + 1];
+        vh.Clear();
 
-        // The Math: Actual minus Target. 
-        // Positive result = Over the red line. Negative = Under the red line. 0 = On the red line.
-        float difference = actual - target;
+        Rect graphRect = rectTransform.rect;
+        float xMin = graphRect.xMin;
+        float xMax = graphRect.xMax;
+        float yCenter = graphRect.center.y;
+        float width = graphRect.width;
+        float halfHeight = (graphRect.height / 2f) - 5f;
 
-        // Normalize it against the tolerance so it fits nicely inside the UI Box
-        float normalized = difference / tolerance;
+        // Draw the static center red line
+        DrawLineSegment(vh, new Vector2(xMin, yCenter), new Vector2(xMax, yCenter), centerLineColor, centerLineThickness);
 
-        vals[vals.Length - 1] = Mathf.Clamp(normalized, -1f, 1f);
-    }
+        if (history.Count < 2) return;
 
-    void DrawGraph()
-    {
-        float width = rect.rect.width;
-        float halfHeight = rect.rect.height / 2f;
-        float centerY = halfHeight;
+        float xSpacing = width / (maxDataPoints - 1);
+        float scrollOffset = (timer / updateRate) * xSpacing;
 
-        for (int i = 0; i < pointCount; i++)
+        // Draw the historical data points moving from right to left
+        for (int i = 0; i < history.Count - 1; i++)
         {
-            float x = i * width / (pointCount - 1);
+            int indexFromRight1 = (history.Count - 1) - i;
+            int indexFromRight2 = (history.Count - 1) - (i + 1);
 
-            points1[i].rectTransform.anchoredPosition = new Vector2(x, centerY + (values1[i] * (halfHeight - 5f)));
-            points2[i].rectTransform.anchoredPosition = new Vector2(x, centerY + (values2[i] * (halfHeight - 5f)));
-            points3[i].rectTransform.anchoredPosition = new Vector2(x, centerY + (values3[i] * (halfHeight - 5f)));
+            float x1 = xMax - (indexFromRight1 * xSpacing) - scrollOffset;
+            float x2 = xMax - (indexFromRight2 * xSpacing) - scrollOffset;
+
+            float y1 = yCenter + (history[i] * halfHeight);
+            float y2 = yCenter + (history[i + 1] * halfHeight);
+
+            DrawLineSegment(vh, new Vector2(x1, y1), new Vector2(x2, y2), lineColor, lineThickness);
+        }
+
+        // Draw the live leading edge connecting the history to the exact current frame
+        if (history.Count > 0)
+        {
+            float lastX = xMax - scrollOffset;
+            float liveX = xMax + (xSpacing - scrollOffset);
+
+            float lastY = yCenter + (history[history.Count - 1] * halfHeight);
+
+            float diff = currentActual - currentTarget;
+            float safeTolerance = Mathf.Max(tolerance, 0.001f);
+            float liveY = yCenter + (Mathf.Clamp(diff / safeTolerance, -1f, 1f) * halfHeight);
+
+            DrawLineSegment(vh, new Vector2(lastX, lastY), new Vector2(liveX, liveY), lineColor, lineThickness);
         }
     }
 
-    private void CreateStableCenterLine()
+    private void DrawLineSegment(VertexHelper vh, Vector2 start, Vector2 end, Color color, float thickness)
     {
-        GameObject lineObj = new GameObject("Target_CenterLine_Red");
-        lineObj.transform.SetParent(transform, false);
+        Vector2 dir = (end - start).normalized;
+        if (dir == Vector2.zero) return;
 
-        Image img = lineObj.AddComponent<Image>();
-        img.color = centerLineColor;
+        Vector2 normal = new Vector2(-dir.y, dir.x) * (thickness / 2f);
 
-        RectTransform rt = lineObj.GetComponent<RectTransform>();
-        rt.anchorMin = new Vector2(0f, 0.5f);
-        rt.anchorMax = new Vector2(1f, 0.5f);
-        rt.sizeDelta = new Vector2(0f, centerLineThickness);
-        rt.anchoredPosition = Vector2.zero;
+        UIVertex v1 = UIVertex.simpleVert; v1.color = color; v1.position = start - normal;
+        UIVertex v2 = UIVertex.simpleVert; v2.color = color; v2.position = start + normal;
+        UIVertex v3 = UIVertex.simpleVert; v3.color = color; v3.position = end + normal;
+        UIVertex v4 = UIVertex.simpleVert; v4.color = color; v4.position = end - normal;
+
+        int startIndex = vh.currentVertCount;
+        vh.AddVert(v1);
+        vh.AddVert(v2);
+        vh.AddVert(v3);
+        vh.AddVert(v4);
+
+        vh.AddTriangle(startIndex, startIndex + 1, startIndex + 2);
+        vh.AddTriangle(startIndex + 2, startIndex + 3, startIndex);
     }
 }
