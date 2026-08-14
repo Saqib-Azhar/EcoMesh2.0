@@ -1,662 +1,335 @@
 { "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
-,{ "pid":12345, "tid":0, "ts":1786707977620053, "dur":66, "ph":"X", "name": "IPC_Client_InitializeAndConnectToParent",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1786707977737281, "dur":446, "ph":"X", "name": "EmitBuildStart",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1786707977620154, "dur":127980, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1786707977748146, "dur":1955, "ph":"X", "name": "RemoveStaleOutputs",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1786707977750181, "dur":241, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
-,{ "pid":12345, "tid":0, "ts":1786707977750422, "dur":966, "ph":"X", "name": "BuildQueueInit",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1786707977751653, "dur":105, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"Player" }}
-,{ "pid":12345, "tid":0, "ts":1786707977751929, "dur":139, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/resources.assets.resS" }}
-,{ "pid":12345, "tid":0, "ts":1786707977752074, "dur":60, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Resources/unity_builtin_extra" }}
-,{ "pid":12345, "tid":0, "ts":1786707977752235, "dur":212, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/sharedassets0.assets.resS" }}
-,{ "pid":12345, "tid":0, "ts":1786707977752473, "dur":123, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/boot.config" }}
-,{ "pid":12345, "tid":0, "ts":1786707977752756, "dur":105, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Plugins/x86_64/libonigwrap.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977752875, "dur":66, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Plugins/ARM64/AppUINativePlugin.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977753672, "dur":166, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/System.Configuration.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977754024, "dur":198, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/System.Drawing.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977754686, "dur":182, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/System.Net.Http.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977754933, "dur":141, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/System.Runtime.CompilerServices.Unsafe.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977755330, "dur":115, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/System.Xml.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977755545, "dur":102, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.AI.Tracing.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977755751, "dur":101, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.Collections.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977755984, "dur":85, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.InputSystem.ForUI.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977756075, "dur":51, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.InternalAPIEngineBridge.004.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977756163, "dur":140, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.Mathematics.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977756381, "dur":300, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.ProBuilder.Csg.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977756718, "dur":58, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.ProBuilder.KdTree.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977757044, "dur":62, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.RenderPipeline.Universal.ShaderLibrary.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977757223, "dur":113, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977757482, "dur":122, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.SurfaceCache.Runtime.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977757663, "dur":92, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.UnifiedRayTracing.Runtime.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977757813, "dur":67, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.VisualScripting.Core.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977757964, "dur":96, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.AccessibilityModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977758092, "dur":67, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.AIModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977758342, "dur":72, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.ClothModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977758508, "dur":50, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.CrashReportingModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977758655, "dur":51, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.GIModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977759757, "dur":57, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977759844, "dur":54, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977759977, "dur":60, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.TLSModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977760073, "dur":54, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.UIElementsModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977760169, "dur":54, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.UnityAnalyticsCommonModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977760247, "dur":69, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.UnityConnectModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977760440, "dur":54, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977760653, "dur":81, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.VideoModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1786707977761365, "dur":80, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/System.Data-FeaturesChecked.txt_vhp1.info" }}
-,{ "pid":12345, "tid":0, "ts":1786707977761540, "dur":70, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.EnterpriseServices-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":0, "ts":1786707977761659, "dur":51, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/System.IO.Compression-FeaturesChecked.txt_f62v.info" }}
-,{ "pid":12345, "tid":0, "ts":1786707977761736, "dur":50, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/System.IO.Compression.FileSystem-FeaturesChecked.txt_caef.info" }}
-,{ "pid":12345, "tid":0, "ts":1786707977762017, "dur":60, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Runtime.CompilerServices.Unsafe-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":0, "ts":1786707977762100, "dur":61, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Runtime-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":0, "ts":1786707977762184, "dur":71, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Runtime.Serialization-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":0, "ts":1786707977762801, "dur":68, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/Unity.Burst.Unsafe-FeaturesChecked.txt_1w2c.info" }}
-,{ "pid":12345, "tid":0, "ts":1786707977762982, "dur":61, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/Unity.Collections-FeaturesChecked.txt_yda5.info" }}
-,{ "pid":12345, "tid":0, "ts":1786707977763139, "dur":50, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/Unity.InferenceEngine-FeaturesChecked.txt_wnax.info" }}
-,{ "pid":12345, "tid":0, "ts":1786707977765000, "dur":56, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/UnityEngine.AMDModule-FeaturesChecked.txt_v240.info" }}
-,{ "pid":12345, "tid":0, "ts":1786707977766682, "dur":55, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/UnityEngine.Physics2DModule-FeaturesChecked.txt_cj5q.info" }}
-,{ "pid":12345, "tid":0, "ts":1786707977766839, "dur":109, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/UnityEngine.RenderAs2DModule-FeaturesChecked.txt_x91e.info" }}
-,{ "pid":12345, "tid":0, "ts":1786707977768160, "dur":53, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityWebRequestTextureModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":0, "ts":1786707977768231, "dur":53, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityWebRequestWWWModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":0, "ts":1786707977768482, "dur":55, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.VirtualTexturingModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":0, "ts":1786707977768601, "dur":51, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/UnityEngine.WindModule-FeaturesChecked.txt_3z9k.info" }}
-,{ "pid":12345, "tid":0, "ts":1786707977751632, "dur":17731, "ph":"X", "name": "EnqueueRequestedNodes",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1786707977769370, "dur":39145, "ph":"X", "name": "WaitForBuildFinished", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1786707977808525, "dur":241, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1786707977809020, "dur":6902, "ph":"X", "name": "Tundra",  "args": { "detail":"Write AllBuiltNodes" }}
-,{ "pid":12345, "tid":1, "ts":1786707977753607, "dur":15866, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977771187, "dur":900, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\il2cpp\\build\\deploy\\System.Security.dll" }}
-,{ "pid":12345, "tid":1, "ts":1786707977769483, "dur":2926, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977772410, "dur":1751, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977774163, "dur":2084, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977776248, "dur":8014, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977784273, "dur":104, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977784390, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977784468, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977784534, "dur":866, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977785400, "dur":78, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/netstandard-FeaturesChecked.txt_0cit.info" }}
-,{ "pid":12345, "tid":1, "ts":1786707977785481, "dur":94, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977785576, "dur":54, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/UnityEngine.AccessibilityModule-FeaturesChecked.txt_tops.info" }}
-,{ "pid":12345, "tid":1, "ts":1786707977785633, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977785702, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977785801, "dur":74, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977785881, "dur":141, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/4.5/machine.config" }}
-,{ "pid":12345, "tid":1, "ts":1786707977786051, "dur":131, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0.exe" }}
-,{ "pid":12345, "tid":1, "ts":1786707977786202, "dur":53, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0.exe" }}
-,{ "pid":12345, "tid":1, "ts":1786707977786256, "dur":16879, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977803148, "dur":190, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipeline.Universal.ShaderLibrary-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":1, "ts":1786707977803339, "dur":84, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977803579, "dur":132, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Universal.Shaders-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":1, "ts":1786707977803712, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977803871, "dur":122, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Data-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":1, "ts":1786707977803993, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977804171, "dur":155, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.MarshallingModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":1, "ts":1786707977804327, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977804483, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.Burst.Unsafe.dll" }}
-,{ "pid":12345, "tid":1, "ts":1786707977804561, "dur":62, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.DirectorModule.dll" }}
-,{ "pid":12345, "tid":1, "ts":1786707977804647, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.SubsystemsModule.dll" }}
-,{ "pid":12345, "tid":1, "ts":1786707977804725, "dur":128, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.ProBuilder.Poly2Tri-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":1, "ts":1786707977804854, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977805021, "dur":70, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Drawing-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":1, "ts":1786707977805092, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977805151, "dur":94, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Drawing-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":1, "ts":1786707977805368, "dur":169, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Net.Http-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":1, "ts":1786707977805538, "dur":69, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977805711, "dur":63, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/System.Runtime.Serialization.dll" }}
-,{ "pid":12345, "tid":1, "ts":1786707977805809, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.AIModule.dll" }}
-,{ "pid":12345, "tid":1, "ts":1786707977805888, "dur":77, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.TextCoreTextEngineModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":1, "ts":1786707977805966, "dur":82, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977806219, "dur":63, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.RenderPipelines.Core.Runtime.Shared.dll" }}
-,{ "pid":12345, "tid":1, "ts":1786707977806352, "dur":132, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.AI.Navigation-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":1, "ts":1786707977806485, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977806693, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ScreenCaptureModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":1, "ts":1786707977806770, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977806928, "dur":58, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.RenderPipelines.Core.Runtime.dll" }}
-,{ "pid":12345, "tid":1, "ts":1786707977807010, "dur":75, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityWebRequestModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":1, "ts":1786707977807085, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977807242, "dur":71, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977807368, "dur":59, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.PhysicsBackendPhysXModule.dll" }}
-,{ "pid":12345, "tid":1, "ts":1786707977807497, "dur":67, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.HierarchyCoreModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":1, "ts":1786707977807564, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977807728, "dur":74, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.InputSystem.ForUI-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":1, "ts":1786707977807803, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1786707977807968, "dur":569, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1786707977753152, "dur":16231, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1786707977773655, "dur":887, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"../../../../../Program Files/Unity/Hub/Editor/6000.4.8f1-x86_64/Editor/Data/Tools/BuildPipeline" }}
-,{ "pid":12345, "tid":2, "ts":1786707977774543, "dur":75, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"Assets/StreamingAssets" }}
-,{ "pid":12345, "tid":2, "ts":1786707977774619, "dur":1572, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"C:/Program Files/Unity/Hub/Editor/6000.4.8f1-x86_64/Editor/Data/il2cpp/build/deploy" }}
-,{ "pid":12345, "tid":2, "ts":1786707977776192, "dur":5991, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"C:/Program Files/Unity/Hub/Editor/6000.4.8f1-x86_64/Editor/Data/il2cpp/libil2cpp" }}
-,{ "pid":12345, "tid":2, "ts":1786707977782183, "dur":102, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"C:/Program Files/Unity/Hub/Editor/6000.4.8f1-x86_64/Editor/Data/PlaybackEngines/WindowsStandaloneSupport" }}
-,{ "pid":12345, "tid":2, "ts":1786707977782286, "dur":1398, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"C:/Program Files/Unity/Hub/Editor/6000.4.8f1-x86_64/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/win64_player_nondevelopment_mono" }}
-,{ "pid":12345, "tid":2, "ts":1786707977783684, "dur":73, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"C:/Program Files/Unity/Hub/Editor/6000.4.8f1-x86_64/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/win64_player_nondevelopment_mono/Data/Resources" }}
-,{ "pid":12345, "tid":2, "ts":1786707977783757, "dur":238, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"C:/Program Files/Unity/Hub/Editor/6000.4.8f1-x86_64/Editor/Data/Tools/BuildPipeline" }}
-,{ "pid":12345, "tid":2, "ts":1786707977783996, "dur":118, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"Library/PlayerDataCache/Win642/Data" }}
-,{ "pid":12345, "tid":2, "ts":1786707977769392, "dur":14788, "ph":"X", "name": "CheckDagSignatures",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1786707977784192, "dur":89, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"WriteResponseFile Library/Bee/artifacts/rsp/3487482028696805133.rsp" }}
-,{ "pid":12345, "tid":2, "ts":1786707977784285, "dur":100, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1786707977784397, "dur":2320, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"UnityLinker C:/Users/saqib/Documents/GitHub/EcoMesh2.0/Library/Bee/artifacts/unitylinker_dwek.traceevents" }}
-,{ "pid":12345, "tid":2, "ts":1786707977786718, "dur":3504, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1786707977802862, "dur":5141, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"GenerateNativePluginsForAssemblies Library/Bee/artifacts/WinPlayerBuildProgram/AsyncPluginsFromLinker" }}
-,{ "pid":12345, "tid":2, "ts":1786707977808004, "dur":130, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977753290, "dur":16105, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977770843, "dur":797, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\il2cpp\\build\\deploy\\Unity.IL2CPP.CompilerServices.dll" }}
-,{ "pid":12345, "tid":3, "ts":1786707977769406, "dur":2496, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977771903, "dur":1942, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977774138, "dur":656, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\Facades\\System.IO.FileSystem.AccessControl.dll" }}
-,{ "pid":12345, "tid":3, "ts":1786707977775052, "dur":576, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\Facades\\System.Globalization.dll" }}
-,{ "pid":12345, "tid":3, "ts":1786707977773846, "dur":2893, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977776740, "dur":7460, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977784234, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977784427, "dur":109, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977784545, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977784606, "dur":173, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/UnityEngine.CrashReportingModule-FeaturesChecked.txt_2398.info" }}
-,{ "pid":12345, "tid":3, "ts":1786707977784926, "dur":193, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977785128, "dur":82, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977785326, "dur":101, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/UnityEngine.GameCenterModule-FeaturesChecked.txt_uhhl.info" }}
-,{ "pid":12345, "tid":3, "ts":1786707977785430, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977785513, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977785620, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977785685, "dur":51, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/Unity.RenderPipelines.Core.Runtime.Shared-FeaturesChecked.txt_09x5.info" }}
-,{ "pid":12345, "tid":3, "ts":1786707977785740, "dur":120, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977785873, "dur":80, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/4.5/settings.map" }}
-,{ "pid":12345, "tid":3, "ts":1786707977785979, "dur":107, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/2.0/web.config" }}
-,{ "pid":12345, "tid":3, "ts":1786707977786112, "dur":178, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/2.0/web.config" }}
-,{ "pid":12345, "tid":3, "ts":1786707977786291, "dur":16862, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977803161, "dur":96, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.TilemapModule.dll" }}
-,{ "pid":12345, "tid":3, "ts":1786707977803289, "dur":145, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.AnimationModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":3, "ts":1786707977803434, "dur":146, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977803696, "dur":183, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityAnalyticsModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":3, "ts":1786707977803880, "dur":85, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977804095, "dur":139, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.CrashReportingModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":3, "ts":1786707977804234, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977804407, "dur":160, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.PerformanceReportingModule.dll" }}
-,{ "pid":12345, "tid":3, "ts":1786707977804607, "dur":82, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll" }}
-,{ "pid":12345, "tid":3, "ts":1786707977804706, "dur":172, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll" }}
-,{ "pid":12345, "tid":3, "ts":1786707977804883, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977804946, "dur":156, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Universal.Config.Runtime-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":3, "ts":1786707977805103, "dur":72, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977805175, "dur":88, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Universal.Config.Runtime-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":3, "ts":1786707977805378, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.UnityAnalyticsCommonModule.dll" }}
-,{ "pid":12345, "tid":3, "ts":1786707977805460, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" }}
-,{ "pid":12345, "tid":3, "ts":1786707977805517, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977805626, "dur":114, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UmbraModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":3, "ts":1786707977805741, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977805884, "dur":108, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Xml-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":3, "ts":1786707977806171, "dur":83, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.SpriteShapeModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":3, "ts":1786707977806255, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977806416, "dur":124, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Core.ShaderLibrary-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":3, "ts":1786707977806541, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977806717, "dur":86, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.AndroidJNIModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":3, "ts":1786707977806811, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977807007, "dur":82, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/System.IO.Compression.FileSystem.dll" }}
-,{ "pid":12345, "tid":3, "ts":1786707977807206, "dur":184, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.TLSModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":3, "ts":1786707977807390, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1786707977807637, "dur":161, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Transactions-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":3, "ts":1786707977807936, "dur":572, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977753384, "dur":16048, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977770101, "dur":754, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\il2cpp\\build\\deploy\\Unity.IL2CPP.Api.dll" }}
-,{ "pid":12345, "tid":4, "ts":1786707977769445, "dur":1896, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977771911, "dur":1011, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\il2cpp\\build\\deploy\\Bee.BinLog.dll" }}
-,{ "pid":12345, "tid":4, "ts":1786707977771342, "dur":2799, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977774143, "dur":1989, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977776133, "dur":8059, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977784194, "dur":91, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/boot.config_tyr4.info" }}
-,{ "pid":12345, "tid":4, "ts":1786707977784287, "dur":92, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977784379, "dur":415, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/boot.config_tyr4.info" }}
-,{ "pid":12345, "tid":4, "ts":1786707977784797, "dur":1453, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"AddBootConfigGUID Library/Bee/artifacts/WinPlayerBuildProgram/boot.config" }}
-,{ "pid":12345, "tid":4, "ts":1786707977786251, "dur":119, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977786433, "dur":16656, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977803103, "dur":231, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.CoreModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977803335, "dur":74, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977803563, "dur":117, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.IO.Hashing-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977803681, "dur":61, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977803846, "dur":130, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Burst-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977803976, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977804132, "dur":127, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.HotReloadModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977804260, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977804419, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.AI.MCP.Runtime.dll" }}
-,{ "pid":12345, "tid":4, "ts":1786707977804498, "dur":146, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ShaderVariantAnalyticsModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977804644, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977804700, "dur":128, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ShaderVariantAnalyticsModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977804954, "dur":72, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.SubsystemsModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977805027, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977805180, "dur":124, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.HierarchyModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977805305, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977805469, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1786707977805542, "dur":89, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.UnityConnectModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1786707977805663, "dur":166, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.IMGUIModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977805971, "dur":68, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityWebRequestTextureModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977806136, "dur":116, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.VehiclesModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977806348, "dur":116, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.AdaptivePerformanceModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977806629, "dur":70, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.VisualScripting.Flow-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977806868, "dur":60, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.MultiplayerModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977807049, "dur":70, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Data.DataSetExtensions-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977807217, "dur":150, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.VFXModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977807367, "dur":73, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977807558, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.VRModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":4, "ts":1786707977807637, "dur":115, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1786707977807898, "dur":613, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977753579, "dur":15877, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977769473, "dur":1187, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977771589, "dur":846, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\il2cpp\\build\\deploy\\Bee.Toolchain.EmbeddedLinux.dll" }}
-,{ "pid":12345, "tid":5, "ts":1786707977770661, "dur":2444, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977773106, "dur":1857, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977774964, "dur":1720, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977776684, "dur":7606, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977784295, "dur":109, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977784429, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977784495, "dur":155, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/System.IO.Compression-FeaturesChecked.txt_f62v.info" }}
-,{ "pid":12345, "tid":5, "ts":1786707977784654, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977784725, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977784789, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977784861, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977784922, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977784980, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977785044, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977785100, "dur":69, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977785180, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977785236, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977785297, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977785356, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977785407, "dur":86, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/UnityEngine.CoreModule-FeaturesChecked.txt_ezkd.info" }}
-,{ "pid":12345, "tid":5, "ts":1786707977785497, "dur":80, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977785577, "dur":65, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/Unity.VisualScripting.DocCodeExamples-FeaturesChecked.txt_o48l.info" }}
-,{ "pid":12345, "tid":5, "ts":1786707977785644, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977785705, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977785771, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977785826, "dur":100, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/D3D12/D3D12Core.dll" }}
-,{ "pid":12345, "tid":5, "ts":1786707977785963, "dur":94, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" }}
-,{ "pid":12345, "tid":5, "ts":1786707977786086, "dur":66, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Plugins/x86_64/libonigwrap.dll" }}
-,{ "pid":12345, "tid":5, "ts":1786707977786251, "dur":16774, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977803039, "dur":270, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.GridModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1786707977803310, "dur":68, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977803490, "dur":126, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.InputSystem-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1786707977803616, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977803770, "dur":64, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.XRModule.dll" }}
-,{ "pid":12345, "tid":5, "ts":1786707977803858, "dur":126, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1786707977803985, "dur":73, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977804190, "dur":130, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Collections.LowLevel.ILSupport-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1786707977804320, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977804476, "dur":122, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ParticleSystemModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1786707977804598, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977804755, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.NVIDIAModule.dll" }}
-,{ "pid":12345, "tid":5, "ts":1786707977804834, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/System.Drawing.dll" }}
-,{ "pid":12345, "tid":5, "ts":1786707977804914, "dur":129, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.SurfaceCache.Runtime-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1786707977805044, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977805238, "dur":94, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.AccessibilityModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1786707977805429, "dur":72, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" }}
-,{ "pid":12345, "tid":5, "ts":1786707977805534, "dur":68, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" }}
-,{ "pid":12345, "tid":5, "ts":1786707977805623, "dur":288, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.InputModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1786707977805912, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977806075, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.JSONSerializeModule.dll" }}
-,{ "pid":12345, "tid":5, "ts":1786707977806226, "dur":130, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.ProBuilder.KdTree-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1786707977806357, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977806411, "dur":52, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.ProBuilder.KdTree-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1786707977806573, "dur":122, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.LocalizationModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1786707977806696, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977806920, "dur":74, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.RenderPipelines.Universal.Shaders.dll" }}
-,{ "pid":12345, "tid":5, "ts":1786707977807002, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.VisualScripting.State-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1786707977807082, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977807274, "dur":99, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Core.Runtime-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1786707977807374, "dur":61, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977807538, "dur":69, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UIModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1786707977807608, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977807840, "dur":71, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.PathTracing.Runtime-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1786707977807911, "dur":97, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1786707977808113, "dur":407, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977753876, "dur":15619, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977769510, "dur":947, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977770750, "dur":869, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\il2cpp\\build\\deploy\\il2cpp.runtimeconfig.json" }}
-,{ "pid":12345, "tid":6, "ts":1786707977770458, "dur":2051, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977772511, "dur":1226, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977773738, "dur":926, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977774665, "dur":1436, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977776102, "dur":8345, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977784475, "dur":62, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/System.Data-FeaturesChecked.txt_vhp1.info" }}
-,{ "pid":12345, "tid":6, "ts":1786707977784542, "dur":63, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977784973, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977785041, "dur":151, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977785244, "dur":131, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977785389, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977785525, "dur":125, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977785784, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977785904, "dur":59, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" }}
-,{ "pid":12345, "tid":6, "ts":1786707977785985, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/2.0/machine.config" }}
-,{ "pid":12345, "tid":6, "ts":1786707977786242, "dur":16613, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977802882, "dur":127, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ClusterInputModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977803116, "dur":116, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ScriptingModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977803233, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977803362, "dur":105, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Memory-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977803827, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/netstandard-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977803988, "dur":96, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.GPUDriven.Runtime-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977804371, "dur":106, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.RenderAs2DModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977804611, "dur":172, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.TerrainModule.dll" }}
-,{ "pid":12345, "tid":6, "ts":1786707977804784, "dur":158, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.ProBuilder.Csg-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977804943, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977805131, "dur":75, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.GridModule.dll" }}
-,{ "pid":12345, "tid":6, "ts":1786707977805263, "dur":219, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Universal.Runtime-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977805482, "dur":63, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977805885, "dur":161, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.InferenceEngine.Tokenization-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977806047, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977806213, "dur":75, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityWebRequestAudioModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977806289, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977806440, "dur":68, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/mscorlib-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977806509, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977806721, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Runtime.CompilerServices.Unsafe-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977806800, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977806970, "dur":77, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.NVIDIAModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977807047, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977807203, "dur":192, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.AMDModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977807396, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977807583, "dur":95, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.XRModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977807678, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1786707977807813, "dur":60, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityConsentModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1786707977807974, "dur":566, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977754163, "dur":15355, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977769532, "dur":2199, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977771733, "dur":1532, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977773266, "dur":1203, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977774470, "dur":1527, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977775998, "dur":8374, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977784382, "dur":100, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977784483, "dur":110, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/System.Net.Http-FeaturesChecked.txt_iku7.info" }}
-,{ "pid":12345, "tid":7, "ts":1786707977784596, "dur":82, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977784687, "dur":92, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977784786, "dur":183, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977784978, "dur":161, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977785147, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977785213, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977785274, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977785388, "dur":64, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/System.Data.DataSetExtensions-FeaturesChecked.txt_pams.info" }}
-,{ "pid":12345, "tid":7, "ts":1786707977785591, "dur":162, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977785768, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977785828, "dur":61, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/UnityPlayer.dll" }}
-,{ "pid":12345, "tid":7, "ts":1786707977785988, "dur":61, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" }}
-,{ "pid":12345, "tid":7, "ts":1786707977786244, "dur":16759, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977803017, "dur":193, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.IO.Compression-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":7, "ts":1786707977803211, "dur":71, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977803644, "dur":109, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.InputLegacyModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":7, "ts":1786707977803755, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977804024, "dur":113, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.ComponentModel.Composition-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":7, "ts":1786707977804401, "dur":110, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":7, "ts":1786707977804739, "dur":87, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.ProBuilder.Stl-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":7, "ts":1786707977804933, "dur":135, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.Physics2DModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":7, "ts":1786707977805069, "dur":99, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977805168, "dur":129, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.Physics2DModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":7, "ts":1786707977805359, "dur":150, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Security-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":7, "ts":1786707977805635, "dur":111, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.VideoModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":7, "ts":1786707977805746, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977805988, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityConnectModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":7, "ts":1786707977806066, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977806251, "dur":65, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":7, "ts":1786707977806520, "dur":70, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.InferenceEngine-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":7, "ts":1786707977806695, "dur":64, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.TilemapModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":7, "ts":1786707977806926, "dur":293, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.RenderPipelines.Universal.Runtime.dll" }}
-,{ "pid":12345, "tid":7, "ts":1786707977807220, "dur":530, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityAnalyticsCommonModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":7, "ts":1786707977807751, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1786707977807912, "dur":626, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977754368, "dur":15177, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977769859, "dur":890, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\il2cpp\\build\\deploy\\System.Net.WebProxy.dll" }}
-,{ "pid":12345, "tid":8, "ts":1786707977769558, "dur":2407, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977772973, "dur":1260, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\Mono.Simd.dll" }}
-,{ "pid":12345, "tid":8, "ts":1786707977771967, "dur":2327, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977775033, "dur":733, "ph":"X", "name": "File",  "args": { "detail":"C:\\Users\\saqib\\Documents\\GitHub\\EcoMesh2.0\\Library\\Bee\\PlayerScriptAssemblies\\Unity.InternalAPIEngineBridge.RenderPipelines.Core.Runtime.Shared.dll" }}
-,{ "pid":12345, "tid":8, "ts":1786707977774295, "dur":1992, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977776287, "dur":8010, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977784310, "dur":106, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977784427, "dur":70, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977784497, "dur":241, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/System.EnterpriseServices-FeaturesChecked.txt_kt5q.info" }}
-,{ "pid":12345, "tid":8, "ts":1786707977785032, "dur":282, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977785383, "dur":99, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977785502, "dur":100, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977785610, "dur":93, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977785907, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" }}
-,{ "pid":12345, "tid":8, "ts":1786707977785992, "dur":191, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" }}
-,{ "pid":12345, "tid":8, "ts":1786707977786229, "dur":77, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/globalgamemanagers.assets.resS" }}
-,{ "pid":12345, "tid":8, "ts":1786707977786307, "dur":16582, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977802896, "dur":113, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.ProBuilder-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977803111, "dur":91, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.WindModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977803360, "dur":64, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Mono.Security-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977803528, "dur":96, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.TextMeshPro-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977803625, "dur":136, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977803845, "dur":99, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Core-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977804051, "dur":93, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.PropertiesModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977804399, "dur":108, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.SharedInternalsModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977804693, "dur":163, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.Collections.dll" }}
-,{ "pid":12345, "tid":8, "ts":1786707977804858, "dur":105, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.VectorGraphicsModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977805057, "dur":96, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Timeline-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977805264, "dur":109, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Scripting-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977805602, "dur":104, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.AudioModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977805879, "dur":58, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.InternalAPIEngineBridge.004-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977806065, "dur":91, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityWebRequestAssetBundleModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977806156, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977806287, "dur":68, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.EnterpriseServices-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977806523, "dur":113, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.UnifiedRayTracing.Runtime-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977806792, "dur":95, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.AssetBundleModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977806923, "dur":82, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.AssetBundleModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977807066, "dur":99, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.IO.Compression.FileSystem-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977807300, "dur":106, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977807486, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityCurlModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":8, "ts":1786707977807545, "dur":414, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1786707977808026, "dur":525, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977754633, "dur":14925, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977770108, "dur":710, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\il2cpp\\build\\deploy\\System.Linq.dll" }}
-,{ "pid":12345, "tid":9, "ts":1786707977769566, "dur":2398, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977773014, "dur":1148, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\System.Dynamic.dll" }}
-,{ "pid":12345, "tid":9, "ts":1786707977771966, "dur":2565, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977774532, "dur":1567, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977776100, "dur":8386, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977784527, "dur":72, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977784603, "dur":117, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977784778, "dur":77, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977784863, "dur":72, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977784943, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977785008, "dur":167, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977785198, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977785423, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977785485, "dur":64, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/UnityEngine.ARModule-FeaturesChecked.txt_41lh.info" }}
-,{ "pid":12345, "tid":9, "ts":1786707977785551, "dur":93, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977785697, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977785762, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977785837, "dur":70, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
-,{ "pid":12345, "tid":9, "ts":1786707977785990, "dur":62, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" }}
-,{ "pid":12345, "tid":9, "ts":1786707977786071, "dur":68, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/dstoragecore.dll" }}
-,{ "pid":12345, "tid":9, "ts":1786707977786190, "dur":77, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/resources.assets.resS" }}
-,{ "pid":12345, "tid":9, "ts":1786707977786268, "dur":16704, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977802985, "dur":168, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.AI.Tracing-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977803154, "dur":71, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977803337, "dur":136, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Configuration-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977803474, "dur":68, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977803643, "dur":118, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ClusterRendererModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977803762, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977803916, "dur":141, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.TextRenderingModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977804058, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977804218, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.SpriteMaskModule.dll" }}
-,{ "pid":12345, "tid":9, "ts":1786707977804297, "dur":58, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.VisualScripting.Flow.dll" }}
-,{ "pid":12345, "tid":9, "ts":1786707977804377, "dur":71, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.VisualScripting.DocCodeExamples-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977804449, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977804603, "dur":67, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
-,{ "pid":12345, "tid":9, "ts":1786707977804689, "dur":75, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
-,{ "pid":12345, "tid":9, "ts":1786707977804766, "dur":150, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.PhysicsModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977804917, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977805078, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Runtime-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977805155, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977805315, "dur":122, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Xml.Linq-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977805438, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977805596, "dur":146, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ContentLoadModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977805743, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977805983, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.SubstanceModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977806059, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977806373, "dur":70, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.TextCoreFontEngineModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977806444, "dur":76, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977806667, "dur":195, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.InsightsModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977806972, "dur":64, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.JSONSerializeModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977807173, "dur":111, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.AI.MCP.Runtime-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977807284, "dur":74, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1786707977807417, "dur":59, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.InternalAPIEngineBridge.RenderPipelines.Core.Runtime.Shared-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977807584, "dur":93, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.AIModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977807781, "dur":82, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.PhysicsBackendPhysXModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":9, "ts":1786707977807958, "dur":551, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977754795, "dur":14789, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977769596, "dur":1870, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977771467, "dur":1700, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977774418, "dur":675, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\Facades\\System.Security.Cryptography.Encryption.dll" }}
-,{ "pid":12345, "tid":10, "ts":1786707977773168, "dur":3068, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977776237, "dur":8058, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977784307, "dur":96, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977784414, "dur":69, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977784483, "dur":85, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/System.IO.Compression.FileSystem-FeaturesChecked.txt_caef.info" }}
-,{ "pid":12345, "tid":10, "ts":1786707977784576, "dur":79, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977784662, "dur":166, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977784835, "dur":61, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977784907, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977784967, "dur":132, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977785106, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977785172, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977785228, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977785287, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977785360, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977785427, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977785489, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977785545, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977785603, "dur":80, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977785700, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977785775, "dur":133, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977785914, "dur":105, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/4.0/web.config" }}
-,{ "pid":12345, "tid":10, "ts":1786707977786043, "dur":62, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" }}
-,{ "pid":12345, "tid":10, "ts":1786707977786173, "dur":100, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/sharedassets0.assets" }}
-,{ "pid":12345, "tid":10, "ts":1786707977786275, "dur":16838, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977803122, "dur":168, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.StreamingModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":10, "ts":1786707977803413, "dur":96, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Collections-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":10, "ts":1786707977803780, "dur":886, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.IdentifiersModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":10, "ts":1786707977804702, "dur":265, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.IdentifiersModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":10, "ts":1786707977805106, "dur":58, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
-,{ "pid":12345, "tid":10, "ts":1786707977805182, "dur":136, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
-,{ "pid":12345, "tid":10, "ts":1786707977805320, "dur":74, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Numerics-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":10, "ts":1786707977805394, "dur":127, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977805687, "dur":189, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Universal.2D.Runtime-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":10, "ts":1786707977805876, "dur":72, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977806135, "dur":73, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.SpriteMaskModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":10, "ts":1786707977806209, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977806517, "dur":63, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.VRModule.dll" }}
-,{ "pid":12345, "tid":10, "ts":1786707977806597, "dur":290, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.VRModule.dll" }}
-,{ "pid":12345, "tid":10, "ts":1786707977806917, "dur":60, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.AdaptivePerformanceModule.dll" }}
-,{ "pid":12345, "tid":10, "ts":1786707977806979, "dur":80, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.VisualScripting.Core-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":10, "ts":1786707977807059, "dur":71, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977807266, "dur":104, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Core.Runtime.Shared-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":10, "ts":1786707977807371, "dur":114, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977807637, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/System.Core.dll" }}
-,{ "pid":12345, "tid":10, "ts":1786707977807723, "dur":88, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.DirectorModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":10, "ts":1786707977807811, "dur":70, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1786707977807990, "dur":552, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977755047, "dur":14549, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977769605, "dur":2019, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977771626, "dur":2113, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977773740, "dur":1516, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977775257, "dur":8951, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977784233, "dur":186, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977784435, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977784499, "dur":266, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/System-FeaturesChecked.txt_vic3.info" }}
-,{ "pid":12345, "tid":11, "ts":1786707977784775, "dur":87, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977784868, "dur":125, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977785001, "dur":72, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977785092, "dur":70, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977785169, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977785232, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977785291, "dur":76, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977785431, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977785499, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977785597, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977785667, "dur":73, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977785781, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977785868, "dur":88, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/4.5/web.config" }}
-,{ "pid":12345, "tid":11, "ts":1786707977785983, "dur":71, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/2.0/settings.map" }}
-,{ "pid":12345, "tid":11, "ts":1786707977786082, "dur":84, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Plugins/ARM64/AppUINativePlugin.dll" }}
-,{ "pid":12345, "tid":11, "ts":1786707977786185, "dur":54, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Plugins/ARM64/AppUINativePlugin.dll" }}
-,{ "pid":12345, "tid":11, "ts":1786707977786241, "dur":16953, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977803203, "dur":212, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/netstandard.dll" }}
-,{ "pid":12345, "tid":11, "ts":1786707977803450, "dur":128, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Mathematics-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":11, "ts":1786707977803578, "dur":288, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977803949, "dur":100, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.TerrainModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":11, "ts":1786707977804156, "dur":112, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.GameCenterModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":11, "ts":1786707977804381, "dur":104, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.TerrainPhysicsModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":11, "ts":1786707977804692, "dur":112, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.SubstanceModule.dll" }}
-,{ "pid":12345, "tid":11, "ts":1786707977804918, "dur":63, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Burst.Unsafe-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":11, "ts":1786707977805282, "dur":68, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Newtonsoft.Json-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":11, "ts":1786707977805351, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977805416, "dur":67, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Newtonsoft.Json-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":11, "ts":1786707977805601, "dur":60, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.AMDModule.dll" }}
-,{ "pid":12345, "tid":11, "ts":1786707977805688, "dur":66, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/System.Runtime.CompilerServices.Unsafe.dll" }}
-,{ "pid":12345, "tid":11, "ts":1786707977805776, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.ParticleSystemModule.dll" }}
-,{ "pid":12345, "tid":11, "ts":1786707977805892, "dur":70, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.ScreenCaptureModule.dll" }}
-,{ "pid":12345, "tid":11, "ts":1786707977806009, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.InferenceEngine.dll" }}
-,{ "pid":12345, "tid":11, "ts":1786707977806090, "dur":124, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UIElementsModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":11, "ts":1786707977806215, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977806371, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.GIModule.dll" }}
-,{ "pid":12345, "tid":11, "ts":1786707977806441, "dur":130, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.GIModule.dll" }}
-,{ "pid":12345, "tid":11, "ts":1786707977806631, "dur":70, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.ServiceModel.Internals-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":11, "ts":1786707977806702, "dur":61, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977806865, "dur":125, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.DSPGraphModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":11, "ts":1786707977806991, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977807171, "dur":164, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.InputForUIModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":11, "ts":1786707977807336, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977807515, "dur":68, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.GIModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":11, "ts":1786707977807588, "dur":310, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1786707977807987, "dur":525, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977755115, "dur":14512, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977770417, "dur":654, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\il2cpp\\build\\deploy\\monolinker.dll" }}
-,{ "pid":12345, "tid":12, "ts":1786707977769627, "dur":2200, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977772342, "dur":759, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\System.Web.DynamicData.dll" }}
-,{ "pid":12345, "tid":12, "ts":1786707977771828, "dur":2786, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977774615, "dur":1931, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977776547, "dur":7709, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977784266, "dur":196, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977784478, "dur":76, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977784561, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977784628, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977784694, "dur":141, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977784842, "dur":133, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977784985, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977785053, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977785126, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977785204, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977785257, "dur":123, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/UnityEngine.InputModule-FeaturesChecked.txt_hmqk.info" }}
-,{ "pid":12345, "tid":12, "ts":1786707977785383, "dur":110, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977785601, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977785674, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977785764, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977785832, "dur":91, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/UnityCrashHandler64.exe" }}
-,{ "pid":12345, "tid":12, "ts":1786707977785947, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" }}
-,{ "pid":12345, "tid":12, "ts":1786707977786047, "dur":60, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/dstorage.dll" }}
-,{ "pid":12345, "tid":12, "ts":1786707977786200, "dur":72, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Resources/unity_builtin_extra" }}
-,{ "pid":12345, "tid":12, "ts":1786707977786273, "dur":16999, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977803273, "dur":155, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.GraphicsStateCollectionSerializerModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":12, "ts":1786707977803429, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977803690, "dur":124, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.VisualScripting.Antlr3.Runtime-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":12, "ts":1786707977803815, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977803995, "dur":91, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.InternalAPIEngineBridge.004.dll" }}
-,{ "pid":12345, "tid":12, "ts":1786707977804112, "dur":129, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Multiplayer.Center.Common-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":12, "ts":1786707977804241, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977804453, "dur":59, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.InputSystem.ForUI.dll" }}
-,{ "pid":12345, "tid":12, "ts":1786707977804533, "dur":70, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.MultiplayerModule.dll" }}
-,{ "pid":12345, "tid":12, "ts":1786707977804621, "dur":116, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.MultiplayerModule.dll" }}
-,{ "pid":12345, "tid":12, "ts":1786707977804739, "dur":108, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.VirtualTexturingModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":12, "ts":1786707977804847, "dur":76, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977804994, "dur":122, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UI-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":12, "ts":1786707977805117, "dur":82, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977805321, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Assembly-CSharp-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":12, "ts":1786707977805400, "dur":101, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977805610, "dur":143, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ClothModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":12, "ts":1786707977805754, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977805916, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.PerformanceReportingModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":12, "ts":1786707977805995, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977806208, "dur":119, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":12, "ts":1786707977806478, "dur":71, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityWebRequestWWWModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":12, "ts":1786707977806550, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977806718, "dur":75, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ImageConversionModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":12, "ts":1786707977806794, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977807283, "dur":171, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Runtime.Serialization-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":12, "ts":1786707977807567, "dur":111, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ARModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":12, "ts":1786707977807679, "dur":77, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1786707977807893, "dur":651, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1786707977825140, "dur":2032, "ph":"X", "name": "ProfilerWriteOutput" }
+,{ "pid":12345, "tid":0, "ts":1786713369919407, "dur":69, "ph":"X", "name": "IPC_Client_InitializeAndConnectToParent",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1786713369919511, "dur":100975, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1786713370020496, "dur":1156, "ph":"X", "name": "RemoveStaleOutputs",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1786713370021700, "dur":127, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
+,{ "pid":12345, "tid":0, "ts":1786713370021827, "dur":517, "ph":"X", "name": "BuildQueueInit",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1786713370022381, "dur":66, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"Player" }}
+,{ "pid":12345, "tid":0, "ts":1786713370022514, "dur":64, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/resources.assets" }}
+,{ "pid":12345, "tid":0, "ts":1786713370023279, "dur":69, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/netstandard.dll" }}
+,{ "pid":12345, "tid":0, "ts":1786713370023526, "dur":52, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/System.IO.Compression.dll" }}
+,{ "pid":12345, "tid":0, "ts":1786713370023891, "dur":79, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/System.Xml.Linq.dll" }}
+,{ "pid":12345, "tid":0, "ts":1786713370024778, "dur":78, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.RenderPipelines.Universal.Runtime.dll" }}
+,{ "pid":12345, "tid":0, "ts":1786713370025329, "dur":76, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.ClusterInputModule.dll" }}
+,{ "pid":12345, "tid":0, "ts":1786713370025924, "dur":75, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.InputModule.dll" }}
+,{ "pid":12345, "tid":0, "ts":1786713370026489, "dur":55, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.StreamingModule.dll" }}
+,{ "pid":12345, "tid":0, "ts":1786713370026658, "dur":56, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.TextRenderingModule.dll" }}
+,{ "pid":12345, "tid":0, "ts":1786713370029492, "dur":78, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.PathTracing.Runtime-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":0, "ts":1786713370029595, "dur":70, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.ProBuilder.Csg-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":0, "ts":1786713370029815, "dur":91, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.ProBuilder.Poly2Tri-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":0, "ts":1786713370029987, "dur":58, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/Unity.RenderPipeline.Universal.ShaderLibrary-FeaturesChecked.txt_65z3.info" }}
+,{ "pid":12345, "tid":0, "ts":1786713370031586, "dur":59, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ContentLoadModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":0, "ts":1786713370032088, "dur":50, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.HierarchyCoreModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":0, "ts":1786713370032208, "dur":80, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.HotReloadModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":0, "ts":1786713370032892, "dur":82, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.InsightsModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":0, "ts":1786713370033018, "dur":65, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.JSONSerializeModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":0, "ts":1786713370033281, "dur":116, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/UnityEngine.MultiplayerModule-FeaturesChecked.txt_d35b.info" }}
+,{ "pid":12345, "tid":0, "ts":1786713370033442, "dur":60, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ParticleSystemModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":0, "ts":1786713370033662, "dur":60, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.PhysicsBackendPhysXModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":0, "ts":1786713370034273, "dur":139, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.TerrainPhysicsModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":0, "ts":1786713370022371, "dur":14220, "ph":"X", "name": "EnqueueRequestedNodes",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1786713370036599, "dur":44883, "ph":"X", "name": "WaitForBuildFinished", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1786713370081490, "dur":265, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1786713370081768, "dur":53, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1786713370082185, "dur":7510, "ph":"X", "name": "Tundra",  "args": { "detail":"Write AllBuiltNodes" }}
+,{ "pid":12345, "tid":1, "ts":1786713370025911, "dur":12285, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1786713370038577, "dur":2340, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\il2cpp\\build\\deploy\\Analytics.deps.json" }}
+,{ "pid":12345, "tid":1, "ts":1786713370038205, "dur":2977, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1786713370041182, "dur":1232, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\mono\\Managed\\UnityEngine.ScreenCaptureModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1786713370041182, "dur":1744, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1786713370042927, "dur":8892, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1786713370051840, "dur":163, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1786713370052013, "dur":2077, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1786713370054094, "dur":158, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/4.5/web.config" }}
+,{ "pid":12345, "tid":1, "ts":1786713370054468, "dur":274, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/dstoragecore.dll" }}
+,{ "pid":12345, "tid":1, "ts":1786713370054763, "dur":20543, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1786713370075307, "dur":865, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1786713370076195, "dur":236, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1786713370076455, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.AIModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1786713370076524, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.InferenceEngine.Tokenization-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":1, "ts":1786713370076711, "dur":66, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.PerformanceReportingModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":1, "ts":1786713370076869, "dur":88, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityWebRequestAssetBundleModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":1, "ts":1786713370077113, "dur":2619, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1786713370081258, "dur":439, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1786713370024612, "dur":12002, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1786713370042282, "dur":414, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"../../../../../Program Files/Unity/Hub/Editor/6000.4.8f1-x86_64/Editor/Data/Tools/BuildPipeline" }}
+,{ "pid":12345, "tid":2, "ts":1786713370042724, "dur":706, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"C:/Program Files/Unity/Hub/Editor/6000.4.8f1-x86_64/Editor/Data/il2cpp/build/deploy" }}
+,{ "pid":12345, "tid":2, "ts":1786713370043430, "dur":5282, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"C:/Program Files/Unity/Hub/Editor/6000.4.8f1-x86_64/Editor/Data/il2cpp/libil2cpp" }}
+,{ "pid":12345, "tid":2, "ts":1786713370048712, "dur":196, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"C:/Program Files/Unity/Hub/Editor/6000.4.8f1-x86_64/Editor/Data/PlaybackEngines/WindowsStandaloneSupport" }}
+,{ "pid":12345, "tid":2, "ts":1786713370048908, "dur":2232, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"C:/Program Files/Unity/Hub/Editor/6000.4.8f1-x86_64/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/win64_player_nondevelopment_mono" }}
+,{ "pid":12345, "tid":2, "ts":1786713370051141, "dur":102, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"C:/Program Files/Unity/Hub/Editor/6000.4.8f1-x86_64/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/win64_player_nondevelopment_mono/Data/Resources" }}
+,{ "pid":12345, "tid":2, "ts":1786713370051244, "dur":306, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"C:/Program Files/Unity/Hub/Editor/6000.4.8f1-x86_64/Editor/Data/Tools/BuildPipeline" }}
+,{ "pid":12345, "tid":2, "ts":1786713370051550, "dur":167, "ph":"X", "name": "CheckGlobSignature",  "args": { "detail":"Library/PlayerDataCache/Win642/Data" }}
+,{ "pid":12345, "tid":2, "ts":1786713370036623, "dur":15167, "ph":"X", "name": "CheckDagSignatures",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1786713370051809, "dur":82, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"WriteResponseFile Library/Bee/artifacts/rsp/3487482028696805133.rsp" }}
+,{ "pid":12345, "tid":2, "ts":1786713370051941, "dur":3546, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"UnityLinker C:/Users/saqib/Documents/GitHub/EcoMesh2.0/Library/Bee/artifacts/unitylinker_dwek.traceevents" }}
+,{ "pid":12345, "tid":2, "ts":1786713370055488, "dur":2462, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1786713370072039, "dur":5914, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"GenerateNativePluginsForAssemblies Library/Bee/artifacts/WinPlayerBuildProgram/AsyncPluginsFromLinker" }}
+,{ "pid":12345, "tid":2, "ts":1786713370077954, "dur":102, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1786713370078536, "dur":53, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.NVIDIAModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":2, "ts":1786713370078689, "dur":53, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityWebRequestModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":2, "ts":1786713370078935, "dur":2405, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1786713370025953, "dur":13584, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1786713370039541, "dur":596, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1786713370040137, "dur":598, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1786713370040736, "dur":588, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1786713370041353, "dur":1047, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\mono\\Managed\\UnityEngine.AccessibilityModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1786713370041325, "dur":1661, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1786713370042986, "dur":11822, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1786713370054809, "dur":18135, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1786713370072945, "dur":734, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.InputSystem-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":3, "ts":1786713370073704, "dur":565, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1786713370074270, "dur":183, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.InputSystem-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":3, "ts":1786713370079755, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.XRModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":3, "ts":1786713370079893, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.DirectorModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":3, "ts":1786713370080050, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.PathTracing.Runtime-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":3, "ts":1786713370081328, "dur":204, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1786713370026009, "dur":13596, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1786713370039690, "dur":1713, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\Facades\\System.Security.AccessControl.dll" }}
+,{ "pid":12345, "tid":4, "ts":1786713370039606, "dur":2583, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1786713370042189, "dur":9731, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1786713370052142, "dur":957, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1786713370053139, "dur":71, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1786713370054026, "dur":698, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
+,{ "pid":12345, "tid":4, "ts":1786713370054759, "dur":17285, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1786713370072046, "dur":959, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.ProBuilder-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370073084, "dur":80, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Universal.Shaders-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370073276, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityAnalyticsModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370073432, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Burst-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370073590, "dur":82, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.TerrainModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370073749, "dur":84, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.PropertiesModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370073908, "dur":73, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.GameCenterModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370074215, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.SharedInternalsModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370074390, "dur":721, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.AI.MCP.Runtime.dll" }}
+,{ "pid":12345, "tid":4, "ts":1786713370075239, "dur":66, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Timeline-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370075306, "dur":687, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1786713370076327, "dur":125, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/System.Runtime.CompilerServices.Unsafe.dll" }}
+,{ "pid":12345, "tid":4, "ts":1786713370076520, "dur":53, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Xml-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370076742, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityConnectModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370076920, "dur":87, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.VehiclesModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370077127, "dur":82, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.ProBuilder.KdTree-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370077313, "dur":50, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.SurfaceCache.Runtime.dll" }}
+,{ "pid":12345, "tid":4, "ts":1786713370077382, "dur":246, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.AI.Navigation-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370077629, "dur":107, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1786713370077793, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.UnifiedRayTracing.Runtime-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370077923, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.VisualScripting.Flow-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370078091, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ScreenCaptureModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370078283, "dur":58, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Runtime.CompilerServices.Unsafe-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370078447, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.DSPGraphModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370078766, "dur":65, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.IO.Compression.FileSystem-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370078942, "dur":77, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.AMDModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370079162, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Core.Runtime-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370079212, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1786713370079930, "dur":53, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.InputSystem.ForUI-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":4, "ts":1786713370079988, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1786713370080119, "dur":1361, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370025427, "dur":11203, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370036634, "dur":771, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370037406, "dur":1271, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370038677, "dur":521, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370039515, "dur":737, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\Mono.Cairo.dll" }}
+,{ "pid":12345, "tid":5, "ts":1786713370039198, "dur":1261, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370040459, "dur":567, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370041026, "dur":1196, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370042223, "dur":9586, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370051835, "dur":63, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370051966, "dur":269, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370052903, "dur":103, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370053088, "dur":803, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370053956, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/D3D12/D3D12Core.dll" }}
+,{ "pid":12345, "tid":5, "ts":1786713370054007, "dur":277, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370054631, "dur":18060, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370072732, "dur":234, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/Unity.InternalAPIEngineBridge.RenderPipelines.Core.Runtime.Shared.dll" }}
+,{ "pid":12345, "tid":5, "ts":1786713370072986, "dur":109, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.IO.Hashing-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370073240, "dur":101, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.VisualScripting.Antlr3.Runtime-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370073418, "dur":69, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Core-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370073573, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.TextRenderingModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370073896, "dur":112, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.HotReloadModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370074164, "dur":82, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.RenderAs2DModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370074361, "dur":72, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.PerformanceReportingModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1786713370074497, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ShaderVariantAnalyticsModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370074708, "dur":81, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.ProBuilder.Poly2Tri-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370075441, "dur":81, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Universal.Runtime-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370075603, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Numerics-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370075895, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ContentLoadModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370075974, "dur":77, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370076110, "dur":77, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UmbraModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370076262, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Universal.2D.Runtime-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370076367, "dur":290, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Universal.2D.Runtime-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370077059, "dur":72, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370077368, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.AdaptivePerformanceModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":5, "ts":1786713370077451, "dur":588, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1786713370080153, "dur":1322, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1786713370025526, "dur":11172, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1786713370036889, "dur":542, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\il2cpp\\build\\deploy\\System.Xml.ReaderWriter.dll" }}
+,{ "pid":12345, "tid":6, "ts":1786713370036704, "dur":1490, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1786713370038194, "dur":941, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1786713370039136, "dur":566, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1786713370039702, "dur":1713, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\Facades\\System.Resources.Reader.dll" }}
+,{ "pid":12345, "tid":6, "ts":1786713370039702, "dur":2809, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1786713370042512, "dur":9721, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1786713370052240, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1786713370052764, "dur":831, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1786713370053640, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1786713370053784, "dur":284, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1786713370054431, "dur":96, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0.exe" }}
+,{ "pid":12345, "tid":6, "ts":1786713370054621, "dur":18294, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1786713370072916, "dur":1488, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Collections-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":6, "ts":1786713370074480, "dur":82, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ParticleSystemModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":6, "ts":1786713370074719, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.ProBuilder.Stl-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":6, "ts":1786713370074936, "dur":99, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.SurfaceCache.Runtime-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":6, "ts":1786713370079032, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.VFXModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":6, "ts":1786713370079213, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1786713370079329, "dur":61, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.InternalAPIEngineBridge.RenderPipelines.Core.Runtime.Shared-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":6, "ts":1786713370079487, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.HierarchyCoreModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":6, "ts":1786713370079739, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ARModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":6, "ts":1786713370080128, "dur":1348, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1786713370025492, "dur":11146, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1786713370036644, "dur":1051, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1786713370037695, "dur":1186, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1786713370038881, "dur":578, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1786713370039947, "dur":1520, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\Facades\\System.Xml.XmlSerializer.dll" }}
+,{ "pid":12345, "tid":7, "ts":1786713370039459, "dur":2144, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1786713370041604, "dur":10352, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1786713370052187, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1786713370052898, "dur":51, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/UnityEngine.InsightsModule-FeaturesChecked.txt_ei8i.info" }}
+,{ "pid":12345, "tid":7, "ts":1786713370053130, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1786713370053602, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1786713370054004, "dur":485, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1786713370054545, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Resources/unity default resources" }}
+,{ "pid":12345, "tid":7, "ts":1786713370054629, "dur":18127, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1786713370072757, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Configuration-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370072972, "dur":83, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.TextMeshPro-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370073136, "dur":83, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ClusterRendererModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370073299, "dur":80, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.IdentifiersModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370073454, "dur":108, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370073698, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.ComponentModel.Composition-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370073835, "dur":80, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Multiplayer.Center.Common-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370074008, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Collections.LowLevel.ILSupport-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370074166, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.VisualScripting.DocCodeExamples-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370074321, "dur":83, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370074711, "dur":74, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.VirtualTexturingModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370074862, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.ProBuilder.Csg-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370075021, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Burst.Unsafe-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370075153, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UI-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370075350, "dur":87, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.HierarchyModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370075646, "dur":58, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Assembly-CSharp-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370075885, "dur":545, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/EcoMesh2.0_Data/Managed/UnityEngine.UnityWebRequestModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1786713370076519, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.InternalAPIEngineBridge.004-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":7, "ts":1786713370076569, "dur":698, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1786713370080472, "dur":995, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1786713370025604, "dur":11104, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1786713370036713, "dur":1042, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1786713370037756, "dur":931, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1786713370038688, "dur":792, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1786713370039985, "dur":1643, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\Facades\\System.ServiceModel.Security.dll" }}
+,{ "pid":12345, "tid":8, "ts":1786713370039481, "dur":2448, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1786713370041930, "dur":9873, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1786713370051810, "dur":66, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/boot.config_tyr4.info" }}
+,{ "pid":12345, "tid":8, "ts":1786713370051880, "dur":1049, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1786713370052934, "dur":1221, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"AddBootConfigGUID Library/Bee/artifacts/WinPlayerBuildProgram/boot.config" }}
+,{ "pid":12345, "tid":8, "ts":1786713370054260, "dur":396, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/4.0/web.config" }}
+,{ "pid":12345, "tid":8, "ts":1786713370054668, "dur":17420, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1786713370072088, "dur":98, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.IO.Compression-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370072288, "dur":74, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.CoreModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370072441, "dur":74, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ScriptingModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370072635, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.GraphicsStateCollectionSerializerModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370072794, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Mono.Security-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370072922, "dur":1621, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Mathematics-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370074775, "dur":86, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.PhysicsModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370075078, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Universal.Config.Runtime-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370075259, "dur":141, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Runtime-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370075478, "dur":83, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.Scripting-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370075661, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Security-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370075956, "dur":92, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ClothModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370076161, "dur":70, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.VideoModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370076231, "dur":127, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1786713370076358, "dur":286, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.VideoModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370076720, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityWebRequestTextureModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370076884, "dur":101, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UIElementsModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370076986, "dur":364, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1786713370077431, "dur":598, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.TextCoreFontEngineModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":8, "ts":1786713370078030, "dur":2148, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1786713370081339, "dur":107, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370025685, "dur":11072, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370036761, "dur":605, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370037367, "dur":978, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370038641, "dur":1344, "ph":"X", "name": "File",  "args": { "detail":"..\\..\\..\\..\\..\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\Tools\\BuildPipeline\\ScriptCompilationBuildProgram.exe" }}
+,{ "pid":12345, "tid":9, "ts":1786713370038346, "dur":1877, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370040224, "dur":520, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370040881, "dur":1075, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\mono\\Managed\\UnityEngine.WindModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1786713370040744, "dur":1642, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370042386, "dur":9420, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370051835, "dur":84, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370051930, "dur":1258, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370053392, "dur":1241, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370054660, "dur":17476, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370072137, "dur":170, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.GridModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370072395, "dur":86, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.StreamingModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370072652, "dur":74, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.AnimationModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370072856, "dur":102, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370073140, "dur":72, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.InputLegacyModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370073341, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/netstandard-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370073593, "dur":87, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.GPUDriven.Runtime-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370073756, "dur":108, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.CrashReportingModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370073960, "dur":72, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.MarshallingModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370074193, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.TerrainPhysicsModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370074893, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.VectorGraphicsModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370075043, "dur":75, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.Physics2DModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370075412, "dur":71, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.AccessibilityModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370075682, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Net.Http-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370075939, "dur":71, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.AudioModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370076086, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.InputModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370076245, "dur":74, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.IMGUIModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370076345, "dur":126, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.IMGUIModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370076536, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.TextCoreTextEngineModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370077016, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.SpriteShapeModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370077171, "dur":166, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370077457, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370077534, "dur":58, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/mscorlib-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370078548, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.JSONSerializeModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370078599, "dur":1087, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370079756, "dur":102, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.AIModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":9, "ts":1786713370080013, "dur":98, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1786713370080163, "dur":1306, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1786713370025736, "dur":11621, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1786713370038076, "dur":589, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\il2cpp\\build\\deploy\\System.Private.Xml.Linq.dll" }}
+,{ "pid":12345, "tid":10, "ts":1786713370037365, "dur":1484, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1786713370039509, "dur":1709, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\System.ServiceModel.Internals.dll" }}
+,{ "pid":12345, "tid":10, "ts":1786713370038850, "dur":2443, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1786713370041293, "dur":1072, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1786713370042366, "dur":12437, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1786713370054803, "dur":17245, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1786713370072051, "dur":187, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.AI.Tracing-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":10, "ts":1786713370072335, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.WindModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":10, "ts":1786713370072491, "dur":74, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipeline.Universal.ShaderLibrary-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":10, "ts":1786713370079033, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityAnalyticsCommonModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":10, "ts":1786713370079084, "dur":2068, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1786713370081287, "dur":403, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1786713370025807, "dur":11656, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1786713370037543, "dur":1995, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\il2cpp\\build\\deploy\\System.IO.Compression.Brotli.dll" }}
+,{ "pid":12345, "tid":11, "ts":1786713370037473, "dur":2704, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1786713370040848, "dur":1529, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\Facades\\System.Data.SqlClient.dll" }}
+,{ "pid":12345, "tid":11, "ts":1786713370040177, "dur":2226, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1786713370042403, "dur":12380, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1786713370054783, "dur":17258, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1786713370072049, "dur":8650, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.ClusterInputModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":11, "ts":1786713370080867, "dur":858, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1786713370025842, "dur":11935, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1786713370038099, "dur":910, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\il2cpp\\build\\deploy\\il2cpp-compile.deps.json" }}
+,{ "pid":12345, "tid":12, "ts":1786713370037782, "dur":1412, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1786713370039322, "dur":697, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\System.Data.DataSetExtensions.dll" }}
+,{ "pid":12345, "tid":12, "ts":1786713370040221, "dur":1751, "ph":"X", "name": "File",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.8f1-x86_64\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\Novell.Directory.Ldap.dll" }}
+,{ "pid":12345, "tid":12, "ts":1786713370039194, "dur":3315, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1786713370042509, "dur":11559, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1786713370054069, "dur":712, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/UnityProjects/Ecomesh2.0 Builds/Windows Build/MonoBleedingEdge/etc/mono/config" }}
+,{ "pid":12345, "tid":12, "ts":1786713370054793, "dur":22696, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1786713370077520, "dur":85, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Core.ShaderLibrary-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":12, "ts":1786713370077701, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/UnityEngine.UnityWebRequestWWWModule-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":12, "ts":1786713370078575, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.VisualScripting.Core-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":12, "ts":1786713370078725, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/System.Data.DataSetExtensions-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":12, "ts":1786713370079152, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/WinPlayerBuildProgram/Features/Unity.RenderPipelines.Core.Runtime.Shared-FeaturesChecked.txt" }}
+,{ "pid":12345, "tid":12, "ts":1786713370079205, "dur":1294, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1786713370080574, "dur":1190, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1786713370097605, "dur":2937, "ph":"X", "name": "ProfilerWriteOutput" }
 ,

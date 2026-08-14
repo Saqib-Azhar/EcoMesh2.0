@@ -716,7 +716,13 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         float dailyRegenerationCost = dailyCapturedH2SKg * 1.80f;
         float structuralDepreciation = matBaseCost[safeMatIndex];
 
-        cachedDailyCost = dailyEnergyCost + dailyRegenerationCost + structuralDepreciation;
+        // NEW: Calculate the raw cost first
+        float rawDailyCost = dailyEnergyCost + dailyRegenerationCost + structuralDepreciation;
+
+        // NEW: Clamp the maximum cost at 10,000 Euros to prevent runaway values at extreme slider limits
+        cachedDailyCost = Mathf.Clamp(rawDailyCost, 0f, 10000f);
+
+        //cachedDailyCost = dailyEnergyCost + dailyRegenerationCost + structuralDepreciation;
 
         cachedServiceLife = (145f * matDurability[safeMatIndex]) - (dailyCapturedH2SKg * 0.1f);
 
