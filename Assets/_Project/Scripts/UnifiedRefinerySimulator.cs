@@ -9,6 +9,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     // REFINERY ENGINE VARIABLES
     // ==========================================
 
+    // Struct to hold historical data for previous simulation runs for the UI history log
     public struct SimulationHistoryRecord
     {
         public string timestamp;
@@ -20,15 +21,18 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         public string grade;
     }
 
+    // List acting as our local database for the history logs
     private List<SimulationHistoryRecord> simulationHistoryLog = new List<SimulationHistoryRecord>();
 
-    // Updated to exactly 20 seconds for the presentation startup phase
+    // Timers governing the simulation lifecycle
+    // Locked to exactly 20 seconds for the presentation startup phase to build suspense
     static private float runtimeCountdownClockStatic = 20.0f;
     private float runtimeCountdownClock = runtimeCountdownClockStatic;
 
-    // Saturation accumulator kept purely for visual mesh darkening over time
+    // Tracks visual darkening of the mesh over time, giving the illusion of material degradation
     private float meshSaturationAccumulator = 0.0f;
 
+    // State machine to easily track what the simulator is currently doing
     public enum SimulationState { STANDBY, RUNNING, CONCLUDED }
     private SimulationState currentRunState = SimulationState.STANDBY;
 
@@ -37,27 +41,35 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     // ==========================================
 
     [Header("Data Profile Pool")]
-    public MeshProfile[] materialProfiles;
+    public MeshProfile[] materialProfiles; // ScriptableObjects holding physical limits for materials
 
     [Header("Hardware Configuration & Sprint Gates")]
-    public CanvasGroup panel1HardwareCanvasGroup;
+    public CanvasGroup panel1HardwareCanvasGroup; // Used to visually disable/fade the hardware UI when running
     public TMP_Dropdown meshMaterialDropdown;
     public TMP_Dropdown discreteBedDepthDropdown;
     public TMP_Dropdown meshOpeningSizeDropdown;
-    public Button btnGenerateModel;
+    public Button btnGenerateModel; // Applies hardware settings to the 3D model
 
     [Header("Hardware Meshes")]
-    public GameObject[] catalystMeshes;
-    public Renderer reactorMainBodyRenderer;
+    public GameObject[] catalystMeshes; // The 4 inner mesh cylinders that toggle on/off
+    public Renderer reactorMainBodyRenderer; // The outer casing of the reactor
 
-    [Header("Stream Controls")]
-    public Slider gasVolumeSlider;
-    public Slider h2sSlider;
-    public Slider temperatureSlider;
+    [Header("Stream Controls (Main UI)")]
+    public Slider gasVolumeSlider; // Input volumetric flow rate
+    public Slider h2sSlider; // Inlet H2S concentration (ppm)
+    public Slider temperatureSlider; // System heat
+
+    [Header("Fullscreen Mirrored Controls")]
+    // These link to the fullscreen UI to enable two-way data binding with the main UI
+    public Slider fullscreenGasVolumeSlider;
+    public Slider fullscreenH2SSlider;
+    public Slider fullscreenTemperatureSlider;
+    public Button fullscreenMainRunButton;
+    private TextMeshProUGUI fullscreenRunButtonText;
 
     [Header("User Estimation Inputs")]
-    public Slider expectedEfficiencySlider;
-    public Slider estimatedCostSlider;
+    public Slider expectedEfficiencySlider; // User's pre-run guess
+    public Slider estimatedCostSlider; // User's pre-run guess
 
     [Header("Persistent Viewport Telemetry")]
     public TextMeshProUGUI rightSideEfficiencyText;
@@ -74,10 +86,10 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     [Header("Historical Reports & Graphing")]
     public TextMeshProUGUI historyLogDisplayTexbox;
     public RectTransform graphBoundingBox;
-    public RectTransform graphTrackingNode;
+    public RectTransform graphTrackingNode; // The dot that moves based on Cost (Y) and Efficiency (X)
 
     [Header("Evaluation Popup Windows")]
-    public GameObject evaluationOverlayPanel;
+    public GameObject evaluationOverlayPanel; // The end-of-run summary screen
     public TextMeshProUGUI evaluationTitleText;
     public TextMeshProUGUI evaluationReportText;
     public Button restartRunButton;
@@ -89,8 +101,8 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     public GameObject fullscreenOverlayPanel;
 
     [Header("Particle Process Simulation")]
-    public ParticleSystem inletParticles;
-    public ParticleSystem outletParticles;
+    public ParticleSystem inletParticles; // Represents incoming dirty gas (brown)
+    public ParticleSystem outletParticles; // Represents outgoing clean gas (blue)
 
     [Header("Camera & Zoom Settings")]
     public Camera studioCamera;
@@ -103,26 +115,36 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     public Color heatedReactorColor = new Color(0.85f, 0.25f, 0.15f, 1f);
 
     // ==========================================
-    // BACKEND MATH VARIABLES
+    // BACKEND MATH CACHE
     // ==========================================
+    // Variables storing the current frame's calculated results
     private float cachedEfficiency = 0f;
     private float cachedDailyCost = 0f;
     private float cachedPressureDrop = 0f;
     private float cachedOutletPpm = 0f;
 
+    // Variables storing the applied hardware configurations
     private int cachedMaterialIndex = 0;
     private float cachedBedDepthL = 1.2f;
     private int cachedOpeningSizeIndex = 0;
 
+    // Material references extracted dynamically at runtime to prevent memory leaks
     private Material[] instancedMaterials;
     private Material reactorMaterial;
 
     private void Start()
     {
+        // --- BUTTON SETUP ---
         if (mainRunButton != null)
         {
             runButtonText = mainRunButton.GetComponentInChildren<TextMeshProUGUI>();
             mainRunButton.onClick.AddListener(OnMainRunButtonClicked);
+        }
+
+        if (fullscreenMainRunButton != null)
+        {
+            fullscreenRunButtonText = fullscreenMainRunButton.GetComponentInChildren<TextMeshProUGUI>();
+            fullscreenMainRunButton.onClick.AddListener(OnMainRunButtonClicked);
         }
 
         if (btnGenerateModel != null) btnGenerateModel.onClick.AddListener(OnGenerateHardwareModelConfirmed);
@@ -131,6 +153,15 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         if (maximizeViewportButton != null) maximizeViewportButton.onClick.AddListener(() => SetFullscreenOverlayActive(true));
         if (closeFullscreenButton != null) closeFullscreenButton.onClick.AddListener(() => SetFullscreenOverlayActive(false));
 
+        // --- TWO-WAY SLIDER SYNC ---
+        // Binds the main menu sliders and fullscreen sliders together. 
+        // Changing one automatically moves the other, and applies to the physics engine immediately.
+        SyncSliders(gasVolumeSlider, fullscreenGasVolumeSlider);
+        SyncSliders(h2sSlider, fullscreenH2SSlider);
+        SyncSliders(temperatureSlider, fullscreenTemperatureSlider);
+
+        // --- MATERIAL SETUP ---
+        // Grab the actual materials off the meshes so we can change their colors freely
         if (catalystMeshes != null)
         {
             instancedMaterials = new Material[catalystMeshes.Length];
@@ -146,6 +177,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
 
         if (reactorMainBodyRenderer != null) reactorMaterial = reactorMainBodyRenderer.material;
 
+        // Ensure everything starts in a clean default state
         ClearParticles();
         ResetSimulationToStandby();
         UpdateHistoryLogDisplayUI();
@@ -154,26 +186,53 @@ public class UnifiedRefinerySimulator : MonoBehaviour
 
     private void Update()
     {
+        // 1. Always evaluate physics in the background based on active slider states
         EvaluateSystemPhysics();
 
+        // 2. If running, handle the 20 second countdown timer
         if (currentRunState == SimulationState.RUNNING)
         {
             ProcessSimulationCountdown();
         }
 
+        // 3. Optional: Detect clicks on the 3D model if in fullscreen
         if (fullscreenOverlayPanel != null && fullscreenOverlayPanel.activeSelf)
         {
             HandleFullscreen3DClicking();
         }
 
+        // 4. Zoom camera based on scroll wheel
         HandleZoom();
     }
 
+    // Helper method to safely bind two UI sliders together without causing an infinite event loop
+    private void SyncSliders(Slider mainSlider, Slider fullScreenSlider)
+    {
+        if (mainSlider == null || fullScreenSlider == null) return;
+
+        // Ensure they start at the exact same default position
+        fullScreenSlider.value = mainSlider.value;
+
+        // If main moves, update fullscreen (only if it's different)
+        mainSlider.onValueChanged.AddListener((val) =>
+        {
+            if (fullScreenSlider.value != val) fullScreenSlider.value = val;
+        });
+
+        // If fullscreen moves, update main (only if it's different)
+        fullScreenSlider.onValueChanged.AddListener((val) =>
+        {
+            if (mainSlider.value != val) mainSlider.value = val;
+        });
+    }
+
+    // Called when the user clicks "GENERATE HARDWARE MODEL"
     private void OnGenerateHardwareModelConfirmed()
     {
         if (meshMaterialDropdown != null) cachedMaterialIndex = meshMaterialDropdown.value;
         if (meshOpeningSizeDropdown != null) cachedOpeningSizeIndex = meshOpeningSizeDropdown.value;
 
+        // Convert the UI dropdown into actual physical simulated depths
         if (discreteBedDepthDropdown != null)
         {
             switch (discreteBedDepthDropdown.value)
@@ -197,6 +256,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
 
     private void HandleFullscreen3DClicking()
     {
+        // Shoots a raycast from mouse cursor to see if user clicked a specific part of the reactor
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -215,42 +275,48 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         }
         else if (currentRunState == SimulationState.RUNNING)
         {
-            // Optional: You can remove this if you want to force users to wait the full 20s
-            FinishAndEvaluateRun();
+            // By doing nothing here, we force the user to wait out the 20-second tension timer.
+            // Early aborts are disabled for better presentation flow.
         }
     }
 
+    // Handles locking UI and starting process simulation graphics
     private void StartActiveSimulationRun()
     {
         currentRunState = SimulationState.RUNNING;
         runtimeCountdownClock = runtimeCountdownClockStatic;
         meshSaturationAccumulator = 0.0f;
 
-        ToggleStructuralUIInteractability(false);
-        ToggleStreamUIInteractability(true);
+        ToggleStructuralUIInteractability(false); // Lock hardware so it can't be changed mid-run
+        ToggleStreamUIInteractability(true); // Ensure stream controls are active
 
-        if (runButtonText != null) runButtonText.text = "STOP SIMULATION";
-        if (mainRunButton != null) mainRunButton.interactable = true;
+        // Sync both UI buttons to show "SIMULATING"
+        SyncRunButtonState("SIMULATING", true);
 
+        // Turn on the gas
         if (inletParticles != null && inletParticles.isStopped) inletParticles.Play();
         if (outletParticles != null && outletParticles.isStopped) outletParticles.Play();
 
+        // -------------------------------------------------------------
+        // AUTO-FULLSCREEN TRIGGER:
+        // Automatically transitions to the cinematic view upon engaging
+        // -------------------------------------------------------------
         SetFullscreenOverlayActive(true);
     }
 
-    // Ticks down the clock WITHOUT interrupting early. Builds suspense.
+    // Ticks down the clock WITHOUT interrupting early. Builds suspense for disasters.
     private void ProcessSimulationCountdown()
     {
         runtimeCountdownClock -= Time.deltaTime;
-        meshSaturationAccumulator += Time.deltaTime / runtimeCountdownClockStatic;
+        meshSaturationAccumulator += Time.deltaTime / runtimeCountdownClockStatic; // Gradually saturates catalyst mesh
 
         if (runtimeCountdownClock <= 0.0f)
         {
-            FinishAndEvaluateRun(); // Timer finished, evaluate results
+            FinishAndEvaluateRun(); // Timer finished, evaluate the final data points
         }
         else
         {
-            if (runButtonText != null) runButtonText.text = $"SIMULATING ({runtimeCountdownClock.ToString("F0")}s)";
+            SyncRunButtonState($"SIMULATING ({runtimeCountdownClock.ToString("F0")}s)", true);
         }
     }
 
@@ -258,9 +324,10 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     private void FinishAndEvaluateRun()
     {
         currentRunState = SimulationState.CONCLUDED;
-        EvaluateSystemPhysics(); // Guarantee final frame math is accurate
+        EvaluateSystemPhysics(); // Guarantee final frame math is fully accurate
 
-        // Force popup to the absolute front of the UI hierarchy (fixes fullscreen bug)
+        // Forces popup to the absolute front of the UI hierarchy 
+        // (Serves as a backup measure in case the Canvas Sort Order isn't high enough)
         if (evaluationOverlayPanel != null)
         {
             evaluationOverlayPanel.transform.SetAsLastSibling();
@@ -333,6 +400,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         };
 
         simulationHistoryLog.Insert(0, record);
+        // Restrict UI log to 10 entries so it doesn't overflow the UI text box
         while (simulationHistoryLog.Count > 10) simulationHistoryLog.RemoveAt(simulationHistoryLog.Count - 1);
         UpdateHistoryLogDisplayUI();
     }
@@ -365,6 +433,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         historyLogDisplayTexbox.text = logCompiledText;
     }
 
+    // Called when closing the popup after a run, resets all systems
     private void ResetSimulationToStandby()
     {
         currentRunState = SimulationState.STANDBY;
@@ -377,14 +446,14 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         ToggleStructuralUIInteractability(true);
         ToggleStreamUIInteractability(true);
 
-        if (runButtonText != null) runButtonText.text = "ENGAGE REACTOR";
-        if (mainRunButton != null) mainRunButton.interactable = true;
+        SyncRunButtonState("ENGAGE REACTOR", true);
 
         ClearParticles();
         Update3DModelStructure();
         UpdateUnifiedMeshAppearance();
     }
 
+    // Helper to lock/unlock Hardware UI so user can't change structural meshes while gas is flowing
     private void ToggleStructuralUIInteractability(bool state)
     {
         if (panel1HardwareCanvasGroup != null)
@@ -405,13 +474,31 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         if (estimatedCostSlider != null) estimatedCostSlider.interactable = state;
     }
 
+    // Locks/unlocks stream controls on BOTH the main panel and fullscreen panel
     private void ToggleStreamUIInteractability(bool state)
     {
+        // Main Tab Sliders
         if (gasVolumeSlider != null) gasVolumeSlider.interactable = state;
         if (h2sSlider != null) h2sSlider.interactable = state;
         if (temperatureSlider != null) temperatureSlider.interactable = state;
+
+        // Fullscreen Sliders
+        if (fullscreenGasVolumeSlider != null) fullscreenGasVolumeSlider.interactable = state;
+        if (fullscreenH2SSlider != null) fullscreenH2SSlider.interactable = state;
+        if (fullscreenTemperatureSlider != null) fullscreenTemperatureSlider.interactable = state;
     }
 
+    // Syncs button text across both canvas views
+    private void SyncRunButtonState(string text, bool isInteractable)
+    {
+        if (runButtonText != null) runButtonText.text = text;
+        if (fullscreenRunButtonText != null) fullscreenRunButtonText.text = text;
+
+        if (mainRunButton != null) mainRunButton.interactable = isInteractable;
+        if (fullscreenMainRunButton != null) fullscreenMainRunButton.interactable = isInteractable;
+    }
+
+    // Adjusts 3D mesh scales dynamically based on structural UI selections
     private void Update3DModelStructure()
     {
         if (catalystMeshes != null && catalystMeshes.Length > 0)
@@ -433,7 +520,9 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             {
                 if (catalystMeshes[i] != null)
                 {
+                    // Turns meshes on/off from the center out based on the opening size selected
                     catalystMeshes[i].SetActive(i <= cachedOpeningSizeIndex);
+                    // Scales length based on depth selection
                     catalystMeshes[i].transform.localScale = new Vector3(targetScaleX, 100f, 100f);
                 }
             }
@@ -456,10 +545,10 @@ public class UnifiedRefinerySimulator : MonoBehaviour
 
         float superficialVelocity = (gasFlowQ / 3600f) / columnArea;
 
-        // Simplified Pressure Drop
+        // Simplified Pressure Drop calculations for presentation consistency
         cachedPressureDrop = (1.5f * superficialVelocity + 0.5f * Mathf.Pow(superficialVelocity, 2)) * bedDepthL;
 
-        // Simplified First Order Kinetics for Efficiency
+        // Simplified First Order Kinetics for Efficiency mapping
         float gasContactTime = bedDepthL / (superficialVelocity > 0 ? superficialVelocity : 0.0001f);
         float tempModifier = 1.0f + ((tempC - 25f) * 0.02f);
         float adjustedK = baseKineticK * tempModifier;
@@ -477,8 +566,9 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         float dailyRegenerationCost = dailyCapturedH2SKg * 1.80f;
 
         cachedDailyCost = dailyEnergyCost + dailyRegenerationCost + 450f;
-        float simulatedServiceLife = 145f - (dailyCapturedH2SKg * 0.1f); // Abstract presentation lifespan metric
+        float simulatedServiceLife = 145f - (dailyCapturedH2SKg * 0.1f);
 
+        // Route data into the visible text fields and plots
         UpdateUserInterfaceDisplay(cachedEfficiency, cachedDailyCost, cachedPressureDrop, cachedOutletPpm, simulatedServiceLife);
         UpdateUnifiedMeshAppearance();
 
@@ -487,9 +577,14 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         {
             var mainModule = inletParticles.main;
             var emissionModule = inletParticles.emission;
+
+            // Adjust particle speed based on flow rate
             mainModule.startSpeed = (gasFlowQ / 3600f) * 2.0f;
+
+            // Toggle emissions based on state, thickness based on H2S ppm
             emissionModule.rateOverTime = currentRunState == SimulationState.RUNNING ? Mathf.Lerp(20f, 120f, Mathf.InverseLerp(0f, 2000f, inletH2S)) : 0f;
 
+            // Shift particle color more brown/yellow if high toxicity
             float toxicityFactor = Mathf.InverseLerp(0f, 2000f, inletH2S);
             mainModule.startColor = Color.Lerp(new Color(0.5f, 0.45f, 0.3f, 0.4f), new Color(0.75f, 0.55f, 0.1f, 0.75f), toxicityFactor);
         }
@@ -498,9 +593,11 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         {
             var mainModule = outletParticles.main;
             var emissionModule = outletParticles.emission;
+
             mainModule.startSpeed = (gasFlowQ / 3600f) * 2.5f;
             emissionModule.rateOverTime = (currentRunState == SimulationState.RUNNING && inletParticles != null) ? inletParticles.emission.rateOverTime.constant : 0f;
 
+            // If highly efficient, particles exit blue. If bypassing, particles exit brown.
             float efficiencyRatio = cachedEfficiency / 100f;
             Color cleanAirColor = new Color(0.4f, 0.75f, 1.0f, 0.3f);
             Color bypassTaintedColor = new Color(0.65f, 0.5f, 0.15f, 0.6f);
@@ -524,13 +621,16 @@ public class UnifiedRefinerySimulator : MonoBehaviour
     {
         Color baseMatColor = GetMaterialBaseColor(cachedMaterialIndex);
 
+        // Interpolate toward black as the mesh 'absorbs' gas over the 20 second run
         float saturationFactor = Mathf.Clamp01(meshSaturationAccumulator);
         Color darkenedColor = Color.Lerp(baseMatColor, baseMatColor * 0.25f, saturationFactor);
 
+        // Interpolate toward red based on the temperature slider
         float currentTemp = temperatureSlider != null ? temperatureSlider.value : 35f;
         float tempNormalized = Mathf.Clamp01(Mathf.InverseLerp(35f, 200f, currentTemp));
         Color tempInfluencedColor = Color.Lerp(darkenedColor, heatedReactorColor, tempNormalized);
 
+        // Turn completely red if safety pressure is breached
         float safetyAlertFactor = Mathf.Clamp01(Mathf.InverseLerp(0f, 6.5f, cachedPressureDrop));
         Color finalInnerMeshColor = Color.Lerp(tempInfluencedColor, Color.red, safetyAlertFactor);
 
@@ -546,6 +646,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             }
         }
 
+        // Reactor body gets hot, but doesn't absorb gas
         if (reactorMaterial != null)
         {
             Color targetReactorColor = Color.Lerp(baseReactorColor, heatedReactorColor, tempNormalized);
@@ -565,6 +666,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
 
         if (scadaComplianceStatusText != null)
         {
+            // Evaluate limits dynamically for the UI warning box
             if (outPpm > 5.0f || pressDrop > 6.5f || cost > 3000f)
             {
                 scadaComplianceStatusText.text = currentRunState == SimulationState.RUNNING ? "Status: SYSTEM UNDER DURESS" : "Status: NON-COMPLIANT";
@@ -577,6 +679,8 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             }
         }
 
+        // --- GRAPH PLOTTING LOGIC ---
+        // Dynamically moves a UI node based on efficiency/cost against an assumed maximum rect size
         if (graphBoundingBox != null && graphTrackingNode != null)
         {
             float normalizedX = Mathf.InverseLerp(0f, 100f, eff);
@@ -598,6 +702,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
         Application.Quit();
     }
 
+    // Handles zooming in and out on the 3D model
     private void HandleZoom()
     {
         if (studioCamera != null && Mathf.Abs(Input.mouseScrollDelta.y) > 0.01f)
@@ -610,7 +715,7 @@ public class UnifiedRefinerySimulator : MonoBehaviour
             {
                 studioCamera.transform.Translate(Vector3.forward * Input.mouseScrollDelta.y * zoomSpeed, Space.Self);
                 Vector3 pos = studioCamera.transform.localPosition;
-                pos.z = Mathf.Clamp(pos.z, -maxZoom, -minZoom);
+                pos.z = Mathf.Clamp(pos.z, -maxZoom, -minZoom); // Clamp so we don't clip inside the reactor geometry
                 studioCamera.transform.localPosition = pos;
             }
         }

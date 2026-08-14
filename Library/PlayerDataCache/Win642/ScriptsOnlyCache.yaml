@@ -1764,7 +1764,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerButton
   - hash:
       serializedVersion: 2
-      Hash: 078124d8f0fe744e35c06ac00f6406ab
+      Hash: 17c8d04909db359c6c61d564dd73b788
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: UnifiedRefinerySimulator
